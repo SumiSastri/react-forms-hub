@@ -11,6 +11,7 @@
   [yarn run storybook]
 - Run the frontend app proper on port 3000:
   [yarn start]
+ - Add React Router [yarn add react-router-dom] 
 
 ### Input fields with CSS
 

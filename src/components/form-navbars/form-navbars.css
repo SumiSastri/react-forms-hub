@@ -3,7 +3,8 @@
   padding: 0;
   margin: 0;
 }
-h1 {
+h1,
+h4 {
   color: brown;
 }
 .navbar-links {
@@ -23,14 +24,33 @@ ul {
 }
 
 li {
-  margin: 0px;
-  padding: 0px 10px;
-  display: inline;
+  padding-right: 25px;
   text-align: center;
   line-height: 10px;
+  color: grey;
+  display: inline;
+  font-size: 14px;
+  /* display: none; */
 }
 
 li:hover {
   background-color: brown;
   color: bisque;
+}
+
+.form-navbar-footer-container,
+.form-navbar-header-container {
+  padding: 20px;
+  background-color: lightgoldenrodyellow;
+}
+
+.navbar-footer-content {
+  padding: 15px;
+  color: grey;
+  font-size: 14px;
+}
+
+.navbar-footer-branding {
+  padding-bottom: 10px;
+  float: right;
 }
