@@ -42,7 +42,7 @@ const Input = properties => {
         <input
           name='input-field-four'
           type='text'
-          placeholder='quarter-screen-width'
+          placeholder='quarter-screen'
           className='input-field-four'
         />
       </div>
@@ -52,7 +52,7 @@ const Input = properties => {
         <input
           name='password-field-1'
           type='password'
-          placeholder='password between 6 to 12 characters'
+          placeholder='6/8 characters'
           className='password-field-1'
         />
       </div>
@@ -62,7 +62,7 @@ const Input = properties => {
         <input
           name='password-field-2'
           type='password'
-          placeholder='password between 6 to 12 characters'
+          placeholder='6-12 characters'
           className='password-field-2'
         />
       </div>

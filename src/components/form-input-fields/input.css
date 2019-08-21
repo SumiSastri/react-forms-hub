@@ -1,5 +1,16 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-header-branding{
+  text-align: center;
+  padding: 10px;
+}
+
 .input-field-one {
-  height: 20px;
+  height: 40px;
   width: 80%;
   margin: 10px;
   padding: 10px;
@@ -10,7 +21,7 @@
 }
 
 .input-field-two {
-  height: 20px;
+  height: 30px;
   width: 75%;
   margin: 10px;
   padding: 10px;
@@ -27,7 +38,7 @@
 }
 
 .input-field-three {
-  height: 20px;
+  height: 25px;
   width: 50%;
   margin: 10px;
   padding: 10px;

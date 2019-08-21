@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  color: brown;
+}
+.navbar-links {
+  color: burlywood;
+}
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: lightgoldenrodyellow;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  align-content: left;
+}
+
+li {
+  margin: 0px;
+  padding: 0px 10px;
+  display: inline;
+  text-align: center;
+  line-height: 10px;
+}
+
+li:hover {
+  background-color: brown;
+  color: bisque;
+}
