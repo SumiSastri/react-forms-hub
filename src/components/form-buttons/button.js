@@ -1,15 +1,24 @@
 import React from 'react';
 import './button.css';
 
-const Button = (properties) => {
+const Button = properties => {
   return (
     <form name='button-types'>
-      <div className="buttons-container">
-        <button name='button-one' type='click' className='button-type-one'>
+      <div>
+        <h3>Animated Buttons</h3>
+      </div>
+      <div className='buttons-container'>
+        <button name='button-one' type='click' className='button-one'>
           Button-One
         </button>
-        <button name='button-two' type='submit' className='button-type-two'>
-          Button-Two
+        <button name='button-two' className='button-two'>
+          <span>Button-Two</span>
+        </button>
+        <button name='button-three' className='button-three'>
+          Button-Three
+        </button>
+        <button name='button-two' className='button-four'>
+          Button-Four-Disabled
         </button>
       </div>
     </form>

@@ -175,4 +175,20 @@ These dispatch functions are connected via the {connect} import to the counter c
 
 Index.js registers the ReactDOM.render() method which registers the react virtual DOM, redux is a wrapper in react via the provider so it is passed as a prop of the react main.js (or app.js) component
 
+Reading list:
+Redux Tutorials
+Basics:
+https://react-redux.js.org/introduction/basic-tutorial
+On the store:
+https://react-redux.js.org/using-react-redux/accessing-store
+
+Redux: Crash-course and reading materials
+https://www.youtube.com/watch?v=wjTAhHSKuPg
+
+Traversy Media
+https://www.youtube.com/watch?v=93p3LxR9xfM&t=1003s
+
+Documentation:
+https://react-redux.js.org/introduction/quick-start
+
 
