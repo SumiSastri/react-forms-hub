@@ -1,9 +1,21 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 .select-filter {
   margin: 20px;
   padding: 40px;
+  width: 25%;
+  background-color: papayawhip;
+  height: 40px;
+  outline: none;
+  cursor: pointed;
+  box-shadow: 0 2px 0 1px peru;
+  font-size: 15px;
+  color: brown;
 }
 
 .label {
   padding: 10px;
-  margin: 25px;
 }

@@ -3,7 +3,7 @@ import './form-navbars.css';
 
 const FormFooter = () => {
   return (
-    <div className='form-navbar-footer-container'>
+    <div className='navbar-footer-container'>
       <div className='navbar-footer-branding'>
         <h4>Form Footer</h4>
       </div>

@@ -9,16 +9,16 @@ const Button = properties => {
       </div>
       <div className='buttons-container'>
         <button name='button-one' type='click' className='button-one'>
-          Button-One
+          Submit
         </button>
         <button name='button-two' className='button-two'>
-          <span>Button-Two</span>
+          <span>Next</span>
         </button>
         <button name='button-three' className='button-three'>
-          Button-Three
+          Upload Docs
         </button>
         <button name='button-two' className='button-four'>
-          Button-Four-Disabled
+          Disabled
         </button>
       </div>
     </form>

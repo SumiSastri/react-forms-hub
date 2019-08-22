@@ -6,13 +6,17 @@ const SelectFilter = properties => {
     <div>
       <div className='select-filter-container'>
         <label className='label'>Select Filter</label>
-        <select name='select-filter'>
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
+        <select className='select-filter'>
+         <option>Select An Option</option>
+          <option className="option1">Option 1</option>
+          <option className="option2">Option 2</option>
+          <option className="option3">Option 3</option>
         </select>
       </div>
     </div>
   );
 };
 export default SelectFilter;
+
+
+

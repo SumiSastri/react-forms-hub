@@ -3,32 +3,32 @@
   padding: 0;
   margin: 0;
 }
+
 h1,
 h4 {
   color: brown;
 }
 .navbar-links {
   color: burlywood;
+  display: flex;
+  justify-content: space-between;
 }
 ul {
   list-style: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 10px;
+  padding: 10px;
   overflow: hidden;
   background-color: lightgoldenrodyellow;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
   width: 100%;
-  align-content: left;
 }
 
 li {
   padding-right: 25px;
   text-align: center;
-  line-height: 10px;
   color: grey;
-  display: inline;
   font-size: 14px;
   /* display: none; */
 }
@@ -38,7 +38,7 @@ li:hover {
   color: bisque;
 }
 
-.form-navbar-footer-container,
+.navbar-footer-container,
 .form-navbar-header-container {
   padding: 20px;
   background-color: lightgoldenrodyellow;
