@@ -3,10 +3,10 @@ import './checkbox.css';
 
 const Checkbox = properties => {
   return (
-    <form className='check-box-container'>
-      <div className='check-box-container'>
-        <label className='label'>Check-Box</label>
-        <input type='checkbox' />
+    <form className='checkbox-container'>
+      <div className='checkbox'>
+        <input type='checkbox' id='checkbox-1' />
+        <label for='checkbox-1'>Check-Box</label>
       </div>
     </form>
   );
