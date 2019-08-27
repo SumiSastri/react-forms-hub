@@ -1,6 +1,6 @@
 import React from 'react';
 import './form-navbars.css';
-import logo from '../assets/iconmonstr-construction-10.svg';
+import logo from '../assets/navbar-logo.svg';
 
 const FormHeader = () => {
   return (
@@ -11,7 +11,7 @@ const FormHeader = () => {
       </div>
       <div className='navbar-header-content'>
         <ul className='navbar-links'>
-          <li>Text, Numbers & Passwords</li>
+          <li>Input fields</li>
           <li>Buttons</li>
           <li>Search & Select Filters</li>
           <li>Check-Boxes & Toggles</li>
