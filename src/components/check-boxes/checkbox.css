@@ -70,3 +70,16 @@ body {
 .checkbox input[type='checkbox']:focus + label::before {
   outline: none;
 }
+
+.toggle {
+  padding: 10px;
+  margin: 10px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}

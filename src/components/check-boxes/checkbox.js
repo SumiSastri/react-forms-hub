@@ -8,6 +8,10 @@ const Checkbox = properties => {
         <input type='checkbox' id='checkbox-1' />
         <label for='checkbox-1'>Check-Box</label>
       </div>
+<div>
+
+
+      </div>
     </form>
   );
 };
