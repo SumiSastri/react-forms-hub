@@ -1,7 +1,7 @@
 import React from 'react';
 import './filter.css';
 
-const SelectFilter = properties => {
+const SelectFilter = ({ selectFilter, updateFilterInputs }) => {
   return (
     <div>
       <div className='select-filter-container'>

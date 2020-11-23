@@ -1,17 +1,19 @@
 import React from 'react';
-import './input.css';
+import '../input-fields/input.css';
 
 
-const SearchFilter = properties => {
+const SearchFilter = ({ searchFilter, updateFilterInputs }) => {
     return (
         <div>
-            <label>Text:</label>
+            <label>Search</label>
             <input
-                className='i'
-                data-testid=''
-                placeholder='search'
-                name=''
-                onChange={() => { }}
+                className='input-field-two'
+                data-testid='inpt-search'
+                name='search-filter'
+                onChange={updateFilterInputs}
+                placeholder='search'  
+                type="search"
+                value={searchFilter}    
             />
         </div>
     );

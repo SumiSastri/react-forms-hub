@@ -32,14 +32,16 @@ export class FormInputs extends Component {
     }
 
     handleFormSubmit = (event) => {
-        event.preventDefault();
         alert(`submitted text: ${this.state.inputText} number: ${this.state.inputNumber} password: number: ${this.state.inputPassword}`)
+        event.preventDefault();
         console.log(this.state)
     };
 
+    // resetFields = () => {
+    //     this.setState(this.initialState);
+    // }
 
     render() {
-
         return (
             <form onSubmit={this.handleFormSubmit}>
                 <InputText
@@ -56,6 +58,7 @@ export class FormInputs extends Component {
                 />
                 <section>
                     <SubmitBtn onClick={this.handleFormSubmit} />
+                    {/* <button onClick={this.resetFields}>Reset</button> */}
                 </section>
             </form>
         )
