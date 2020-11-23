@@ -1,151 +1,41 @@
 ### Storybook & React - Form tutorials
 - Repo access
-- clone
-- yarn init
-- yarn run start
+- $git clone sha-key
+- $yarn or yarn install
+- $yarn run start
+
+or
+- $yarn init
+- $yarn add [package] --dev
+($yarn add react react-dom react-router react-router-dom react-scripts)
+- $yarn run start
+
+Yarn usage documentation:
+https://classic.yarnpkg.com/en/docs/usage
+
+Yarn workflow:
+https://classic.yarnpkg.com/en/docs/yarn-workflow
+Yarn install flags:
+https://classic.yarnpkg.com/en/docs/cli/install
+Yarn add:
+https://classic.yarnpkg.com/en/docs/cli/add
 
 
-
-#### Set-up
-- Create application:[npx create-react-app appname]
-- Add Storybook:
-  cd appname [npx -p @storybook/cli sb init]
-- Run the test runner (Jest) in a terminal:
-  [yarn test]
-- Start the component explorer on port 9009:
-  [yarn run storybook]
-- Run the frontend app proper on port 3000:
-  [yarn start]
-- Add React Router [yarn add react-router-dom]
-
-### Input fields with CSS
+### Folder structure
 
 - folders with paired .js and .css files closely couple components and enable simple styling
-- form input fields are three types - text, numbers and password
-- other form input types include checkboxes, toggles, buttons, radio-buttons, progress-bars, select filters
-- numbers in the input field are limited to incrementing or decrementing numbers with a select field
-- passwords hide the inputs
-- checkboxes are particularly difficult to set-up and style as the default behaviour is rigid:
-- This CSS code block is incorporated from W3 schools and CSS Tricks
+- form inputs, filters, buttons and progress bars are the main functional components
 
-```
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  line-height: 24px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.checkbox input[type='checkbox'] {
-  opacity: 0;
-}
-
-.checkbox label {
-  position: relative;
-  display: inline-block;
-  /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
-  padding-left: 35px;
-  color: brown;
-  font-size: 15px;
-}
-
-.checkbox label::before,
-.checkbox label::after {
-  position: absolute;
-  content: '';
-  /*Needed for the line-height to take effect*/
-  display: inline-block;
-}
-
-/*Outer box of the fake checkbox*/
-.checkbox label::before {
-  height: 18px;
-  width: 18px;
-  border: 2px burlywood solid;
-  box-shadow: 0 2px 0 1px peru;
-  left: 0px;
-  /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
-   *to vertically center it.
-   */
-  top: 3px;
-}
-
-/*Checkmark of the fake checkbox*/
-.checkbox label::after {
-  height: 6px;
-  width: 10px;
-  border-left: 2px solid;
-  border-bottom: 2px solid;
-  color: green;
-  transform: rotate(-45deg);
-  left: 4px;
-  top: 7px;
-}
-
-/*Hide the checkmark by default*/
-.checkbox input[type='checkbox'] + label::after {
-  content: none;
-}
-
-/*Unhide on the checked state*/
-.checkbox input[type='checkbox']:checked + label::after {
-  content: '';
-}
-
-/*Adding focus styles on the outer-box of the fake checkbox*/
-.checkbox input[type='checkbox']:focus + label::before {
-  outline: none;
-}
-
-.toggle {
-  padding: 10px;
-  margin: 10px;
-}
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-```
-
-- rigidity in the input fields extends to outlines on interaction with input fields turn to blue by default, to neutralise this behaviour inputs can be be styled `outline: none;`
-- select filters also need some CSS attention, while buttons by the order-of-magnitude of reliance of forms and other pages to buttons are not a challenge so much in the creation but creating effective styling. I have chosen 3 animated buttons styled with W3 schools to provide some idea of the variety that can be achieved with CSS styling rather than javascript.
+A note on form styling: 
+- Checkboxes are particularly difficult to set-up and style as the default behaviour is rigid. The CSS code block is incorporated from W3 schools and CSS Tricks
+- All form input fields defaults are to turn blue on interaction to neutralise this behaviour inputs can be be styled `outline: none;`
 - Navbars are also tricky to style (especially burger buttons) I found Bulma as a framework really useful for navbar styling along with Flexbox and Grid to style elements/ rows and columns. This is another useful CSS resource for styling [https://university.webflow.com/article/navbar-styling] Using background colors, padding and margins around every navbar element also helps understand how each of the elements fit together. Flexbox and grid are both useful ways to align items.
 
-### Storybook
 
-- Stories folder will have initial files once added to your project and package json files will have the dev scripts and dependencies
 
-```
-  "devDependencies": {
-    "@storybook/addon-actions": "^5.1.11",
-    "@storybook/addon-links": "^5.1.11",
-    "@storybook/addons": "^5.1.11",
-    "@storybook/react": "^5.1.11"
-  }
-}
-```
 
-Yarn start will start the app but you will need to run storybook separately - check scripts for commands
 
-```
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-```
+
 
 ### React-Redux Forms
 
