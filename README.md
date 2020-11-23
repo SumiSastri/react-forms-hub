@@ -1,4 +1,10 @@
 ### Storybook & React - Form tutorials
+- Repo access
+- clone
+- yarn init
+- yarn run start
+
+
 
 #### Set-up
 - Create application:[npx create-react-app appname]
