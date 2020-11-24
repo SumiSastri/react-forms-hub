@@ -3,6 +3,10 @@
   padding: 0;
   margin: 0;
 }
+.filters-container {
+  display: flex;
+
+}
 .select-filter {
   margin: 20px;
   padding: 40px;

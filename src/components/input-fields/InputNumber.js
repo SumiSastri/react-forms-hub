@@ -1,5 +1,5 @@
 import React from 'react';
-import './input.css';
+import './inputStyles.css';
 
 const InputNumber = ({ inputNumber, updateFormInputs, handleInputSubmit }) => {
   return (

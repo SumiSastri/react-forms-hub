@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import Modal from 'react-modal'
 
 import InputText from './InputText'
 import InputNumber from './InputNumber'
 import InputPassword from './InputPassword'
-import SubmitBtn from '../../components/animated-buttons/SubmitBtn'
+import SubmitBtn from '../../components/buttons/SubmitBtn'
+
 
 export class FormInputs extends Component {
     constructor(props) {
@@ -14,27 +16,31 @@ export class FormInputs extends Component {
             inputNumber: 0,
             inputPassword: '',
             inputText: '',
+            modalIsOpen: false,
         }
 
         this.initialState = this.state;
+        this.openModal = this.openModal.bind(this);
     }
 
     updateFormInputs = (event) => {
         this.setState({ [event.target.name]: event.target.value })
-        console.log(this.state)
+        console.log('updateforminput:', this.state)
+    };
+   
+    openModal = () => {
+        console.log("this is:", this);
+        this.setState((state) => ({
+            // set state to the opposite of false which is true
+            modalIsOpen: !state.modalIsOpen,
+        }));
+        console.log('openmodal:', this.state)
     };
 
 
-    handleInputSubmit = (event) => {
-        event.preventDefault();
-        console.log(this.state)
-
-    }
-
     handleFormSubmit = (event) => {
-        alert(`submitted text: ${this.state.inputText} number: ${this.state.inputNumber} password: number: ${this.state.inputPassword}`)
         event.preventDefault();
-        console.log(this.state)
+        console.log('submit:', this.state)
     };
 
     // resetFields = () => {
@@ -43,24 +49,27 @@ export class FormInputs extends Component {
 
     render() {
         return (
+            <section>
+                <button onClick={() => this.openModal()}>Open Form Input Fields</button>
+                <Modal isOpen={this.state.modalIsOpen}>
             <form onSubmit={this.handleFormSubmit}>
-                <InputText
-                    handleInputSubmit={this.handleInputSubmit}
+                        <InputText
                     updateFormInputs={this.updateFormInputs}
                 />
-                <InputNumber
-                    handleInputSubmit={this.handleInputSubmit}
+                        <InputNumber
                     updateFormInputs={this.updateFormInputs}
                 />
-                <InputPassword
-                    handleInputSubmit={this.handleInputSubmit}
+                        <InputPassword
                     updateFormInputs={this.updateFormInputs}
                 />
                 <section>
-                    <SubmitBtn onClick={this.handleFormSubmit} />
-                    {/* <button onClick={this.resetFields}>Reset</button> */}
+                            <SubmitBtn />
                 </section>
             </form>
+                    <br></br>
+                    <p onClick={() => this.openModal(false)}>x</p>
+                </Modal>
+            </section>
         )
     }
 }

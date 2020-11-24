@@ -11,7 +11,7 @@ class MainForm extends Component {
     return (
       <div className='main-form-container'>
         <FormHeader />
-        <h2>Inputs</h2>
+        <h2>Form Input Fields</h2>
         <FormInputs />
         <FormFilters />
         <FormFooter />

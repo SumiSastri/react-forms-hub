@@ -12,3 +12,4 @@ FormInputs is the parent component that holds the state of the form. It passes t
 - InputPassword
 
 Each of the child components, takes the relevant prop from the parent to update input changes.
+Flavio Copes: On React Forms: (https://flaviocopes.com/react-forms/)

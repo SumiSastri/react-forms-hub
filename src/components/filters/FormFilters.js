@@ -8,7 +8,7 @@ export class FormFilters extends Component {
         super(props);
 
         this.state = {
-            // data: data,
+            // cakeData: cakeData,
             selectFilter: '',
             searchFilter: '',
         }
@@ -22,9 +22,11 @@ export class FormFilters extends Component {
         }
     }
     render() {
-        // const searchQuery = this.state.data.filter((data) => {
-        //     return data.toLowerCase().includes(this.state.searchFilter.toLowerCase());
+        // const filteredCakeData = this.state.cakeData.filter((cakeName) => {
+        //     return cakeName.toLowerCase().includes(this.state.searchFilter.toLowerCase());
         // });
+        // const outputCakeList = this.state.cakeData.map((cakeItem) =>{ return <Cake cake={cakeItem} key={cake.id}})
+        // const cakeOptions = this.state.cakeList.map((selectedCake) => { return <Select cake={selecteedCake}})
         return (
             <div>
                 <SelectFilter onChange={this.updateFilterInputs} />

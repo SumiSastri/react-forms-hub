@@ -1,5 +1,5 @@
 import React from 'react';
-import './filter.css';
+import './filterStyles.css';
 
 const SelectFilter = ({ selectFilter, updateFilterInputs }) => {
   return (

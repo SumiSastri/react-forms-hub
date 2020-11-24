@@ -31,7 +31,19 @@ A note on form styling:
 - All form input fields defaults are to turn blue on interaction to neutralise this behaviour inputs can be be styled `outline: none;`
 - Navbars are also tricky to style (especially burger buttons) I found Bulma as a framework really useful for navbar styling along with Flexbox and Grid to style elements/ rows and columns. This is another useful CSS resource for styling [https://university.webflow.com/article/navbar-styling] Using background colors, padding and margins around every navbar element also helps understand how each of the elements fit together. Flexbox and grid are both useful ways to align items.
 
+### Libraries
+yarn add  react-icons react-modal '@tippy.js-react'
+- React Charts
 
+- React Icons (includes Fontawesome, Devicons, Ionicons, Game Icons, Weather Icons, Ant Design, GitHub, Feather Material-ui & Typicons)
+https://react-icons.github.io/react-icons/
+
+- React Modals
+https://www.npmjs.com/package/react-modal
+
+- React Loading Animations
+
+- React Date Picker
 
 
 
