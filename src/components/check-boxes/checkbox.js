@@ -4,7 +4,17 @@ import '../checkboxStyles.css';
 export const Checkbox = () => {
   return (  
       <div>
-        <input type='checkbox'/>
+        <input 
+          className=''
+          checked={true}
+          disabled={false}
+          data-testid=''
+          name='checkbox'
+          onChange={()=>{}}
+          onSubmit={()=>{}}
+          required={false}
+          type='checkbox'  
+        />
       </div>
   );
 };

@@ -13,6 +13,7 @@ export const InputSearch = () => {
                 name='inpt-search'  
                 placeholder='search'  
                 type="search"
+                
                 />
         </div>
     );

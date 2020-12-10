@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 
-import InputText from './InputText'
-import InputNumber from './InputNumber'
-import InputPassword from './InputPassword'
+import InputText from '../input-fields/InputText'
+import InputNumber from '../input-fields/InputNumber'
+import InputPassword from '../input-fields/InputPassword'
 import SubmitBtn from '../buttons/SubmitBtn'
 
 
@@ -12,7 +12,6 @@ export class InputsModal extends Component {
         super();
 
         this.state = {
-
             inputNumber: 0,
             inputPassword: '',
             inputText: '',
@@ -27,7 +26,7 @@ export class InputsModal extends Component {
         this.setState({ [event.target.name]: event.target.value })
         console.log('updateforminput:', this.state)
     };
-   
+
     openModal = () => {
         console.log("this is:", this);
         this.setState((state) => ({
@@ -63,20 +62,20 @@ export class InputsModal extends Component {
                         }
                     }
                 >
-            <form onSubmit={this.handleFormSubmit}>
-                        <InputText 
-                    updateFormInputs={this.updateFormInputs}
-                />
-                        <InputNumber 
-                    updateFormInputs={this.updateFormInputs}
-                />
+                    <form onSubmit={this.handleFormSubmit}>
+                        <InputText
+                            updateFormInputs={this.updateFormInputs}
+                        />
+                        <InputNumber
+                            updateFormInputs={this.updateFormInputs}
+                        />
                         <InputPassword
-                    updateFormInputs={this.updateFormInputs}
-                />
-                <section>
+                            updateFormInputs={this.updateFormInputs}
+                        />
+                        <section>
                             <SubmitBtn onClick={this.handleFormSubmit} />
-                </section>
-            </form>
+                        </section>
+                    </form>
                     <br></br>
                     <p onClick={() => this.openModal(false)}>x</p>
                 </Modal>

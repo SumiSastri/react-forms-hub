@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import PostList from './PostList'
-import ScrollyBar from './ScrollyBar'
+import ScrollyBar from '../scrolling/ScrollyBar'
 import SearchFilter from '../filters/SearchFilter'
 
 export class PostIndex extends Component {
