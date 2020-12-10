@@ -1,5 +1,5 @@
 import React from 'react';
-import './inputStyles.css';
+import '../styles/inputStyles.css';
 
 
 const InputText = ({ inputText, updateFormInputs, handleInputSubmit }) => {
@@ -7,15 +7,14 @@ const InputText = ({ inputText, updateFormInputs, handleInputSubmit }) => {
     <div>
       <label>Text:</label>
       <input
-        className='input-field-four'
-        data-testid='inpt-txt-4'
-        placeholder='input-text'
+        className='inpt-1s'
+        data-testid=''
+        placeholder=''
         name='inpt-txt'
         onChange={updateFormInputs}
         onSubmit={handleInputSubmit}
         type='text'
         value={inputText}
-
       />
     </div>
   );

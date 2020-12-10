@@ -1,17 +1,16 @@
-import React from 'react';
-import './inputStyles.css';
+import '../styles/inputStyles.css';
 
 const InputPassword = ({ inputPassword, handleInputSubmit, updateFormInputs }) => {
   return (
     <div>
       <label>Password Field</label>
       <input
-        className='password-field-2'
-        data-testid='passwrd-inpt-2'
-        name='password-field-2'
+        className='inpt-3s'
+        data-testid='passwrd'
+        name=''
         onChange={updateFormInputs}
         onSubmit={handleInputSubmit}
-        placeholder='6-12 characters'
+        placeholder='use symbols, numbers, letters'
         required={true}
         type='password'
         value={inputPassword}
@@ -21,3 +20,5 @@ const InputPassword = ({ inputPassword, handleInputSubmit, updateFormInputs }) =
   );
 };
 export default InputPassword;
+
+

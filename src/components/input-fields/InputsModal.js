@@ -4,12 +4,12 @@ import Modal from 'react-modal'
 import InputText from './InputText'
 import InputNumber from './InputNumber'
 import InputPassword from './InputPassword'
-import SubmitBtn from '../../components/buttons/SubmitBtn'
+import SubmitBtn from '../buttons/SubmitBtn'
 
 
-export class FormInputs extends Component {
-    constructor(props) {
-        super(props);
+export class InputsModal extends Component {
+    constructor() {
+        super();
 
         this.state = {
 
@@ -39,31 +39,42 @@ export class FormInputs extends Component {
 
 
     handleFormSubmit = (event) => {
+        alert(` text: ${this.inputText} number: ${this.inputNumber} pass: ${this.inputPassword} `)
         event.preventDefault();
         console.log('submit:', this.state)
     };
-
-    // resetFields = () => {
-    //     this.setState(this.initialState);
-    // }
 
     render() {
         return (
             <section>
                 <button onClick={() => this.openModal()}>Open Form Input Fields</button>
-                <Modal isOpen={this.state.modalIsOpen}>
+                <Modal isOpen={this.state.modalIsOpen}
+                    shouldCloseOnOverlayClick={false}
+                    onRequestClose={() => this.modalIsOpen(false)}
+                    style={
+                        {
+                            overlay: {
+                                backgroundColor: 'grey'
+                            },
+                            content: {
+                                backgroundColor: 'lightblue'
+                            }
+
+                        }
+                    }
+                >
             <form onSubmit={this.handleFormSubmit}>
-                        <InputText
+                        <InputText 
                     updateFormInputs={this.updateFormInputs}
                 />
-                        <InputNumber
+                        <InputNumber 
                     updateFormInputs={this.updateFormInputs}
                 />
                         <InputPassword
                     updateFormInputs={this.updateFormInputs}
                 />
                 <section>
-                            <SubmitBtn />
+                            <SubmitBtn onClick={this.handleFormSubmit} />
                 </section>
             </form>
                     <br></br>
@@ -74,4 +85,4 @@ export class FormInputs extends Component {
     }
 }
 
-export default FormInputs
+export default InputsModal

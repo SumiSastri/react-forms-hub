@@ -33,6 +33,8 @@ class NameAddress extends Component {
 	// 	});
 	// };
 
+
+// more efficient refactor
 	handleChange = ({ target: { name, value } }) => {
 		const data = { ...this.state.data, [name]: value };
 		this.setState({ data });

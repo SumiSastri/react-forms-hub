@@ -1,18 +1,10 @@
 import React from 'react';
-import './checkbox.css';
+import '../checkboxStyles.css';
 
-const Checkbox = properties => {
-  return (
-    <form className='checkbox-container'>
-      <div className='checkbox'>
-        <input type='checkbox' id='checkbox-1' />
-        <label for='checkbox-1'>Check-Box</label>
+export const Checkbox = () => {
+  return (  
+      <div>
+        <input type='checkbox'/>
       </div>
-<div>
-
-
-      </div>
-    </form>
   );
 };
-export default Checkbox;

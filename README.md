@@ -33,6 +33,7 @@ A note on form styling:
 
 ### Libraries
 yarn add  react-icons react-modal '@tippy.js-react'
+
 - React Charts
 
 - React Icons (includes Fontawesome, Devicons, Ionicons, Game Icons, Weather Icons, Ant Design, GitHub, Feather Material-ui & Typicons)
@@ -45,9 +46,8 @@ https://www.npmjs.com/package/react-modal
 
 - React Date Picker
 
-
-
-
+Tutorial playlist for forms:
+https://www.youtube.com/playlist?list=PLtvX0WpNqnvPWQhzPpoTPDb2ZnVUresVb
 
 ### React-Redux Forms
 

@@ -1,16 +1,18 @@
 import React from 'react';
-import './inputStyles.css';
+import '../styles/inputStyles.css';
 
 const InputNumber = ({ inputNumber, updateFormInputs, handleInputSubmit }) => {
   return (
     <div>
       <label>Number:</label>
       <input
-        className='numbers-1'
-        data-testid='num-inpt-1'
-        name='num-inpt-1'
+        className='inpt-2s'
+        data-testid=''
+        name='num-inpt'
         onChange={updateFormInputs}
         onSubmit={handleInputSubmit}
+        placeholder='0'
+        required={false}
         type='number'
         value={inputNumber}
       />
@@ -18,3 +20,6 @@ const InputNumber = ({ inputNumber, updateFormInputs, handleInputSubmit }) => {
   );
 };
 export default InputNumber;
+
+
+

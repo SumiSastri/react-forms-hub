@@ -1,17 +1,18 @@
 import React from 'react';
-import './filterStyles.css';
+import '../styles/filterStyles.css';
 
 const SelectFilter = ({ selectFilter, updateFilterInputs }) => {
   return (
     <div>
       <div className='select-filter-container'>
         <label className='label'>Select Filter</label>
-        <select className='select-filter'>
+        <select className='select-filter' value='' onChange=''>
          <option>Select An Option</option>
-          <option className="option1">Option 1</option>
-          <option className="option2">Option 2</option>
-          <option className="option3">Option 3</option>
+          <option className="option1" value=''>Option 1</option>
+          <option className="option2" value=''>Option 2</option>
+          <option className="option3" value=''>Option 3</option>
         </select>
+        <button type='submit' onSubmit={() => { }}>Submit</button>
       </div>
     </div>
   );

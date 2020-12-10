@@ -1,5 +1,5 @@
 import React from 'react';
-import './form-navbars.css';
+import '../styles/navbarStyles.css';
 import logo from '../assets/navbar-logo.svg';
 
 const FormHeader = () => {
@@ -8,15 +8,9 @@ const FormHeader = () => {
       <div className='navbar-header-branding'>
         <img className="navbar-logos-branding" alt='logo' src={logo} />
         <h1 className="navbar-header-text">A Library of Form Inputs</h1>
-      </div>
-      <div className='navbar-header-content'>
         <ul className='navbar-links'>
-          <li>Input fields</li>
-          <li>Buttons</li>
-          <li>Search & Select Filters</li>
-          <li>Check-Boxes & Toggles</li>
-          <li>Progress Bars</li>
-          <li>Time & Date Pickers</li>
+          <li>Login</li>
+          <li>Register</li>
         </ul>
       </div>
     </div>

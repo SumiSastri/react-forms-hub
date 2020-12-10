@@ -1,5 +1,5 @@
 import React from 'react';
-import './form-navbars.css';
+import '../styles/navbarStyles.css';
 
 const FormFooter = () => {
   return (
@@ -9,8 +9,7 @@ const FormFooter = () => {
       </div>
       <div className='navbar-footer-content'>
         <h6>
-          Form fields: Text, Numbers & Passwords / Buttons / Search & Select
-          Filters /Check-Boxes & Toggles / Progress Bars Time & Date Pickers
+        Login / Register
         </h6>
       </div>
     </div>
