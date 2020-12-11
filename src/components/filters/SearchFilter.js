@@ -4,13 +4,13 @@ import '../styles/inputStyles.css';
 import '../buttons/buttonStyles.css'
 import '../styles/filterStyles.css'
 
-import {InputSearch} from '../input-fields/InputSearch'
+import {InputField} from '../input-fields/InputField'
 
 const SearchFilter = ({ searchFilter, updateFilterInputs }) => {
     return (
         <div >
             <section className='filters-container'>
-                <InputSearch   onChange={updateFilterInputs} value={searchFilter}/>
+                <InputField   onChange={updateFilterInputs} value={searchFilter}/>
                 </section>
 
         </div>

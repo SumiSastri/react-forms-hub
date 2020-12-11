@@ -1,19 +1,22 @@
+import React from 'react';
 import '../styles/inputStyles.css';
 
-const InputPassword = ({ inputPassword, handleInputSubmit, updateFormInputs }) => {
+import {InputField} from '../InputField'
+
+const InputPassword = ({ value, onChange, onSubmit }) => {
   return (
     <div>
       <label>Password Field</label>
-      <input
+      <InputField
         className='inpt-3s'
-        data-testid='passwrd'
-        name=''
-        onChange={updateFormInputs}
-        onSubmit={handleInputSubmit}
+        datatestid='password'
+        name='password'
+        onChange={onChange}
+        onSubmit={onSubmit}
         placeholder='use symbols, numbers, letters'
         required={true}
         type='password'
-        value={inputPassword}
+        value={value}
       />
     </div>
 

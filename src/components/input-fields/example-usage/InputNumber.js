@@ -1,20 +1,22 @@
 import React from 'react';
 import '../styles/inputStyles.css';
 
-const InputNumber = ({ inputNumber, updateFormInputs, handleInputSubmit }) => {
+import {InputField} from '../InputField'
+
+const InputNumber = ({ value, onChange, onSubmit }) => {
   return (
     <div>
       <label>Number:</label>
-      <input
+      <InputField
         className='inpt-2s'
-        data-testid=''
-        name='num-inpt'
-        onChange={updateFormInputs}
-        onSubmit={handleInputSubmit}
+        datatestid='inpt-num'
+        name='inpt-num'
+        onChange={onChange}
+        onSubmit={onSubmit}
         placeholder='0'
         required={false}
         type='number'
-        value={inputNumber}
+        value={value}
       />
     </div>
   );
