@@ -3,14 +3,15 @@ import React, { Component } from 'react'
 import PostList from './PostList'
 import ScrollyBar from '../scrolling/ScrollyBar'
 import SearchFilter from '../filters/SearchFilter'
+import SelectFilter from '../filters/SearchFilter'
 
 export class PostIndex extends Component {
     constructor(props) {
         super(props)
-
+        
         this.state = {
             displayPosts: [],
-            selectFilterResults: '',
+            selectFilterOption: '',
             searchFilterResults: '',
         }
         this.updateSearchInputs = this.updateSearchInputs.bind(this);
@@ -28,16 +29,15 @@ export class PostIndex extends Component {
     }
     // write utility functions - this sets the filter input to the event/ target value
     updateSearchInputs = (key, value) => {
-        if (key === 'searchFilterResults' ) {
+        if (key === 'searchFilterResults' || 'selectFilterOption' ) {
             this.setState({ error: null, [key]: value }, () => {
-                console.log("this is1:", this);
-                this.setState({ searchFilterResults: this.state.searchFilterResults });
+                // debug-logs console.log("this is1:", this);
+                this.setState({ searchFilterResults: this.state.searchFilterResults, seletFilterOption: this.state.selectFilterOption });
                 // debug-logs console.log("this is2:", this);
             });
         } else { this.setState({ error: null, [key]: value }); }
         
-    }
-    
+    }   
     render() {
         // const { displayPosts } = this.state
         // refactor and replace displayPosts with filteredPosts that you can search 
@@ -59,10 +59,19 @@ export class PostIndex extends Component {
                 <div>                 
                   <ScrollyBar>
                       {/* Write onChange handler and set to target value */}
-                         <SearchFilter onChange={event => this.updateSearchInputs('searchFilterResults', event.target.value)} />  
+                         <SearchFilter 
+                         className='inpt-1l'
+                         datatestid= 'searchfield-posts'
+                         label='Search Posts'
+                         name='search-posts'
+                         placeholder='Search'
+                         required={false}
+                         type='search' 
+                         onChange={event => this.updateSearchInputs('searchFilterResults', event.target.value)} />  
                                            {/* Replaced displayed posts with the filtered posts */}
                         <PostList displayPosts={filteredPosts} /> 
                         {/* <PostList displayPosts={displayPosts} />                 */}
+                        <SelectFilter onChange={event => this.updateSearchInputs('selectFilterOption', event.target.value)} />  
                     </ScrollyBar>
                 </div>
             )

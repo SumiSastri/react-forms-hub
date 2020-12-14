@@ -1,31 +1,8 @@
 import React from 'react';
 import '../styles/filterStyles.css';
 
-const SelectFilter = ({ selectFilter, updateFilterInputs }) => {
-  return (
-    <div>
-      <div className='select-filter-container'>
-        <label className='label'>Select Filter</label>
-        <select className='select-filter' value='' onChange=''>
-         <option>Select An Option</option>
-          <option className="option1" value=''>Option 1</option>
-          <option className="option2" value=''>Option 2</option>
-          <option className="option3" value=''>Option 3</option>
-        </select>
-        <button type='submit' onSubmit={() => { }}>Submit</button>
-      </div>
-    </div>
-  );
-};
-export default SelectFilter;
 
-
-export const SelectFilter = ({className, datatestid, label, name, onChange, onSubmit, placeholder, required, type, value}) => {
-  const selectOptions = (options) => {
-    return options.map((option) => {
-        return { label:(`filterOptions:${option.labelKey}`), value: option.value };
-    });
-  }
+export const SelectFilter = ({className, datatestid, label, name, onChange, options, onSubmit, placeholder, required, type, value}) => {
   return (
     <div >
             <label>{label}</label>
@@ -34,6 +11,7 @@ export const SelectFilter = ({className, datatestid, label, name, onChange, onSu
                 datatestid={datatestid}
                 name={name}
                 onChange={onChange}
+                options={options}
                 onSubmit={onSubmit} 
                 placeholder={placeholder}
                 required={required}
@@ -44,4 +22,16 @@ export const SelectFilter = ({className, datatestid, label, name, onChange, onSu
   );
 };
 export default SelectFilter;
+
+
+// <SelectFilter onChange={event => this.updateSearchInputs('selectFilterOption', event.target.value)} /> 
+// options={ this.selectOptions(ddlOptions.ddlOptionsName.options) }
+// value={ this.state.ddlOptionsName }
+
+// const selectOptions = (options) => {
+//   return options.map((option) => {
+//       return { label:(`filterOptions:${option.labelKey}`), value: option.value };
+//   });
+// }
+
 

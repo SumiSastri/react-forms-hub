@@ -6,21 +6,25 @@ import '../styles/filterStyles.css'
 
 import {InputField} from '../input-fields/InputField'
 
-// onChange deconstructed from PostIndex as a prop of the Input Field
-const SearchFilter = ({ onChange }) => {
+// props here defined as search filter in different parts of an application may require different props
+const SearchFilter = ({className, datatestid, icon, label, name, onChange, onSubmit, placeholder, required, type, value }) => {
     return (
         <div >
-            <section className='filters-container'>
+            <section className='filters-container'>             
            <InputField
-                 className='inpt-2l'
-                 datatestid= 'search-filter'
-                 name='Search Filter Field'
+                 className={className}
+                 datatestid= {datatestid}
+                 icon={icon}
+                 label={label}
+                 name={name}
                  onChange={onChange}
-                 placeholder='Search'
-                 type='search'               
+                 onSubmit={onSubmit}
+                 placeholder={placeholder}
+                 required={required}
+                 type={type} 
+                 value={value}             
                 />
                 </section>
-
         </div>
     );
 };
