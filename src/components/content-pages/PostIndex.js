@@ -13,6 +13,7 @@ export class PostIndex extends Component {
             selectFilterResults: '',
             searchFilterResults: '',
         }
+        this.updateSearchInputs = this.updateSearchInputs.bind(this);
     }
 // call data from url to response set it to state 
 // map over the response object and print list in list component
@@ -26,20 +27,27 @@ export class PostIndex extends Component {
     }
     // write utility functions - this sets the filter input to the event/ target value
     updateSearchInputs = (key, value) => {
-        if (key === 'searchFilterResults' || 'selectFilterResults' ) {
+        if (key === 'searchFilterResults' ) {
             this.setState({ error: null, [key]: value }, () => {
-                this.setState({ searchFilterResults: this.state.searchFilterResults, selectFilterResults: this.state.selectFilterResults });
+                console.log("this is1:", this);
+                this.setState({ searchFilterResults: this.state.searchFilterResults });
+                // debug-logs console.log("this is2:", this);
             });
         } else { this.setState({ error: null, [key]: value }); }
+        
     }
 
     render() {
+        // const { displayPosts } = this.state
+        // refactor and replace displayPosts with filteredPosts that you can search 
         const { displayPosts, searchFilterResults } = this.state
+        // debug logs - console.log("this is3:", this);
         // filter through the response object that has been called and set to state (displayPosts)
-        // assign thge function to a variable - identify the props to filter through - title & body
+        // assign the function to a variable - identify the props to filter through - title & body
         // set both the search field and the returned filtered array to lowercase to match cases
 		const filteredPosts = displayPosts.filter((displayPosts) => {
-            return displayPosts.body.toLowerCase().includes(searchFilterResults.toLowerCase());
+            return displayPosts.body.toLowerCase().includes(searchFilterResults.toLowerCase()) ||
+            displayPosts.title.toLowerCase().includes(searchFilterResults.toLowerCase())
 
 		});
         return !displayPosts.length ? (
@@ -49,9 +57,11 @@ export class PostIndex extends Component {
 		) : (
                 <div>                 
                   <ScrollyBar>
-                         <SearchFilter onChange={this.updateSearchInputs} />
-                        {/* <PostList displayPosts={displayPosts} />  */}
-                        <PostList displayPosts={filteredPosts} />                
+                      {/* Write onChange handler and set to target value */}
+                         <SearchFilter onChange={event => this.updateSearchInputs('searchFilterResults', event.target.value)} />  
+                                           {/* Replaced displayed posts with the filtered posts */}
+                        <PostList displayPosts={filteredPosts} /> 
+                        {/* <PostList displayPosts={displayPosts} />                 */}
                     </ScrollyBar>
                 </div>
             )
