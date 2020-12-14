@@ -19,5 +19,9 @@ const SelectFilter = ({ selectFilter, updateFilterInputs }) => {
 };
 export default SelectFilter;
 
-
+transformOptions = (options) => {
+  return options.map((option) => {
+      return { label: this.props.t(`filterOptions:${option.labelKey}`), value: option.value };
+  });
+}
 

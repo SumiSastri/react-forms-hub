@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import Modal from 'react-modal'
+import ReactModal from 'react-modal';
 
 import { InputField } from '../input-fields/InputField'
 import { ButtonComponent } from '../buttons/ButtonComponent'
 
-
-
+ReactModal.setAppElement('body');
 export class LoginModal extends Component {
     constructor() {
         super();
@@ -19,7 +18,6 @@ export class LoginModal extends Component {
         this.initialState = this.state;
         this.openModal = this.openModal.bind(this);
     }
-
 
     updateFormInputs = (key, value) => {
         if (key === 'userName' || key === 'phoneNumber' || key === 'password') {
@@ -38,26 +36,24 @@ export class LoginModal extends Component {
         console.log('openmodal:', this.state)
     };
 
-
-    handleFormSubmit = (event) => {  
-        event.preventDefault();     
+    handleFormSubmit = (event) => {
+        event.preventDefault();
         alert(`Your details have been submitted for registration`)
     };
 
     render() {
-
         return (
             <section>
                 <ButtonComponent
-                className='btn-5'
-                datatestid='btn-login-reg' 
-                name='btn-login-reg'
-                label='Login/Register'
-                type='button'
-                onClick={() => this.openModal()}
-             />
-                
-                <Modal isOpen={this.state.modalIsOpen}
+                    className='btn-5'
+                    datatestid='btn-login-reg'
+                    name='btn-login-reg'
+                    label='Login/Register'
+                    type='button'
+                    onClick={() => this.openModal()}
+                />
+
+                <ReactModal isOpen={this.state.modalIsOpen}
                     shouldCloseOnOverlayClick={false}
                     onRequestClose={() => this.modalIsOpen(false)}
                     style={
@@ -70,7 +66,6 @@ export class LoginModal extends Component {
                                 bottom: 225,
                                 backgroundColor: 'grey'
                             },
-
                             content: {
                                 position: 'absolute',
                                 top: '40px',
@@ -84,9 +79,7 @@ export class LoginModal extends Component {
                                 borderRadius: '4px',
                                 outline: 'none',
                                 padding: '20px'
-
                             }
-
                         }
                     }
                 >
@@ -117,20 +110,26 @@ export class LoginModal extends Component {
                         />
                         <div><p>As a new user you will receive a confirmation email to authenticate access. Please provide a valid email and check your inbox and spam mailbox. The link is valid for 48 hours only to protect your personal data and prevent unauthorised site access. Please read our data & cookie policy before you authenticate your email id.</p></div>
                         <section>
-                        <ButtonComponent
-                className='button-one'
-                datatestid='btn-login-reg-submit' 
-                name='btn-login-reg-submit'
-                onSubmit={this.handleFormSubmit}
-                label='Submit'
-                type='submit'
-
-             />
+                            <ButtonComponent
+                                className='button-one'
+                                datatestid='btn-login-reg-submit'
+                                name='btn-login-reg-submit'
+                                onSubmit={this.handleFormSubmit}
+                                label='Submit'
+                                type='submit'
+                            />
                         </section>
                     </form>
                     <br></br>
-                    <p onClick={() => this.openModal(false)}>x</p>
-                </Modal>
+                    <ButtonComponent
+                        className='button-one'
+                        datatestid='mdl-login-reg-close'
+                        name='mdl-login-reg-close'
+                        onClick={() => this.openModal(false)}
+                        label='X'
+                        type='button'
+                    />
+                </ReactModal>
             </section>
         )
     }

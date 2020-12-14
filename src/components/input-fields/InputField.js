@@ -23,7 +23,7 @@ export const InputField = ({className, datatestid, label, name, onChange, onSubm
     );
 };
 
-
+// Type checks props using the react library
 InputField.propTypes = {
     className: PropTypes.string,
     datatestid: PropTypes.string,

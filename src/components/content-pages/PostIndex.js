@@ -22,6 +22,7 @@ export class PostIndex extends Component {
         // .then((posts) => this.setState({}));
         // do not remove checks the loading message works
     }
+    
     updateFilterInputs = (key, val) => {
         if (key === 'searchFilter' || key === 'selectFilter') {
             return this.setState({ error: null, [key]: val })
@@ -37,8 +38,8 @@ export class PostIndex extends Component {
         ) : (
                 <div>                 
                   <ScrollyBar>
-                    <SearchFilter onChange={this.updateFilterInputs} styles={{ margin: '10px' }} />
-                        <PostList displayPosts={displayPosts} />
+                         <SearchFilter onChange={this.updateFilterInputs} styles={{ margin: '10px' }} />
+                        <PostList displayPosts={displayPosts} />               
                     </ScrollyBar>
 
                 </div>
