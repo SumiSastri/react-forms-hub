@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/filterStyles.css';
 
-
 export const SelectFilter = ({className, datatestid, label, name, onChange, options, onSubmit, placeholder, required, type, value}) => {
   return (
     <div >
@@ -23,15 +22,22 @@ export const SelectFilter = ({className, datatestid, label, name, onChange, opti
 };
 export default SelectFilter;
 
-
-// <SelectFilter onChange={event => this.updateSearchInputs('selectFilterOption', event.target.value)} /> 
-// options={ this.selectOptions(ddlOptions.ddlOptionsName.options) }
-// value={ this.state.ddlOptionsName }
+// options={ this.selectOptions(selectFilterOptions.userType.options) }
+// value={ this.state.selectFilterOption }
 
 // const selectOptions = (options) => {
 //   return options.map((option) => {
 //       return { label:(`filterOptions:${option.labelKey}`), value: option.value };
 //   });
 // }
+
+// userType: {
+//   type: 'select',
+//   options: [
+//       { labelKey: 'musician', value: 'musician' },
+//       { labelKey: 'musicBuyer', value: 'musicBuyer' },
+//       { labelKey: 'musicAgent', value: 'musicAgent' },
+//   ],
+// },
 
 

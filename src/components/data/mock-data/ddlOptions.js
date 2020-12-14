@@ -1,4 +1,4 @@
-export const SelectFilterOptions = {
+export const selectFilterOptions = {
        userType: {
         type: 'select',
         options: [

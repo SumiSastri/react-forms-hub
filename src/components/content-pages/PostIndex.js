@@ -4,6 +4,7 @@ import PostList from './PostList'
 import ScrollyBar from '../scrolling/ScrollyBar'
 import SearchFilter from '../filters/SearchFilter'
 import SelectFilter from '../filters/SearchFilter'
+import '../data/mock-data/ddlOptions'
 
 export class PostIndex extends Component {
     constructor(props) {
@@ -37,11 +38,17 @@ export class PostIndex extends Component {
             });
         } else { this.setState({ error: null, [key]: value }); }
         
-    }   
+    }
+    // utility function to map through the ddlOptions file 
+    selectOptions = (options) => {
+  return options.map((option) => {
+      return { label:(`selectFilterOptions:${option.labelKey}`), value: option.value };
+  });
+}
     render() {
         // const { displayPosts } = this.state
         // refactor and replace displayPosts with filteredPosts that you can search 
-        const { displayPosts, searchFilterResults } = this.state
+        const { displayPosts, searchFilterResults, selectFilterOptions } = this.state
         // debug logs - console.log("this is3:", this);
         // filter through the response object that has been called and set to state (displayPosts)
         // assign the function to a variable - identify the props to filter through - title & body
@@ -58,6 +65,16 @@ export class PostIndex extends Component {
 		) : (
                 <div>                 
                   <ScrollyBar>
+                  <SelectFilter 
+                         className='inpt-1m'
+                         datatestid='ddl-usr-type'
+                         label='Select Login or Register'
+                         name='ddl-usr-type'
+                        //  options={ this.selectOptions(selectFilterOptions.userType.options) }
+                         required={false}
+                         type='select'
+                         value={ this.state.selectFilterOption }
+                        onChange={event => this.updateSearchInputs('selectFilterOption', event.target.value)} />  
                       {/* Write onChange handler and set to target value */}
                          <SearchFilter 
                          className='inpt-1l'
@@ -71,7 +88,7 @@ export class PostIndex extends Component {
                                            {/* Replaced displayed posts with the filtered posts */}
                         <PostList displayPosts={filteredPosts} /> 
                         {/* <PostList displayPosts={displayPosts} />                 */}
-                        <SelectFilter onChange={event => this.updateSearchInputs('selectFilterOption', event.target.value)} />  
+                       
                     </ScrollyBar>
                 </div>
             )
