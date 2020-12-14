@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/navbarStyles.css';
 import logo from '../assets/navbar-logo.svg';
-import {LoginModal} from '../form-containers/LoginModal'
-import {FeedbackModal} from '../form-containers/FeedbackModal'
+import {LoginModal} from '../modals/LoginModal'
+import {FeedbackModal} from '../modals/FeedbackModal'
 
 
 const FormHeader = () => {

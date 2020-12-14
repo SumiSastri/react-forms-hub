@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactModal from 'react-modal';
 
 import { InputField } from '../input-fields/InputField'
+import { ModalContainer } from './ModalContainer'
 import { ButtonComponent } from '../buttons/ButtonComponent'
 
 ReactModal.setAppElement('body');
@@ -16,7 +17,6 @@ export class LoginModal extends Component {
         }
 
         this.initialState = this.state;
-        this.openModal = this.openModal.bind(this);
     }
 
     updateFormInputs = (key, value) => {
@@ -47,42 +47,22 @@ export class LoginModal extends Component {
                 <ButtonComponent
                     className='btn-5'
                     datatestid='btn-login-reg'
-                    name='btn-login-reg'
                     label='Login/Register'
+                    name='btn-login-reg' 
+                    onClick={() => this.openModal()}                   
                     type='button'
-                    onClick={() => this.openModal()}
                 />
 
-                <ReactModal isOpen={this.state.modalIsOpen}
-                    shouldCloseOnOverlayClick={false}
-                    onRequestClose={() => this.modalIsOpen(false)}
-                    style={
-                        {
-                            overlay: {
-                                position: 'fixed',
-                                top: 350,
-                                left: 350,
-                                right: 350,
-                                bottom: 225,
-                                backgroundColor: 'grey'
-                            },
-                            content: {
-                                position: 'absolute',
-                                top: '40px',
-                                left: '40px',
-                                right: '40px',
-                                bottom: '40px',
-                                border: '1px solid #ccc',
-                                background: 'lightblue',
-                                overflow: 'auto',
-                                WebkitOverflowScrolling: 'touch',
-                                borderRadius: '4px',
-                                outline: 'none',
-                                padding: '20px'
-                            }
-                        }
-                    }
-                >
+                <ModalContainer 
+                isOpen={this.state.modalIsOpen}
+                disableCloseOnOverlay={false}
+                closeOnRequest={() => this.openModal(false)}
+            
+                          
+             
+
+children={<div>
+
                     <form onSubmit={this.handleFormSubmit}>
                         <InputField
                             className='inpt-1s'
@@ -129,7 +109,9 @@ export class LoginModal extends Component {
                         label='X'
                         type='button'
                     />
-                </ReactModal>
+                   </div>}
+                      >
+                </ModalContainer>
             </section>
         )
     }

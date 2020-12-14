@@ -6,11 +6,18 @@ import '../styles/filterStyles.css'
 
 import {InputField} from '../input-fields/InputField'
 
-const SearchFilter = ({ searchFilter, updateFilterInputs }) => {
+const SearchFilter = ({ updateSearchInputs }) => {
     return (
         <div >
             <section className='filters-container'>
-                <InputField   onChange={updateFilterInputs} value={searchFilter}/>
+                <InputField  
+                 className='inpt-2l'
+                 datatestid= 'search-filter'
+                 name='Search Filter Field'
+                 onChange={updateSearchInputs}
+                 placeholder='Search'
+                 type='search'                    
+                />
                 </section>
 
         </div>

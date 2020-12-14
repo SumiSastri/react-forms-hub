@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-
-import { ModalContainer } from '../modals/ModalContainer'
+import ReactModal from 'react-modal';
+import { ModalContainer } from './ModalContainer'
 import { ButtonComponent } from '../buttons/ButtonComponent'
 import { InputField } from '../input-fields/InputField'
+
+ReactModal.setAppElement('body');
 
 export class FeedbackModal extends Component {
     constructor() {
@@ -64,7 +66,7 @@ export class FeedbackModal extends Component {
                             onChange={event => this.updateCommentInputs('commentBox', event.target.value)}
                             onSubmit={this.handleCommentSubmit}
                             placeholder='Please type your comments here'
-                            required='false'
+                            required={false}
                             type='text-box'
                             value={this.state.commentBox}
                         />
@@ -76,7 +78,6 @@ export class FeedbackModal extends Component {
                 onClick={() => this.openModal(false)}
                 label='X'
                 type='button'
-
              />
                     </div>}
 
