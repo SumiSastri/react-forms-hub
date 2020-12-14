@@ -15,6 +15,7 @@ export class PostIndex extends Component {
         }
         this.updateSearchInputs = this.updateSearchInputs.bind(this);
     }
+
 // call data from url to response set it to state 
 // map over the response object and print list in list component
 // to show each individual post deconstrcut props to be rendered in card 
@@ -36,7 +37,7 @@ export class PostIndex extends Component {
         } else { this.setState({ error: null, [key]: value }); }
         
     }
-
+    
     render() {
         // const { displayPosts } = this.state
         // refactor and replace displayPosts with filteredPosts that you can search 

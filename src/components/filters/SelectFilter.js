@@ -19,9 +19,29 @@ const SelectFilter = ({ selectFilter, updateFilterInputs }) => {
 };
 export default SelectFilter;
 
-transformOptions = (options) => {
-  return options.map((option) => {
-      return { label: this.props.t(`filterOptions:${option.labelKey}`), value: option.value };
-  });
-}
+
+export const SelectFilter = ({className, datatestid, label, name, onChange, onSubmit, placeholder, required, type, value}) => {
+  const selectOptions = (options) => {
+    return options.map((option) => {
+        return { label:(`filterOptions:${option.labelKey}`), value: option.value };
+    });
+  }
+  return (
+    <div >
+            <label>{label}</label>
+            <option
+                className={className}
+                datatestid={datatestid}
+                name={name}
+                onChange={onChange}
+                onSubmit={onSubmit} 
+                placeholder={placeholder}
+                required={required}
+                type={type}
+                value={value}              
+            />
+        </div>
+  );
+};
+export default SelectFilter;
 
