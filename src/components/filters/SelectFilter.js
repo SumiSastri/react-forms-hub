@@ -21,23 +21,3 @@ export const SelectFilter = ({className, datatestid, label, name, onChange, opti
   );
 };
 export default SelectFilter;
-
-// options={ this.selectOptions(selectFilterOptions.userType.options) }
-// value={ this.state.selectFilterOption }
-
-// const selectOptions = (options) => {
-//   return options.map((option) => {
-//       return { label:(`filterOptions:${option.labelKey}`), value: option.value };
-//   });
-// }
-
-// userType: {
-//   type: 'select',
-//   options: [
-//       { labelKey: 'musician', value: 'musician' },
-//       { labelKey: 'musicBuyer', value: 'musicBuyer' },
-//       { labelKey: 'musicAgent', value: 'musicAgent' },
-//   ],
-// },
-
-
