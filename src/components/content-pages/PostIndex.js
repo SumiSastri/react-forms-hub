@@ -4,17 +4,14 @@ import PostList from './PostList'
 import ScrollyBar from '../scrolling/ScrollyBar'
 import SearchFilter from '../filters/SearchFilter'
 import SelectFilter from '../filters/SearchFilter'
-import  {selectFilterOptions}  from '../data/mock-data/ddlOptions'
-
 
 export class PostIndex extends Component {
     constructor(props) {
         super(props)
-        const defaultUserType = selectFilterOptions.userType.options.find((user) => user.value === 'musician');
         this.state = {
             displayPosts: [],
-            selectFilterResults: { label: (`${defaultUserType.label}`), value: defaultUserType.value },
-                searchFilterResults: '',
+            user: '',
+            searchFilterResults: '',
             }
         }
 
@@ -30,28 +27,23 @@ export class PostIndex extends Component {
     }
     // write utility functions - this sets the filter input to the event/ target value
     updateSearchInputs = (key, value) => {
-        if (key === 'searchFilterResults' || 'selectFilterResults') {
+        if (key === 'searchFilterResults') {
             this.setState({ error: null, [key]: value }, () => {
                 // debug-logs console.log("this is1:", this);
-                this.setState({ searchFilterResults: this.state.searchFilterResults,  selectFilterResults: this.state.selectFilterResults });
-                console.log("this is2:", this);
+                this.setState({ searchFilterResults: this.state.searchFilterResults });
+                // console.log("this is2:", this);
             });
         } else { this.setState({ error: null, [key]: value }); }
 
     }
-    // utility function to map through the ddlOptions file 
-
-    selectOptions = (options) => {
-        return options.map((option) => {
-            return { label: (`${option.label}`), value: option.value };
-        });
-    }
-
+    handleDropdownSelection = ( user) => {
+        this.setState({ user});
+    };
 
     render() {
         // const { displayPosts } = this.state
         // refactor and replace displayPosts with filteredPosts that you can search 
-        const { displayPosts, searchFilterResults,   selectFilterResults } = this.state
+        const { displayPosts, searchFilterResults,   user } = this.state
         // debug logs - console.log("this is3:", this);
         // filter through the response object that has been called and set to state (displayPosts)
         // assign the function to a variable - identify the props to filter through - title & body
@@ -70,15 +62,20 @@ export class PostIndex extends Component {
                     <ScrollyBar>
                         <SelectFilter
                             className='inpt-1m'
+                            data={[
+                                { label: 'musician', value: 'musician' },
+                                { label: 'musicBuyer', value: 'musicBuyer' },
+                                { label: 'musicAgent', value: 'musicAgent' },
+                            ]}
                             datatestid='ddl-usr-type'
                             label='Select User Type'
                             name='ddl-usr-type'
-                            options={this.selectOptions(selectFilterOptions.userType.options)}
+                            placeholder='Select User'
                             required={false}
                             type='select'
-                            value={selectFilterResults}
-                            // onChange={event => this.updateSearchInputs(' selectFilterResults', event.target.value)}
-                            onChange={ val => this.updateSeachInputs('selectFilterResults', val) } 
+                            value={user}
+                            onChange={this.handleDropdownSelection}
+                            // onChange={event => this.updateSearchInputs('selectFilterResults', event.target.value)  }                        
                             />
 
 
