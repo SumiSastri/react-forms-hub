@@ -4,6 +4,7 @@ import PostList from './PostList'
 import ScrollyBar from '../scrolling/ScrollyBar'
 import SearchFilter from '../filters/SearchFilter'
 import SelectFilter from '../filters/SearchFilter'
+import {userTypeOptions} from "../data/mock-data/selectFilterDataOptions"
 
 export class PostIndex extends Component {
     constructor(props) {
@@ -15,9 +16,6 @@ export class PostIndex extends Component {
             }
         }
 
-    // call data from url to response set it to state 
-    // map over the response object and print list in list component
-    // to show each individual post deconstrcut props to be rendered in card 
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then((response) => response.json())
@@ -25,29 +23,29 @@ export class PostIndex extends Component {
         // .then((posts) => this.setState({}));
         // do not remove checks the loading message works
     }
-    // write utility functions - this sets the filter input to the event/ target value
+ 
     updateSearchInputs = (key, value) => {
-        if (key === 'searchFilterResults') {
+        if (key === 'searchFilterResults' || 'user') {
             this.setState({ error: null, [key]: value }, () => {
-                // debug-logs console.log("this is1:", this);
-                this.setState({ searchFilterResults: this.state.searchFilterResults });
-                // console.log("this is2:", this);
+                //console.log("this noErrorState:", this);
+                this.setState({ searchFilterResults: this.state.searchFilterResults, user: this.state.user });
+                // console.log("this updatedFilter/UserState:", this);
             });
         } else { this.setState({ error: null, [key]: value }); }
 
     }
-    handleDropdownSelection = ( user) => {
-        this.setState({ user});
-    };
 
+    handleDropdownChange = (user) => {
+        this.setState({user:user});
+        //  console.log("this userState:", this);       
+    };
+  
     render() {
         // const { displayPosts } = this.state
         // refactor and replace displayPosts with filteredPosts that you can search 
-        const { displayPosts, searchFilterResults,   user } = this.state
-        // debug logs - console.log("this is3:", this);
-        // filter through the response object that has been called and set to state (displayPosts)
-        // assign the function to a variable - identify the props to filter through - title & body
-        // set both the search field and the returned filtered array to lowercase to match cases
+        const { displayPosts, searchFilterResults, user } = this.state
+        //  console.log("this renderState:", this);
+       
         const filteredPosts = displayPosts.filter((displayPosts) => {
             return displayPosts.body.toLowerCase().includes(searchFilterResults.toLowerCase()) ||
                 displayPosts.title.toLowerCase().includes(searchFilterResults.toLowerCase())
@@ -60,13 +58,10 @@ export class PostIndex extends Component {
         ) : (
                 <div>
                     <ScrollyBar>
-                        <SelectFilter
+                        <SelectFilter     
                             className='inpt-1m'
-                            data={[
-                                { label: 'musician', value: 'musician' },
-                                { label: 'musicBuyer', value: 'musicBuyer' },
-                                { label: 'musicAgent', value: 'musicAgent' },
-                            ]}
+                            defaultValue='default'
+                            data={userTypeOptions}
                             datatestid='ddl-usr-type'
                             label='Select User Type'
                             name='ddl-usr-type'
@@ -74,10 +69,8 @@ export class PostIndex extends Component {
                             required={false}
                             type='select'
                             value={user}
-                            onChange={this.handleDropdownSelection}
-                            // onChange={event => this.updateSearchInputs('selectFilterResults', event.target.value)  }                        
+                            onChange={event => this.updateSearchInputs('user', event.target.value)}                   
                             />
-
 
                         {/* Write onChange handler and set to target value */}
                         <SearchFilter

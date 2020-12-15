@@ -2,26 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/filterStyles.css';
 
-export const SelectFilter = ({className, datatestid, data, defaultValue, label, name, onChange, options, onSubmit, placeholder, required, type, value}) => {
+export const SelectFilter = ({className,  data, datatestid, defaultValue, label, name, onChange, options, onSubmit, placeholder, required, type, value}) => {
   
-  const handleChange = (event) => {
-    console.log(event)
-    const {value} = event.target;
-    onChange(value);
-};
+ 
   return (
     <div ><span>{label}</span>
             <select
                 className={className}
-                defaultValue={defaultValue || 'default'}
+                data={data}
                 datatestid={datatestid}
+                defaultValue={defaultValue || 'default'}
                 name={name}
-                onChange={handleChange}
+                onChange={onChange}
                 options={options}
                 onSubmit={onSubmit} 
                 required={required}
                 type={type}
-                value={value}              
+                value={value}               
                >
               <option disabled value={defaultValue}>{placeholder}</option>
              {data.map((item, key) => 
