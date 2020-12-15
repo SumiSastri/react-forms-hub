@@ -5,13 +5,17 @@ import ScrollyBar from '../scrolling/ScrollyBar'
 import SearchFilter from '../filters/SearchFilter'
 import SelectFilter from '../filters/SearchFilter'
 import {userTypeOptions} from "../data/mock-data/selectFilterDataOptions"
+// import {selectFilterOptions} from "../data/mock-data/ddlOptions"
 
 export class PostIndex extends Component {
     constructor(props) {
         super(props)
+     
+        // const defaultUserType = selectFilterOptions.userType.options.find((item) => item.value === 'musician');
         this.state = {
             displayPosts: [],
             user: '',
+            // userType: { label: (`users:${defaultUserType.label}`), value: defaultUserType.value },
             searchFilterResults: '',
             }
         }
@@ -25,10 +29,10 @@ export class PostIndex extends Component {
     }
  
     updateSearchInputs = (key, value) => {
-        if (key === 'searchFilterResults' || 'user') {
+        if (key === 'searchFilterResults' || 'user' || 'userType') {
             this.setState({ error: null, [key]: value }, () => {
                 //console.log("this noErrorState:", this);
-                this.setState({ searchFilterResults: this.state.searchFilterResults, user: this.state.user });
+                this.setState({ searchFilterResults: this.state.searchFilterResults, user: this.state.user , userType: this.state.userType});
                 // console.log("this updatedFilter/UserState:", this);
             });
         } else { this.setState({ error: null, [key]: value }); }
@@ -39,11 +43,17 @@ export class PostIndex extends Component {
         this.setState({user:user});
         //  console.log("this userState:", this);       
     };
+
+    // selectOptions = (options) => {
+    //     return options.map((option) => {
+    //         return { label: (`users:${option.labelKey}`), value: option.value };
+    //     });
+    // }
   
     render() {
         // const { displayPosts } = this.state
         // refactor and replace displayPosts with filteredPosts that you can search 
-        const { displayPosts, searchFilterResults, user } = this.state
+        const { displayPosts, searchFilterResults } = this.state
         //  console.log("this renderState:", this);
        
         const filteredPosts = displayPosts.filter((displayPosts) => {
@@ -65,11 +75,15 @@ export class PostIndex extends Component {
                             datatestid='ddl-usr-type'
                             label='Select User Type'
                             name='ddl-usr-type'
+                            // options={ this.selectOptions(selectFilterOptions.userType.options) }
                             placeholder='Select User'
                             required={false}
                             type='select'
-                            value={user}
+                            value={this.state.user}
+                            // value={this.state.userType}
                             onChange={event => this.updateSearchInputs('user', event.target.value)}                   
+                            // onChange={event => this.updateSearchInputs('userType', event.target.value)}
+                            // onChange={ val => this.updateSearchInputs('user', val) }
                             />
 
                         {/* Write onChange handler and set to target value */}
