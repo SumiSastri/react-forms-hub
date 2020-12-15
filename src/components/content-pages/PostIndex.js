@@ -13,7 +13,7 @@ export class PostIndex extends Component {
         const defaultUserType = selectFilterOptions.userType.options.find((user) => user.value === 'musician');
         this.state = {
             displayPosts: [],
-            selectFilterResults: {label:(`filteredOptions:${defaultUserType.label}`), value: defaultUserType.value},
+            selectFilterResults: { label: (`${defaultUserType.label}`), value: defaultUserType.value },
                 searchFilterResults: '',
             }
         }
@@ -34,17 +34,19 @@ export class PostIndex extends Component {
             this.setState({ error: null, [key]: value }, () => {
                 // debug-logs console.log("this is1:", this);
                 this.setState({ searchFilterResults: this.state.searchFilterResults,  selectFilterResults: this.state.selectFilterResults });
-                // debug-logs console.log("this is2:", this);
+                console.log("this is2:", this);
             });
         } else { this.setState({ error: null, [key]: value }); }
 
     }
     // utility function to map through the ddlOptions file 
+
     selectOptions = (options) => {
         return options.map((option) => {
-            return { label:(`filteredOptions:${option.label}`), value: option.value }
+            return { label: (`${option.label}`), value: option.value };
         });
     }
+
 
     render() {
         // const { displayPosts } = this.state
@@ -75,7 +77,9 @@ export class PostIndex extends Component {
                             required={false}
                             type='select'
                             value={selectFilterResults}
-                            onChange={event => this.updateSearchInputs(' selectFilterResults', event.target.value)} />
+                            // onChange={event => this.updateSearchInputs(' selectFilterResults', event.target.value)}
+                            onChange={ val => this.updateSeachInputs('selectFilterResults', val) } 
+                            />
 
 
                         {/* Write onChange handler and set to target value */}
