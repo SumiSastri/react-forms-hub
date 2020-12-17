@@ -36,10 +36,30 @@ export class LoginModal extends Component {
         console.log('openmodal:', this.state)
     };
 
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-        alert(`Your details have been submitted for registration`)
-    };
+    postFormData = () => {
+        this.setState({ error: null });
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            params: {
+            userName: this.state.userName,
+            userPassword: this.state.password,
+               
+            },
+        }).then(({ response }) => {
+            if (200 <= response <= 299) {
+                this.setState(this.initialState);
+            } 
+        }).catch( e => this.setState({ error: e }) );
+    }
+
+    // handleFormSubmit = (event) => {
+    //     event.preventDefault();
+    //     alert(`Your details have been submitted for registration`)
+    // }; this submit does not send the form to a back-end database
 
     render() {
         return (
@@ -63,7 +83,7 @@ export class LoginModal extends Component {
 
 children={<div>
 
-                    <form onSubmit={this.handleFormSubmit}>
+                    <form  onSubmit={() => (this.postFormData)} >
                         <InputField
                             className='inpt-1s'
                             datatestid='usr-name'
@@ -94,7 +114,7 @@ children={<div>
                                 className='button-one'
                                 datatestid='btn-login-reg-submit'
                                 name='btn-login-reg-submit'
-                                onSubmit={this.handleFormSubmit}
+                                onSubmit={() => (this.postFormData)}   
                                 label='Submit'
                                 type='submit'
                             />

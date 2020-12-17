@@ -125,7 +125,7 @@ export class PostIndex extends Component {
                             />
 
                             <ButtonComponent
-                            className={ classNames(['button, button-one'], { 'button-disabled' : loading }) }
+                            className={ classNames(['btn-5'], { 'button-disabled' : loading }) }
                             datatestid='btn-save'
                             disabled={ loading }
                             label='Save'
@@ -133,7 +133,7 @@ export class PostIndex extends Component {
                             onSubmit={() => (postFormData)}                   
                             type='submit'
                         >   
-                            { loading ? <i className="fa fa-spinner fa-pulse"/> : ('defaultValue:save') }        
+                            { loading ? <i className="fas fa-drum"/> : ('defaultValue:save') }        
                    </ButtonComponent>
                             
                             </form>
