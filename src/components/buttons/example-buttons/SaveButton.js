@@ -3,13 +3,12 @@ import PropTypes from 'prop-types'
 
 import '../styles/buttonStyles.css';
 
-export const  ButtonComponent = ({ className, disabled, defaultValue,datatestid, label, name, openModal, onClick, onSubmit, onSave, required, type, value }) => {
+export const  ButtonComponent = ({ className, disabled, datatestid, label, name, openModal, onClick, onSubmit, onSave, required, type, value }) => {
     return (
         <div>
             <button
                 className={className}
                 datatestid={datatestid}
-                defaultValue={defaultValue}
                 disabled={disabled}
                 label={label}
                 name={name}
@@ -28,7 +27,6 @@ export const  ButtonComponent = ({ className, disabled, defaultValue,datatestid,
 ButtonComponent.propTypes = {
     className: PropTypes.string,
     datatestid: PropTypes.string,
-    defaultValue:PropTypes.bool,
     disabled: PropTypes.bool,
     label: PropTypes.string,
     name: PropTypes.string,
