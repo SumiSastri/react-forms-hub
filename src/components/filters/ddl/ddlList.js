@@ -45,7 +45,7 @@ export const formatItem = (props) => {
     return itemsList;
 };
 
-export const NestedDropDownList = ({
+export const NestedDdlList = ({
     items,
     itemClassName,
     listClassName,
@@ -70,7 +70,7 @@ export const NestedDropDownList = ({
     return <ul className={ classNames('nested-dropdown__list', listClassName) }>{ itemsList }</ul>;
 };
 
-NestedDropDownList.propTypes = {
+NestedDdlList.propTypes = {
     items: PropTypes.array.isRequired,
     itemClassName: PropTypes.string,
     listClassName: PropTypes.string,

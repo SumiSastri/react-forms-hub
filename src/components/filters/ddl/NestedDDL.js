@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import enhanceWithClickOutside from 'react-click-outside';
-import { NestedDdlList} from './list';
+import { NestedDdlList } from './nested-DlList';
 
 export const findItem = (items, value) => {
 
@@ -108,7 +108,7 @@ export class NestedDropDown extends React.Component {
 
         if (this.state.isOpen) {
             panel = <div className='nested-dropdown__panel'>
-                <NestedDdlList { ...listProps } />
+                <NestedDdlList  { ...listProps } />
             </div>;
         }
 

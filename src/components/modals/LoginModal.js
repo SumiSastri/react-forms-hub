@@ -19,14 +19,6 @@ export class LoginModal extends Component {
         this.initialState = this.state;
     }
 
-    updateFormInputs = (key, value) => {
-        if (key === 'userName' || key === 'phoneNumber' || key === 'password') {
-            this.setState({ error: null, [key]: value }, () => {
-                this.setState({ userName: this.state.userName, password: this.state.password });
-            });
-        } else { this.setState({ error: null, [key]: value }); }
-    }
-
     openModal = () => {
         console.log("this is:", this);
         this.setState((state) => ({
@@ -35,7 +27,13 @@ export class LoginModal extends Component {
         }));
         console.log('openmodal:', this.state)
     };
-
+    updateFormInputs = (key, value) => {
+        if (key === 'userName' || key === 'phoneNumber' || key === 'password') {
+            this.setState({ error: null, [key]: value }, () => {
+                this.setState({ userName: this.state.userName, password: this.state.password });
+            });
+        } else { this.setState({ error: null, [key]: value }); }
+    }
     postFormData = () => {
         this.setState({ error: null });
         fetch('https://jsonplaceholder.typicode.com/posts', {
