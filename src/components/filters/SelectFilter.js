@@ -6,43 +6,37 @@ export const SelectFilter = ({
 	className,
 	data,
 	datatestid,
-	defaultValue,
 	label,
 	name,
 	onChange,
 	options,
 	onSubmit,
-	placeholder,
 	required,
-	type,
 	value
 }) => {
 	return (
 		<div>
-			<p>{label}</p>
-
-			<select
-				className={className}
-				data={data}
-				datatestid={datatestid}
-				defaultValue={defaultValue || 'default'}
-				name={name}
-				onChange={onChange}
-				options={options}
-				onSubmit={onSubmit}
-				required={required}
-				type={type}
-				value={value}
-			>
-				{/* <option disabled value={defaultValue}>
-					{placeholder}
-				</option>
-				{data.map((item, key) => (
-					<option key={key} value={item.value}>
-						{item.label}
-					</option>
-				))} */}
-			</select>
+			<label>
+				<p>{label}</p>
+				<select
+					className={className}
+					data={data}
+					datatestid={datatestid}
+					name={name}
+					onChange={onChange}
+					options={options}
+					onSubmit={onSubmit}
+					required={required}
+					value={value}
+				>
+					{data.map((options) => (
+						<option key={options.id} value={options.value}>
+							{options.label}
+						</option>
+					))}
+				</select>
+			</label>
+			<input type="select" value="select" />
 			<br />
 		</div>
 	);

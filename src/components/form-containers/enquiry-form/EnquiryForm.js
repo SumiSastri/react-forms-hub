@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { HeaderComponent } from '../../navbars/HeaderComponent';
-import { InputField } from '../../input-fields/InputField';
+import { InputText } from '../../input-fields/example-usage/InputText';
 import { payrollEnquiryOptions } from '../../data/mock-data/selectFilterDataOptions';
 import { SelectFilter } from '../../filters/SelectFilter';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
 import { DatePickerComponent } from '../../date-picker/DatePickerComponent';
 
 export const EnquiryForm = () => {
+	const initialState = '';
+	const [ payrollEnquiryType, setPayrollEnquiryType ] = useState(initialState);
+	const [ payrollQueryText, setPayrollQueryText ] = useState(initialState);
+
 	return (
 		<div>
 			<HeaderComponent datatestid="payroll-enquiry-header" name={'payroll-enquiry-header'}>
@@ -18,31 +22,28 @@ export const EnquiryForm = () => {
 			<form onSubmit={() => {}}>
 				<SelectFilter
 					className="dropdown-menu "
-					defaultValue="default"
 					data={payrollEnquiryOptions}
 					datatestid="ddl-payroll-enquiry"
-					label="Select Payroll Enquiry"
-					name="ddl-payroll-enquiry"
-					onChange={() => {}}
-					// onChange={(event) => this.updateSearchInputs('payrollEnquiryType', event.target.value)}
-					placeholder="Select enquiry type"
-					// conditional addition of this prop
-					required={true}
+					label="Select Payroll Enquiry Option"
 					type="select"
-					// value={payrollEnquiryType}
+					onChange={(event) => setPayrollEnquiryType(event.target.value)}
+					required={true}
+					value={payrollEnquiryType}
 				/>
+				<br />
 				<DatePickerComponent />
-				<InputField
+				<br />
+				<InputText
 					className="inpt-box"
 					datatestid="payroll-query-text-description"
+					label="Please type your request here"
 					name="payroll-query-text-description"
-					onChange={() => {}}
+					onChange={(event) => setPayrollQueryText(event.target.value)}
 					placeholder="Please type your request here"
 					required={true}
 					type="Text"
-					// value={value}
+					value={payrollQueryText}
 				/>
-
 				<ButtonComponent
 					className="button-one"
 					datatestid="payroll-query-save-btn"

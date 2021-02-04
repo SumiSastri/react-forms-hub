@@ -7,9 +7,19 @@ export const DatePickerComponent = () => {
 	const [ selectedDate, setSelectedDate ] = useState(initialState);
 
 	return (
-		<div>
-			<p>Select a date:</p>
-			<DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+		<div style={{ width: '25%', border: '2px solid grey' }}>
+			<h5>Click to select a date:</h5>
+
+			<DatePicker
+				isClearable={true}
+				dateFormat="dd/MM/yyyy"
+				monthsShown={4}
+				onChange={(date) => setSelectedDate(date)}
+				placeholderText="Click to select a date"
+				selected={selectedDate}
+				showYearDropdown
+				scrollableMonthYearDropdown
+			/>
 		</div>
 	);
 };

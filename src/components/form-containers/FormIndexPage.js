@@ -7,7 +7,7 @@ import { EnquiryForm } from './enquiry-form/EnquiryForm';
 
 const FormIndexPage = () => {
 	return (
-		<div className="main-form-container">
+		<div>
 			{/* <FormHeader />
 			<PostIndex />
 			<FormFooter /> */}

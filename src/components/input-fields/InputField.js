@@ -27,7 +27,8 @@ export const InputField = ({
 				onSubmit={onSubmit}
 				placeholder={placeholder}
 				required={required}
-				type={type}
+				type="text"
+				label={label}
 				value={value}
 			/>
 		</div>

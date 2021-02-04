@@ -1,4 +1,14 @@
 export const selectFilterOptions = {
+	payrollEnquiry: {
+		type: 'select',
+		options: [
+			{ label: 'Incorrect-Pay', value: 'Incorrect Pay' },
+			{ label: 'Missing-Expense', value: 'Missing Expense' },
+			{ label: 'Change-of-Bank-Details', value: 'Change of Bank Details' },
+			{ label: 'Change-of-Address', value: 'Change of Address' },
+			{ label: 'Other', value: 'Other' }
+		]
+	},
 	userType: {
 		type: 'select',
 		options: [

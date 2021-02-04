@@ -41,8 +41,8 @@ export class PostIndex extends Component {
 		}
 	};
 	// Alternate way of writing a handle change
-	handleDropdownChange = (user) => {
-		this.setState({ user: user.value });
+	handleDropdownChange = (userType) => {
+		this.setState({ userType: userType.value });
 	};
 
 	//function to clear persisting data on form

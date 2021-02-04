@@ -22,13 +22,15 @@ Documentation:
 - React Icons (includes Fontawesome, Devicons, Ionicons, Game Icons, Weather Icons, Ant Design, GitHub, Feather Material-ui & Typicons)
 https://react-icons.github.io/react-icons/
 - React Modals
-https://www.npmjs.com/package/react-modal
-- React Loading Animations
+Documentation[https://www.npmjs.com/package/react-modal]
 - React Date Picker
+Documentation[https://reactdatepicker.com/]
 - React Select (drop-down select filters)
-https://react-select.com/home
+Documentation[https://react-select.com/home]
+- React Loading Animations
 
 
-
+Research:
+Form Validation:
 Tutorial playlist for forms:
 https://www.youtube.com/playlist?list=PLtvX0WpNqnvPWQhzPpoTPDb2ZnVUresVb

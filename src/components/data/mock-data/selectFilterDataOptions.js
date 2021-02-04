@@ -1,9 +1,9 @@
-export const payrollEnquiryOptions = [
-	{ label: 'Incorrect-Pay', value: 'Incorrect Pay' },
-	{ label: 'Missing-Expense', value: 'Missing Expense' },
-	{ label: 'Change-of-Bank-Details', value: 'Change of Bank Details' },
-	{ label: 'Change-of-Address', value: 'Change of Address' },
-	{ label: 'Other', value: 'Other' }
+export const payrollEnquiryType = [
+	{ id: '1', label: 'Incorrect-Pay', value: 'Incorrect Pay' },
+	{ id: 2, label: 'Missing-Expense', value: 'Missing Expense' },
+	{ id: 3, label: 'Change-of-Bank-Details', value: 'Change of Bank Details' },
+	{ id: 4, label: 'Change-of-Address', value: 'Change of Address' },
+	{ id: 5, label: 'Other', value: 'Other' }
 ];
 
 export const userTypeOptions = [
