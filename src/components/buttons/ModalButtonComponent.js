@@ -10,6 +10,7 @@ export const ButtonComponent = ({
 	datatestid,
 	label,
 	name,
+	openModal,
 	onClick,
 	onSubmit,
 	required
@@ -22,6 +23,7 @@ export const ButtonComponent = ({
 			disabled={disabled}
 			label={label}
 			name={name}
+			openModal={openModal}
 			onClick={onClick}
 			onSubmit={onSubmit}
 			required={required}

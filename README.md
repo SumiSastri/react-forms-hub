@@ -3,18 +3,20 @@
 - $git clone sha-key
 - $npm init -y
 - $npm run start
-- Removed yarn as a package manage
+- Removed yarn as a package manager
 
 ### Project goals
 
-This is an experimental side-project to understand forms with React/ React-Hooks / React-Redux and with TypeScript.
+This is an experimental, personal side-project to understand forms with React/ React-Hooks / React-Redux, TypeScript, front-end validation and testing-libraries.
+
+It is a work-in-progress project, where I update sections as I learn and understand how each of the moving parts work in conjunction with each-other.
 
 ### Dependency list
 
 - React * npm install -D react react-dom  react-scripts
 - React-Router * npm install -D react-router react-router-dom
 - Libraries
-* npm install -D classnames react-icons react-modal
+* npm install -D classnames react-icons react-modal react-datepicker
 
 Documentation:
 - React Icons (includes Fontawesome, Devicons, Ionicons, Game Icons, Weather Icons, Ant Design, GitHub, Feather Material-ui & Typicons)
@@ -23,7 +25,10 @@ https://react-icons.github.io/react-icons/
 https://www.npmjs.com/package/react-modal
 - React Loading Animations
 - React Date Picker
+- React Select (drop-down select filters)
+https://react-select.com/home
+
+
 
 Tutorial playlist for forms:
 https://www.youtube.com/playlist?list=PLtvX0WpNqnvPWQhzPpoTPDb2ZnVUresVb
-

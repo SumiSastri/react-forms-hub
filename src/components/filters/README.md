@@ -1,5 +1,13 @@
-https://codesandbox.io/s/2qv78?module=/example&file=/example.js
-Search Filter - react Select library
+- React Select (drop-down select filters)
+The purpose of this documentation is to provide a quick summary of how to create a select filter with the React-Select library
+
+Documentation:
+https://react-select.com/home
+
+Install packages:
+* npm install -D react-datepicker
+
+
 
 Filters:
 Call the data from an API set it to state in the ```componentDidMount()``` lifecycle method
@@ -18,5 +26,10 @@ The search filter utility function is written in the render method
  Set both the search field and the returned filtered array to lowercase to match cases
 
  With the select filter create your data that you want to filter through - can be hardcoded in an array or filtered from the data in an API call
+
  If it is hardcoded import it into the Index component - set it to the data prop that has been created in the reusable component
+ 
  The value field 
+
+
+ https://codesandbox.io/s/2qv78?module=/example&file=/example.js

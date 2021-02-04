@@ -35,15 +35,16 @@
     "@storybook/addons": "^5.1.11",
     "@storybook/react": "^5.1.11",
     "react": "^17.0.1",
+    "react-datepicker": "^3.4.1",
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
     "react-modal": "^3.12.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.2"
+    "react-scripts": "^4.0.2",
+    "react-select": "^4.0.2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC"
-
 }
