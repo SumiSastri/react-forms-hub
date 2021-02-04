@@ -42,7 +42,15 @@
     "@storybook/react": "^5.1.11"
   },
   "main": "index.js",
-  "repository": "https://github.com/SumiSastri/react-forms-hub.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SumiSastri/react-forms-hub.git"
+  },
   "author": "Sumi",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "- Repo access - $git clone sha-key - $yarn or yarn install - $yarn run start",
+  "bugs": {
+    "url": "https://github.com/SumiSastri/react-forms-hub/issues"
+  },
+  "homepage": "https://github.com/SumiSastri/react-forms-hub#readme"
 }
