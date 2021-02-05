@@ -1,6 +1,6 @@
 ### React-form hub
 - Repo access
-- $git clone sha-key
+- $git clone 
 - $npm init -y
 - $npm run start
 - Removed yarn as a package manager

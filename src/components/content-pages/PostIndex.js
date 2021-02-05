@@ -92,7 +92,7 @@ export class PostIndex extends Component {
 		) : (
 			<div>
 				<ScrollyBar>
-					<container>
+					<div>
 						<form
 							onSubmit={() => postFormData}
 							style={{
@@ -138,7 +138,7 @@ export class PostIndex extends Component {
 								{loading ? <i className="fas fa-drum" /> : 'defaultValue:save'}
 							</ButtonComponent>
 						</form>
-					</container>
+					</div>
 					{/* Replaced displayed posts with the filtered posts */}
 					<PostList displayPosts={filteredPosts} />
 					{/* <PostList displayPosts={displayPosts} />                 */}

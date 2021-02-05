@@ -1,5 +1,5 @@
-export const payrollEnquiryType = [
-	{ id: '1', label: 'Incorrect-Pay', value: 'Incorrect Pay' },
+export const payrollEnquiryOptions = [
+	{ id: 1, label: 'Incorrect-Pay', value: 'Incorrect Pay' },
 	{ id: 2, label: 'Missing-Expense', value: 'Missing Expense' },
 	{ id: 3, label: 'Change-of-Bank-Details', value: 'Change of Bank Details' },
 	{ id: 4, label: 'Change-of-Address', value: 'Change of Address' },

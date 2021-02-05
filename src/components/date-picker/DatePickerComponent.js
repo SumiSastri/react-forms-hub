@@ -19,6 +19,7 @@ export const DatePickerComponent = () => {
 				selected={selectedDate}
 				showYearDropdown
 				scrollableMonthYearDropdown
+				onSubmit={onsubmit}
 			/>
 		</div>
 	);

@@ -9,8 +9,21 @@ import { DatePickerComponent } from '../../date-picker/DatePickerComponent';
 
 export const EnquiryForm = () => {
 	const initialState = '';
-	const [ payrollEnquiryType, setPayrollEnquiryType ] = useState(initialState);
+	const [ payrollEnquiryType, setPayrollEnquiryType ] = useState('Select one');
 	const [ payrollQueryText, setPayrollQueryText ] = useState(initialState);
+	const [ dateEntered, setDateEntered ] = useState(initialState);
+	const [ submitted, setSubmitted ] = useState(false);
+	const [ isValidated, setIsValidated ] = useState(false);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (payrollEnquiryType && payrollQueryText && dateEntered) {
+			setIsValidated(true);
+		}
+		const newPayrollEnquiry = { payrollEnquiryType, payrollQueryText, dateEntered };
+		console.log(newPayrollEnquiry);
+		setSubmitted(true);
+	};
 
 	return (
 		<div>
@@ -19,43 +32,50 @@ export const EnquiryForm = () => {
 				<h5>Please use this form for any Payroll related enquiries</h5>
 			</HeaderComponent>
 
-			<form onSubmit={() => {}}>
+			<form onSubmit={handleSubmit}>
+				{submitted && isValidated ? (
+					<div>
+						<p>Your form has been submitted</p>
+					</div>
+				) : null}
 				<SelectFilter
-					className="dropdown-menu "
+					className="select"
 					data={payrollEnquiryOptions}
 					datatestid="ddl-payroll-enquiry"
-					label="Select Payroll Enquiry Option"
+					label="SELECT A PAYROLL ENQUIRY OPTION"
 					type="select"
-					onChange={(event) => setPayrollEnquiryType(event.target.value)}
-					required={true}
 					value={payrollEnquiryType}
-				/>
+					onChange={(event) => setPayrollEnquiryType(event.target.value)}
+				>
+					<option key={payrollEnquiryOptions.id} value={payrollEnquiryOptions.value}>
+						{payrollEnquiryOptions.label}
+					</option>
+				</SelectFilter>
 				<br />
-				<DatePickerComponent />
+				<DatePickerComponent value={dateEntered} onChange={(event) => setDateEntered(event.target.value)} />
 				<br />
+				{submitted && !dateEntered ? <span>You forgot to select a date</span> : null}
 				<InputText
 					className="inpt-box"
 					datatestid="payroll-query-text-description"
 					label="Please type your request here"
 					name="payroll-query-text-description"
-					onChange={(event) => setPayrollQueryText(event.target.value)}
 					placeholder="Please type your request here"
-					required={true}
-					type="Text"
+					type="text"
 					value={payrollQueryText}
+					onChange={(event) => setPayrollQueryText(event.target.value)}
 				/>
+				{submitted && !payrollQueryText ? <span>You forgot to enter a query</span> : null}
+				<br />
 				<ButtonComponent
 					className="button-one"
 					datatestid="payroll-query-save-btn"
-					// logic to enable and disable
-					disabled={false}
 					label="Save"
 					name="payroll-query-save-btn"
-					onSubmit={() => {}}
-					required={true}
-					// value={value}
+					onClick={handleSubmit}
 				/>
 			</form>
 		</div>
 	);
 };
+export default EnquiryForm;

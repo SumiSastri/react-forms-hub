@@ -36,7 +36,7 @@ export const SelectFilter = ({
 					))}
 				</select>
 			</label>
-			<input type="select" value="select" />
+
 			<br />
 		</div>
 	);
