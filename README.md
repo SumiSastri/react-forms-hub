@@ -63,3 +63,7 @@ Chris Blakely:
  Jason Rivera:
  https://www.youtube.com/watch?v=3PmNHeVAHOk&ab_channel=JasonRivera
 
+
+Brian:
+https://www.youtube.com/watch?v=KGFG-yQD7Dw&ab_channel=BrianDesign
+23:00 validation

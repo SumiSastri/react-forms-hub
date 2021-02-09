@@ -8,6 +8,7 @@ import { FormInputComponent } from '../../input-fields/FormInputComponent';
 import { payrollEnquiryOptions } from '../../data/mock-data/selectFilterDataOptions';
 import { SelectFilterComponent } from '../../filters/SelectFilterComponent';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
+import SubmitFormSuccess from '../../errors/no-errors/SubmitFormSuccess';
 
 export const EnquiryForm = () => {
 	const initialState = '';
@@ -16,6 +17,7 @@ export const EnquiryForm = () => {
 	const [ selectedDate, setSelectedDate ] = useState(initialState);
 	const [ submitted, setSubmitted ] = useState(false);
 	const [ isValidated, setIsValidated ] = useState(false);
+	// const [ errors, setErrors ] = useState({});
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -24,8 +26,7 @@ export const EnquiryForm = () => {
 		console.log(newPayrollEnquiry);
 
 		if (!payrollEnquiryType && !payrollQueryText && !selectedDate) {
-			setIsValidated(false);
-			setSubmitted(false);
+			// setErrors(setIsValidated(false));
 		} else {
 			setIsValidated(true);
 			setSubmitted(true);
@@ -60,11 +61,8 @@ export const EnquiryForm = () => {
 			/>
 			<br />
 			<form onSubmit={handleSubmit}>
-				{submitted && isValidated ? (
-					<div>
-						<h6>Your form has been submitted</h6>
-					</div>
-				) : null}
+				{submitted && isValidated ? <SubmitFormSuccess /> : null}
+				<br />
 				<SelectFilterComponent
 					className="select"
 					data={payrollEnquiryOptions}

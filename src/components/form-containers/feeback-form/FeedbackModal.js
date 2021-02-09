@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
-import { ModalContainer } from './ModalContainer';
-import { ButtonComponent } from '../buttons/ButtonComponent';
-import { FormInputComponent } from '../input-fields/FormInputComponent';
+import { PopUpModalComponent } from '../../modals/PopUpModalComponent';
+import { ButtonComponent } from '../../buttons/ButtonComponent';
+import { FormInputComponent } from '../../input-fields/FormInputComponent';
 
 ReactModal.setAppElement('body');
 
@@ -56,7 +56,7 @@ export class FeedbackModal extends Component {
 					type="button"
 				/>
 
-				<ModalContainer
+				<PopUpModalComponent
 					isOpen={this.state.modalIsOpen}
 					disableCloseOnOverlay={false}
 					closeOnRequest={() => this.openModal(false)}

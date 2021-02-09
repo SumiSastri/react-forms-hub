@@ -11,7 +11,7 @@ export class PostIndex extends Component {
 		super(props);
 		this.state = {
 			displayPosts: [],
-			userType: '',
+			userType: 'musician',
 			searchFilterResults: '',
 			loading: false,
 			error: null
@@ -89,12 +89,7 @@ export class PostIndex extends Component {
 			</div>
 		) : (
 			<div>
-				<form
-					onSubmit={() => postFormData}
-					style={{
-						display: 'flex'
-					}}
-				>
+				<form style={{ display: 'flex', alignItems: 'center' }} onSubmit={() => postFormData}>
 					<SelectFilterComponent
 						className="select"
 						defaultValue="default"
