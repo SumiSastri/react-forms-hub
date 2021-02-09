@@ -16,4 +16,8 @@ Challenges: -
 
 - Date Picker Library - date not submitted from the picker - further reading of documentation required.
 
+StackOverflow: https://stackoverflow.com/questions/60864610/is-it-possible-to-use-react-datepicker-with-react-hooks-forms
+
+https://www.laravelcode.com/post/how-to-implement-datepicker-in-react-with-example
+
 

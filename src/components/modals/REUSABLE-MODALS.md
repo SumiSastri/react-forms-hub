@@ -18,7 +18,7 @@ Design:
 
 Logic
 6. Ensure you have a boolean value for the open/ close state of the modal ```isModalOpen``` for example
-7. Set up a model/open close utility function so that you have an on click to open the model and set state here to update the value to use in your render method.
+7. Set up a model/open close utility function so that you have an on click to open the modal and set state here to update the value to use in your render method.
 
 ```
 openModal = () => {

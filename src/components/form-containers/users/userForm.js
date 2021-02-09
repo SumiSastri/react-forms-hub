@@ -33,8 +33,7 @@ class NameAddress extends Component {
 	// 	});
 	// };
 
-
-// more efficient refactor
+	// more efficient refactor
 	handleChange = ({ target: { name, value } }) => {
 		const data = { ...this.state.data, [name]: value };
 		this.setState({ data });
@@ -42,6 +41,7 @@ class NameAddress extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
+		// alert(`${this.state.firstName}`);
 	};
 
 	render() {

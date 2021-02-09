@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import logo from '../../assets/navbar-logo.svg';
 import { HeaderComponent } from '../../navbars/HeaderComponent';
 import { InputText } from '../../input-fields/example-usage/InputText';
 import { payrollEnquiryOptions } from '../../data/mock-data/selectFilterDataOptions';
@@ -27,10 +28,19 @@ export const EnquiryForm = () => {
 
 	return (
 		<div>
-			<HeaderComponent datatestid="payroll-enquiry-header" name={'payroll-enquiry-header'}>
-				<h2>Payroll enquiry </h2>
-				<h5>Please use this form for any Payroll related enquiries</h5>
-			</HeaderComponent>
+			<HeaderComponent
+				datatestid="payroll-enquiry-header"
+				name={'payroll-enquiry-header'}
+				children={
+					<section>
+						<div>
+							<img className="logo-branding" alt="logo" src={logo} />
+						</div>
+						<h2>Payroll enquiry </h2>
+						<h5>Please use this form for any Payroll related enquiries</h5>
+					</section>
+				}
+			/>
 
 			<form onSubmit={handleSubmit}>
 				{submitted && isValidated ? (
