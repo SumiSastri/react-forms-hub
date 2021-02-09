@@ -23,6 +23,15 @@ export const EnquiryForm = () => {
 		}
 		const newPayrollEnquiry = { payrollEnquiryType, payrollQueryText, dateEntered };
 		console.log(newPayrollEnquiry);
+
+		// const submitPayload = { };
+		// fetch('url', {
+		// 	method: 'POST',
+		// 	headers: { 'Content-Type': 'application/json' },
+		// 	body: JSON.stringify(submitPayload)
+		// }).then(() => {
+		// 	console.log('new payload sent to db', submitPayload);
+		// });
 		setSubmitted(true);
 	};
 
