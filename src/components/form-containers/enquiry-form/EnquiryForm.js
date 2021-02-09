@@ -19,22 +19,28 @@ export const EnquiryForm = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (payrollEnquiryType && payrollQueryText && selectedDate) {
-			setIsValidated(true);
-		}
+
 		const newPayrollEnquiry = { payrollEnquiryType, payrollQueryText, selectedDate };
 		console.log(newPayrollEnquiry);
 
-		// const submitPayload = { };
-		// fetch('url', {
+		if (!payrollEnquiryType && !payrollQueryText && !selectedDate) {
+			setIsValidated(false);
+			setSubmitted(false);
+		} else {
+			setIsValidated(true);
+			setSubmitted(true);
+		}
+
+		// useEffect hook  - refactor
+
+		// const submitPayload = (newPayrollEnquiry) {
+		// fetch('/payroll', {
 		// 	method: 'POST',
 		// 	headers: { 'Content-Type': 'application/json' },
 		// 	body: JSON.stringify(submitPayload)
 		// }).then(() => {
 		// 	console.log('new payload sent to db', submitPayload);
-		// });
-
-		setSubmitted(true);
+		// });};
 	};
 
 	return (
@@ -48,15 +54,15 @@ export const EnquiryForm = () => {
 							<img className="logo-branding" alt="logo" src={logo} />
 						</div>
 						<h2>Payroll enquiry </h2>
-						<h5>Please use this form for any Payroll related enquiries</h5>
+						<h4>Please use this form for any Payroll related enquiries</h4>
 					</section>
 				}
 			/>
-
+			<br />
 			<form onSubmit={handleSubmit}>
 				{submitted && isValidated ? (
 					<div>
-						<p>Your form has been submitted</p>
+						<h6>Your form has been submitted</h6>
 					</div>
 				) : null}
 				<SelectFilterComponent
@@ -64,6 +70,7 @@ export const EnquiryForm = () => {
 					data={payrollEnquiryOptions}
 					datatestid="ddl-payroll-enquiry"
 					label="SELECT A PAYROLL ENQUIRY OPTION"
+					required={true}
 					type="select"
 					value={payrollEnquiryType}
 					onChange={(event) => setPayrollEnquiryType(event.target.value)}
@@ -72,15 +79,16 @@ export const EnquiryForm = () => {
 						{payrollEnquiryOptions.label}
 					</option>
 				</SelectFilterComponent>
-				<br />
+
 				{payrollEnquiryOptions[0] || payrollEnquiryOptions[1] ? (
-					<div style={{ width: '25%', border: '2px solid grey' }}>
+					<div style={{ width: '75%', border: '2px solid grey' }}>
 						<DatePicker
 							isClearable={true}
 							dateFormat="dd/MM/yyyy"
 							monthsShown={2}
 							onChange={(date) => setSelectedDate(date)}
-							placeholderText="Click to select a date"
+							placeholderText="Click here for calendar"
+							required={true}
 							selected={selectedDate}
 							showYearDropdown
 							scrollableMonthYearDropdown
@@ -89,18 +97,21 @@ export const EnquiryForm = () => {
 					</div>
 				) : null}
 				<br />
-				{submitted && !selectedDate ? <span>You forgot to select a date</span> : null}
+				{submitted && !selectedDate ? <span style={{ color: 'red' }}>You forgot to select a date</span> : null}
 				<FormInputComponent
 					className="inpt-box "
 					datatestid="payroll-query-text-description"
 					label="Please type your request here"
 					name="payroll-query-text-description"
 					placeholder="Please type your request here"
+					required={true}
 					type="text"
 					value={payrollQueryText}
 					onChange={(event) => setPayrollQueryText(event.target.value)}
 				/>
-				{submitted && !payrollQueryText ? <span>You forgot to enter a query</span> : null}
+				{submitted && !payrollQueryText ? (
+					<span style={{ color: 'red' }}>You forgot to enter your enquiry</span>
+				) : null}
 				<br />
 				<ButtonComponent
 					className="button-one"
