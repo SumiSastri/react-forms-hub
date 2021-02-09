@@ -1,4 +1,4 @@
-**Steps to create a reusable component for headers**
+**Steps to create a reusable component for headers & footers**
 
 1. Headers across a form library often have what the purpose of the form is and some branding.
 
@@ -50,3 +50,5 @@ Import the custom component and use children as a prop with the custom jsx withi
 __Note__ The closing tag of the JSX is after the children prop. Styles have been imported into this forms hub page but may not in another method of styling. Logo image has to be imported into the component where it will be rendered.		
 
 4. Footers have been created in a similar design pattern with a note that footers may have list items so the children could contain JSX elements for unordered lists and links
+
+5. Navs - tbc

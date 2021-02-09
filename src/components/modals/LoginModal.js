@@ -86,11 +86,11 @@ export class LoginModal extends Component {
 									datatestid="usr-name"
 									label="User Name"
 									name="user name"
-									onChange={(event) => this.updateFormInputs('userName', event.target.value)}
 									placeholder="Your email-id is your username"
 									required={false}
 									type="text"
 									value={this.state.userName}
+									onChange={(event) => this.updateFormInputs('userName', event.target.value)}
 								/>
 
 								<FormInputComponent
@@ -98,11 +98,11 @@ export class LoginModal extends Component {
 									datatestid="password"
 									label="Password"
 									name="password"
-									onChange={(event) => this.updateFormInputs('password', event.target.value)}
 									placeholder="Use a mix of numbers, letters, symbols"
 									required={true}
 									type="password"
 									value={this.state.password}
+									onChange={(event) => this.updateFormInputs('password', event.target.value)}
 								/>
 								<div>
 									<p>

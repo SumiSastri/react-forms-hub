@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { userTypeOptions } from '../data/mock-data/selectFilterDataOptions';
 import PostList from './PostList';
-import SearchFilter from '../filters/SearchFilter';
+// import SearchFilter from '../filters/SearchFilter';
+import { FormInputComponent } from '../input-fields/FormInputComponent';
 import SelectFilterComponent from '../filters/SelectFilterComponent';
 
 export class PostIndex extends Component {
@@ -109,7 +110,18 @@ export class PostIndex extends Component {
 					/>
 
 					{/* Write onChange handler and set to target value */}
-					<SearchFilter
+					{/* <SearchFilter
+						className="inpt-1s"
+						datatestid="searchfield-posts"
+						label="Search Posts"
+						name="search-posts"
+						placeholder="Search"
+						required={false}
+						type="search"
+						onChange={(event) => this.updateSearchInputs('searchFilterResults', event.target.value)}
+						value={searchFilterResults}
+					/> */}
+					<FormInputComponent
 						className="inpt-1s"
 						datatestid="searchfield-posts"
 						label="Search Posts"

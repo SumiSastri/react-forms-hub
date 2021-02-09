@@ -11,7 +11,7 @@ import { ButtonComponent } from '../../buttons/ButtonComponent';
 
 export const EnquiryForm = () => {
 	const initialState = '';
-	const [ payrollEnquiryType, setPayrollEnquiryType ] = useState('Select one');
+	const [ payrollEnquiryType, setPayrollEnquiryType ] = useState('Incorrect-Pay');
 	const [ payrollQueryText, setPayrollQueryText ] = useState(initialState);
 	const [ selectedDate, setSelectedDate ] = useState(initialState);
 	const [ submitted, setSubmitted ] = useState(false);
@@ -56,7 +56,7 @@ export const EnquiryForm = () => {
 			<form onSubmit={handleSubmit}>
 				{submitted && isValidated ? (
 					<div>
-						<h6>Your form has been submitted</h6>
+						<p>Your form has been submitted</p>
 					</div>
 				) : null}
 				<SelectFilterComponent
@@ -74,7 +74,7 @@ export const EnquiryForm = () => {
 				</SelectFilterComponent>
 				<br />
 				{payrollEnquiryOptions[0] || payrollEnquiryOptions[1] ? (
-					<div style={{ width: '75%', height: '2em', border: '2px solid grey' }}>
+					<div style={{ width: '25%', border: '2px solid grey' }}>
 						<DatePicker
 							isClearable={true}
 							dateFormat="dd/MM/yyyy"
