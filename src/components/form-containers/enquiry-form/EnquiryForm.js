@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import logo from '../../assets/navbar-logo.svg';
 import { HeaderComponent } from '../../navbars/HeaderComponent';
 import { FormInputComponent } from '../../input-fields/FormInputComponent';
 import { payrollEnquiryOptions } from '../../data/mock-data/selectFilterDataOptions';
-import { SelectFilter } from '../../filters/SelectFilter';
+import { SelectFilterComponent } from '../../filters/SelectFilterComponent';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
-import { DatePickerComponent } from '../../date-picker/DatePickerComponent';
 
 export const EnquiryForm = () => {
 	const initialState = '';
 	const [ payrollEnquiryType, setPayrollEnquiryType ] = useState('Select one');
 	const [ payrollQueryText, setPayrollQueryText ] = useState(initialState);
-	const [ dateEntered, setDateEntered ] = useState(initialState);
+	const [ selectedDate, setSelectedDate ] = useState(initialState);
 	const [ submitted, setSubmitted ] = useState(false);
 	const [ isValidated, setIsValidated ] = useState(false);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (payrollEnquiryType && payrollQueryText && dateEntered) {
+		if (payrollEnquiryType && payrollQueryText && selectedDate) {
 			setIsValidated(true);
 		}
-		const newPayrollEnquiry = { payrollEnquiryType, payrollQueryText, dateEntered };
+		const newPayrollEnquiry = { payrollEnquiryType, payrollQueryText, selectedDate };
 		console.log(newPayrollEnquiry);
 
 		// const submitPayload = { };
@@ -58,7 +59,7 @@ export const EnquiryForm = () => {
 						<p>Your form has been submitted</p>
 					</div>
 				) : null}
-				<SelectFilter
+				<SelectFilterComponent
 					className="select"
 					data={payrollEnquiryOptions}
 					datatestid="ddl-payroll-enquiry"
@@ -70,11 +71,26 @@ export const EnquiryForm = () => {
 					<option key={payrollEnquiryOptions.id} value={payrollEnquiryOptions.value}>
 						{payrollEnquiryOptions.label}
 					</option>
-				</SelectFilter>
+				</SelectFilterComponent>
 				<br />
-				<DatePickerComponent value={dateEntered} onChange={(event) => setDateEntered(event.target.value)} />
+				{payrollEnquiryOptions[0] || payrollEnquiryOptions[1] ? (
+					<div style={{ width: '25%', border: '2px solid grey' }}>
+						<h5>Click to select a date:</h5>
+						<DatePicker
+							isClearable={true}
+							dateFormat="dd/MM/yyyy"
+							monthsShown={4}
+							onChange={(date) => setSelectedDate(date)}
+							placeholderText="Click to select a date"
+							selected={selectedDate}
+							showYearDropdown
+							scrollableMonthYearDropdown
+							onSubmit={onsubmit}
+						/>
+					</div>
+				) : null}
 				<br />
-				{submitted && !dateEntered ? <span>You forgot to select a date</span> : null}
+				{submitted && !selectedDate ? <span>You forgot to select a date</span> : null}
 				<FormInputComponent
 					className="inpt-box "
 					datatestid="payroll-query-text-description"

@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/dropDownListStyles.css';
 
-export const SelectFilter = ({
+export const SelectFilterComponent = ({
 	className,
 	data,
 	datatestid,
+	id,
 	label,
 	name,
 	onChange,
@@ -22,6 +23,7 @@ export const SelectFilter = ({
 					className={className}
 					data={data}
 					datatestid={datatestid}
+					id={id}
 					name={name}
 					onChange={onChange}
 					options={options}
@@ -42,10 +44,11 @@ export const SelectFilter = ({
 	);
 };
 
-SelectFilter.propTypes = {
+SelectFilterComponent.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.array,
 	datatestid: PropTypes.string,
+	id: PropTypes.string,
 	label: PropTypes.string,
 	name: PropTypes.string,
 	onChange: PropTypes.func,
@@ -56,9 +59,9 @@ SelectFilter.propTypes = {
 	value: PropTypes.string
 };
 
-SelectFilter.defaultProps = {
+SelectFilterComponent.defaultProps = {
 	value: '',
 	placeholder: ''
 };
 
-export default SelectFilter;
+export default SelectFilterComponent;
