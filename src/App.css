@@ -1,22 +1,22 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
-
 .app-root {
-  margin: 10px;
+	margin: 10px;
 }
 
 p {
-font-size: 10px;
-font-weight: bold;
-
+	font-size: 10px;
+	font-weight: bold;
 }
 
 h1,
 h4 {
-color: grey;
+	color: grey;
 }
-
+h6 {
+	color: green;
+}

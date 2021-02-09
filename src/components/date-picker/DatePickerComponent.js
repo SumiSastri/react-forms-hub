@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+// this is already a reusable component - so used directly in the form
 export const DatePickerComponent = () => {
 	let initialState = null;
 	const [ selectedDate, setSelectedDate ] = useState(initialState);

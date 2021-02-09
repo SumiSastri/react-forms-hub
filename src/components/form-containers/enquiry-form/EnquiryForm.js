@@ -56,7 +56,7 @@ export const EnquiryForm = () => {
 			<form onSubmit={handleSubmit}>
 				{submitted && isValidated ? (
 					<div>
-						<p>Your form has been submitted</p>
+						<h6>Your form has been submitted</h6>
 					</div>
 				) : null}
 				<SelectFilterComponent
