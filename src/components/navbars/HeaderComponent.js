@@ -2,14 +2,14 @@ import React from 'react';
 import '../styles/headerStyles.css';
 import PropTypes from 'prop-types';
 
-export const HeaderComponent = ({ children, className, datatestid, id, image, name, isOpen, onClick }) => {
+export const HeaderComponent = ({ children, className, datatestid, id, image, name, isopen, onClick }) => {
 	return (
 		<div
 			className={className}
 			datatestid={datatestid}
 			id={id}
 			image={image}
-			isOpen={isOpen}
+			isopen={isopen}
 			name={name}
 			onClick={onClick}
 		>
@@ -30,7 +30,7 @@ HeaderComponent.propTypes = {
 	className: PropTypes.string,
 	datatestid: PropTypes.string,
 	id: PropTypes.string,
-	isOpen: PropTypes.bool,
+	isopen: PropTypes.bool,
 	image: PropTypes.string,
 	name: PropTypes.string,
 	onClick: PropTypes.func

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import logo from '../../assets/navbar-logo.svg';
 import { HeaderComponent } from '../../navbars/HeaderComponent';
-import { InputText } from '../../input-fields/example-usage/InputText';
+import { FormInputComponent } from '../../input-fields/FormInputComponent';
 import { payrollEnquiryOptions } from '../../data/mock-data/selectFilterDataOptions';
 import { SelectFilter } from '../../filters/SelectFilter';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
@@ -32,6 +32,7 @@ export const EnquiryForm = () => {
 		// }).then(() => {
 		// 	console.log('new payload sent to db', submitPayload);
 		// });
+
 		setSubmitted(true);
 	};
 
@@ -74,8 +75,8 @@ export const EnquiryForm = () => {
 				<DatePickerComponent value={dateEntered} onChange={(event) => setDateEntered(event.target.value)} />
 				<br />
 				{submitted && !dateEntered ? <span>You forgot to select a date</span> : null}
-				<InputText
-					className="inpt-box"
+				<FormInputComponent
+					className="inpt-box "
 					datatestid="payroll-query-text-description"
 					label="Please type your request here"
 					name="payroll-query-text-description"
