@@ -74,12 +74,11 @@ export const EnquiryForm = () => {
 				</SelectFilterComponent>
 				<br />
 				{payrollEnquiryOptions[0] || payrollEnquiryOptions[1] ? (
-					<div style={{ width: '25%', border: '2px solid grey' }}>
-						<h5>Click to select a date:</h5>
+					<div style={{ width: '75%', height: '2em', border: '2px solid grey' }}>
 						<DatePicker
 							isClearable={true}
 							dateFormat="dd/MM/yyyy"
-							monthsShown={4}
+							monthsShown={2}
 							onChange={(date) => setSelectedDate(date)}
 							placeholderText="Click to select a date"
 							selected={selectedDate}

@@ -9,9 +9,9 @@ const FormIndexPage = () => {
 	return (
 		<div>
 			{/* <FormHeader />
-			<PostIndex />
-			<FormFooter /> */}
+			<PostIndex /> */}
 			<EnquiryForm />
+			{/* <FormFooter /> */}
 		</div>
 	);
 };

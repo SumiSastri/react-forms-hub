@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 
 import { userTypeOptions } from '../data/mock-data/selectFilterDataOptions';
 import PostList from './PostList';
-import ScrollyBar from '../scrolling/ScrollyBar';
 import SearchFilter from '../filters/SearchFilter';
-import SelectFilter from '../filters/SelectFilter';
-import { ButtonComponent } from '../buttons/ButtonComponent';
+import SelectFilterComponent from '../filters/SelectFilterComponent';
 
 export class PostIndex extends Component {
 	constructor(props) {
@@ -24,7 +21,7 @@ export class PostIndex extends Component {
 	componentDidMount() {
 		fetch('https://jsonplaceholder.typicode.com/posts')
 			.then((response) => response.json())
-			.then((posts) => this.setState({ displayPosts: posts }));
+			.then((posts) => this.setState({ displayPosts: posts.slice(0, 3) }));
 		// .then((posts) => this.setState({}));
 		// do not remove checks the loading message works
 	}
@@ -75,7 +72,7 @@ export class PostIndex extends Component {
 	render() {
 		// const { displayPosts } = this.state
 		// refactor and replace displayPosts with filteredPosts that you can search
-		const { displayPosts, searchFilterResults, userType, postFormData, loading } = this.state;
+		const { displayPosts, searchFilterResults, userType, postFormData } = this.state;
 		//  console.log("this renderState:", this);
 
 		const filteredPosts = displayPosts.filter((displayPosts) => {
@@ -91,58 +88,43 @@ export class PostIndex extends Component {
 			</div>
 		) : (
 			<div>
-				<ScrollyBar>
-					<div>
-						<form
-							onSubmit={() => postFormData}
-							style={{
-								display: 'flex'
-							}}
-						>
-							<SelectFilter
-								className="inpt-1s"
-								defaultValue="default"
-								data={userTypeOptions}
-								datatestid="ddl-usr-type"
-								label="Select User Type"
-								name="ddl-usr-type"
-								onChange={(event) => this.updateSearchInputs('user', event.target.value)}
-								placeholder="Select User"
-								required={false}
-								type="select"
-								value={userType}
-							/>
+				<form
+					onSubmit={() => postFormData}
+					style={{
+						display: 'flex'
+					}}
+				>
+					<SelectFilterComponent
+						className="select"
+						defaultValue="default"
+						data={userTypeOptions}
+						datatestid="ddl-usr-type"
+						label="Select User Type"
+						name="ddl-usr-type"
+						onChange={(event) => this.updateSearchInputs('user', event.target.value)}
+						placeholder="Select User"
+						required={false}
+						type="select"
+						value={userType}
+					/>
 
-							{/* Write onChange handler and set to target value */}
-							<SearchFilter
-								className="inpt-1s"
-								datatestid="searchfield-posts"
-								label="Search Posts"
-								name="search-posts"
-								placeholder="Search"
-								required={false}
-								type="search"
-								onChange={(event) => this.updateSearchInputs('searchFilterResults', event.target.value)}
-								value={searchFilterResults}
-							/>
+					{/* Write onChange handler and set to target value */}
+					<SearchFilter
+						className="inpt-1s"
+						datatestid="searchfield-posts"
+						label="Search Posts"
+						name="search-posts"
+						placeholder="Search"
+						required={false}
+						type="search"
+						onChange={(event) => this.updateSearchInputs('searchFilterResults', event.target.value)}
+						value={searchFilterResults}
+					/>
+				</form>
 
-							<ButtonComponent
-								className={classNames([ 'btn-5' ], { 'button-disabled': loading })}
-								datatestid="btn-save"
-								disabled={loading}
-								label="Save"
-								name="btn-save"
-								onSubmit={() => postFormData}
-								type="submit"
-							>
-								{loading ? <i className="fas fa-drum" /> : 'defaultValue:save'}
-							</ButtonComponent>
-						</form>
-					</div>
-					{/* Replaced displayed posts with the filtered posts */}
-					<PostList displayPosts={filteredPosts} />
-					{/* <PostList displayPosts={displayPosts} />                 */}
-				</ScrollyBar>
+				{/* Replaced displayed posts with the filtered posts */}
+				<PostList displayPosts={filteredPosts} />
+				{/* <PostList displayPosts={displayPosts} />                 */}
 			</div>
 		);
 	}

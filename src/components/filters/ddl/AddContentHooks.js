@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const EnquiryForm = () => {
+const AddContentHooks = () => {
 	const [ title, setTitle ] = useState('');
 	const [ body, setBody ] = useState('');
 	const [ author, setAuthor ] = useState('mario');
@@ -37,4 +37,4 @@ const EnquiryForm = () => {
 	);
 };
 
-export default EnquiryForm;
+export default AddContentHooks;
