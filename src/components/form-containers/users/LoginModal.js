@@ -13,6 +13,7 @@ export class LoginModal extends Component {
 
 		this.state = {
 			userName: '',
+			email: '',
 			password: '',
 			modalIsOpen: false
 		};
@@ -21,9 +22,13 @@ export class LoginModal extends Component {
 	}
 
 	updateFormInputs = (key, value) => {
-		if (key === 'userName' || key === 'phoneNumber' || key === 'password') {
+		if (key === 'userName' || key === 'email' || key === 'password') {
 			this.setState({ error: null, [key]: value }, () => {
-				this.setState({ userName: this.state.userName, password: this.state.password });
+				this.setState({
+					userName: this.state.userName,
+					email: this.state.email,
+					password: this.state.password
+				});
 			});
 		} else {
 			this.setState({ error: null, [key]: value });
@@ -39,6 +44,7 @@ export class LoginModal extends Component {
 			},
 			params: {
 				userName: this.state.userName,
+				userEmail: this.state.email,
 				userPassword: this.state.password
 			}
 		})
@@ -85,30 +91,41 @@ export class LoginModal extends Component {
 								<FormInputComponent
 									className="inpt-1s"
 									datatestid="usr-name"
-									label="User Name"
-									name="user name"
-									placeholder="Your email-id is your username"
 									required={false}
 									type="text"
+									label="User Name: "
+									placeholder="User Name"
+									name="userName"
 									value={this.state.userName}
 									onChange={(event) => this.updateFormInputs('userName', event.target.value)}
 								/>
-
+								<br />
 								<FormInputComponent
-									className="inpt-3s"
+									className="inpt-1s"
+									datatestid="usr-email"
+									required={false}
+									type="text"
+									label="Email: "
+									placeholder="yourname@youremail"
+									name="usr-email"
+									value={this.state.email}
+									onChange={(event) => this.updateFormInputs('email', event.target.value)}
+								/>
+								<br />
+								<FormInputComponent
+									className="inpt-1s"
 									datatestid="password"
-									label="Password"
-									name="password"
-									placeholder="Use a mix of numbers, letters, symbols"
 									required={true}
+									label="Password: "
 									type="password"
+									placeholder="Password must be at least 6 characters"
+									name="password"
 									value={this.state.password}
 									onChange={(event) => this.updateFormInputs('password', event.target.value)}
 								/>
-								<div>
-									<p>Forgotten username or password?</p>
-								</div>
+								<br />
 								<section>
+									<br />
 									<ButtonComponent
 										className="button-one"
 										datatestid="btn-login-submit"
@@ -128,6 +145,11 @@ export class LoginModal extends Component {
 								label="X"
 								type="button"
 							/>
+							<br />
+							<div>
+								<br />
+								<p>Forgotten username or password?</p>
+							</div>
 						</div>
 					}
 				/>

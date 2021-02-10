@@ -3,6 +3,7 @@ import { useState } from 'react';
 // custom Hook - use key word to name the hook
 export const UseHooksInForms = () => {
 	const [ values, setValues ] = useState({
+		// without state the form changes from a controlled to an uncontrolled component
 		currentAddress: '',
 		permAddress: '',
 		forwardingAddress: ''
@@ -17,8 +18,12 @@ export const UseHooksInForms = () => {
 			[name]: value
 		});
 	};
+	// add handleSubmit - prevent default submission
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+	};
 
-	return { handleInputChange, values };
+	return { handleInputChange, values, handleFormSubmit };
 };
 
 export default UseHooksInForms;

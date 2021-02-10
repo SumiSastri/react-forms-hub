@@ -6,11 +6,16 @@ import { UseHooksInForms } from './UseHooksInForms';
 
 export const UserAddressesForm = () => {
 	// import the hook and call it here with deconstructed params
-	const { values, handleInputChange } = UseHooksInForms();
+	const { values, handleInputChange, handleFormSubmit } = UseHooksInForms();
 
 	return (
-		<form name="reg-form" id="reg-form" datatestid="reg-form">
+		<form name="reg-form" id="reg-form" datatestid="reg-form" onSubmit={handleFormSubmit}>
 			<div>
+				<h4>
+					{' '}
+					This additional information is also useful to make sure you have all the information you need from
+					us, for your own records.
+				</h4>
 				<FormInputComponent
 					className="inpt-1m"
 					datatestid="address1"
@@ -62,6 +67,7 @@ export const UserAddressesForm = () => {
 				name="addresses-submit"
 				label="Submit"
 				type="submit"
+				onSubmit={handleFormSubmit}
 			/>
 		</form>
 	);
