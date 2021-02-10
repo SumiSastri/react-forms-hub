@@ -1,122 +1,123 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 .buttons-container {
-  display: flex;
-  padding: 20px;
+	display: flex;
+	padding: 20px;
 }
 
 .button-types {
-  margin: 10px;
-  padding: 10px;
+	margin: 10px;
+	padding: 10px;
 }
 .button-one {
-  display: inline-block;
-  margin: 7px;
-  padding: 5px 25px;
-  font-size: 15px;
-  cursor: pointer;
-  text-align: center;
-  color: aliceblue;
-  background-color: lightslategray;
-  box-shadow: 0 9px darkgray;
-  border-radius: 20px;
-  outline: none;
+	display: inline-block;
+	margin: 7px;
+	padding: 5px 25px;
+	font-size: 15px;
+	cursor: pointer;
+	text-align: center;
+	color: aliceblue;
+	background-color: lightslategray;
+	box-shadow: 0 9px darkgray;
+	border-radius: 20px;
+	outline: none;
 }
 
 .button-one:hover {
-  background-color: grey;
+	background-color: grey;
 }
 
 .button-one:active {
-  background-color: darkgray;
-  box-shadow: 0 5px lightgray;
-  transform: translateY(4px);
+	background-color: darkgray;
+	box-shadow: 0 5px lightgray;
+	transform: translateY(4px);
 }
 
 .button-two {
-  display: inline-block;
-  border-radius: 10px;
-  border: 1px solid darkgrey;
-  background-color: silver;
-  color: beige;
-  text-align: center;
-  font-size: 15px;
-  font-weight: bold;
-  margin: 5px;
-  padding: 10px;
-  width: 200px;
-  cursor: pointer;
-  transition: all 0.5s;
-  outline: none;
+	display: inline-block;
+	border-radius: 10px;
+	border: 1px solid darkgrey;
+	background-color: silver;
+	color: beige;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 5px;
+	padding: 10px;
+	width: 200px;
+	cursor: pointer;
+	transition: all 0.5s;
+	outline: none;
 }
 
 .button-two span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
 }
 
 .button-two span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
 }
 
 .button-two:hover span {
-  padding-right: 25px;
+	padding-right: 25px;
 }
 
 .button-two:hover span:after {
-  opacity: 1;
-  right: 0;
+	opacity: 1;
+	right: 0;
 }
 
 .button-three {
-  background-color: lightslategrey;
-  border: ivory 0.5px solid;
-  color: ivory;
-  text-align: center;
-  outline: none;
-  opacity: 0.6;
-  width: 15%;
-  border-radius: 12px;
-  font-size: 15px;
+	background-color: lightslategrey;
+	border: ivory 0.5px solid;
+	color: ivory;
+	text-align: center;
+	outline: none;
+	opacity: 0.6;
+	width: 15%;
+	border-radius: 12px;
+	font-size: 15px;
 }
 
 .button-three:hover {
-  opacity: 1;
+	opacity: 1;
 }
 
 .button-four {
-  background-color: lightgray;
-  border: ivory 0.5px solid;
-  color: ivory;
-  text-align: center;
-  outline: none;
-  opacity: 0.6;
-  width: 15%;
-  border-radius: 12px;
-  font-size: 15px;
+	background-color: lightgray;
+	border: ivory 0.5px solid;
+	color: ivory;
+	text-align: center;
+	outline: none;
+	opacity: 0.6;
+	width: 15%;
+	border-radius: 12px;
+	font-size: 15px;
 }
 
 .button-four:hover {
-  opacity: 1;
-  cursor: not-allowed;
+	opacity: 1;
+	cursor: not-allowed;
 }
 
 .btn-5 {
-  margin: 15px;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  border-radius: 2px;
-  outline: none;
+	background-color: lightslategrey;
+	margin: 15px;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius: 2px;
+	outline: none;
 }

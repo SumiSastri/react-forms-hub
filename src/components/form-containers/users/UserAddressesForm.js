@@ -2,17 +2,26 @@ import React from 'react';
 
 import { FormInputComponent } from '../../input-fields/FormInputComponent';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
+// using custom hooks and validating information
 import { UseHooksInForms } from './UseHooksInForms';
+import { validateUserInfo } from '../../errors/validation-and-error-messages/ValidateUserInfo';
 
 export const UserAddressesForm = () => {
-	// import the hook and call it here with deconstructed params
-	const { values, handleInputChange, handleFormSubmit } = UseHooksInForms();
+	// import the custom-hook and call it here with deconstructed params
+	// pass the validateUserInfo utility function as a param of the custom-hook
+	const { values, handleInputChange, errors, handleFormSubmit } = UseHooksInForms(validateUserInfo);
 
 	return (
-		<form name="reg-form" id="reg-form" datatestid="reg-form" onSubmit={handleFormSubmit}>
+		<form
+			className="form-container"
+			name="reg-form"
+			id="reg-form"
+			datatestid="reg-form"
+			onSubmit={handleFormSubmit}
+			noValidate
+		>
 			<div>
 				<h4>
-					{' '}
 					This additional information is also useful to make sure you have all the information you need from
 					us, for your own records.
 				</h4>
@@ -28,6 +37,8 @@ export const UserAddressesForm = () => {
 					value={values.currentAddress}
 					onChange={handleInputChange}
 				/>
+				{/* If there is an error display error message as described in the validate HoC */}
+				{errors.currentAddress && <p>{errors.currentAddress}</p>}
 			</div>
 			<br />
 			<div>
@@ -43,6 +54,7 @@ export const UserAddressesForm = () => {
 					value={values.permAddress}
 					onChange={handleInputChange}
 				/>
+				{errors.permAddress && <p>{errors.permAddress}</p>}
 			</div>
 			<br />
 			<div>
@@ -58,11 +70,12 @@ export const UserAddressesForm = () => {
 					value={values.forwardingAddress}
 					onChange={handleInputChange}
 				/>
+				{errors.forwardingAddress && <p>{errors.forwardingAddress}</p>}
 			</div>
 			<br />
 
 			<ButtonComponent
-				className="button-one"
+				className="btn-5"
 				datatestid="addresses-submit"
 				name="addresses-submit"
 				label="Submit"

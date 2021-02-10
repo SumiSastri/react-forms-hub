@@ -40,6 +40,21 @@ export class RegistrationFormModal extends Component {
 		this.setState({ data });
 	};
 
+	// another variation to handling input changes
+	// updateFormInputs = (key, value) => {
+	// 	if (key === 'userName' || key === 'email' || key === 'password') {
+	// 		this.setState({ error: null, [key]: value }, () => {
+	// 			this.setState({
+	// 				userName: this.state.userName,
+	// 				email: this.state.email,
+	// 				password: this.state.password
+	// 			});
+	// 		});
+	// 	} else {
+	// 		this.setState({ error: null, [key]: value });
+	// 	}
+	// };
+
 	// this submit does not send the form to a back-end database
 	handleFormSubmit = (event) => {
 		event.preventDefault();

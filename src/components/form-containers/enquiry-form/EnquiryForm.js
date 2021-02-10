@@ -8,7 +8,7 @@ import { FormInputComponent } from '../../input-fields/FormInputComponent';
 import { payrollEnquiryOptions } from '../../data/mock-data/selectFilterDataOptions';
 import { SelectFilterComponent } from '../../filters/SelectFilterComponent';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
-import SubmitFormSuccess from '../../errors/no-errors/SubmitFormSuccess';
+import SubmitFormSuccess from '../../errors/sucess-no-errors/SubmitFormSuccess';
 
 export const EnquiryForm = () => {
 	const initialState = '';
@@ -46,7 +46,7 @@ export const EnquiryForm = () => {
 	};
 
 	return (
-		<div>
+		<div className="form-container">
 			<HeaderComponent
 				datatestid="payroll-enquiry-header"
 				name={'payroll-enquiry-header'}
