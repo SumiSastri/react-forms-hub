@@ -39,6 +39,7 @@
 	padding: 10px;
 	height: 40px;
 	width: 80%;
+	float: right;
 }
 
 .inpt-1m {
@@ -53,6 +54,7 @@
 	padding: 10px;
 	height: 40px;
 	width: 75%;
+	float: right;
 }
 
 .inpt-1l {
@@ -67,6 +69,7 @@
 	padding: 10px;
 	height: 40px;
 	width: 100%;
+	float: right;
 }
 
 /* Success */

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FormHeader from '../navbars/formHeader';
+import NavBarComponent from '../navbars/NavBarComponent';
 import PostIndex from '../content-pages/PostIndex';
 // import FormFooter from '../navbars/formFooter';
 import { EnquiryForm } from './enquiry-form/EnquiryForm';
@@ -8,7 +8,7 @@ import { EnquiryForm } from './enquiry-form/EnquiryForm';
 const FormIndexPage = () => {
 	return (
 		<div>
-			<FormHeader />
+			<NavBarComponent />
 			<PostIndex />
 			<EnquiryForm />
 			{/* <FormFooter /> */}

@@ -36,11 +36,11 @@ ButtonComponent.propTypes = {
 	datatestid: PropTypes.string,
 	defaultValue: PropTypes.bool,
 	disabled: PropTypes.bool,
+
 	label: PropTypes.string,
 	name: PropTypes.string,
 	openModal: PropTypes.bool,
 	onClick: PropTypes.func,
-	onSave: PropTypes.func,
 	onSubmit: PropTypes.func,
 	required: PropTypes.bool,
 	type: PropTypes.string,

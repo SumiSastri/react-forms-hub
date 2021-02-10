@@ -17,8 +17,8 @@ export const EnquiryForm = () => {
 	const [ selectedDate, setSelectedDate ] = useState(initialState);
 	const [ submitted, setSubmitted ] = useState(false);
 	const [ isValidated, setIsValidated ] = useState(false);
+	// const [ toggle, setToggle ] = useState(false);
 	// const [ errors, setErrors ] = useState({});
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -27,6 +27,7 @@ export const EnquiryForm = () => {
 
 		if (!payrollEnquiryType && !payrollQueryText && !selectedDate) {
 			// setErrors(setIsValidated(false));
+			setIsValidated(false);
 		} else {
 			setIsValidated(true);
 			setSubmitted(true);
@@ -72,24 +73,24 @@ export const EnquiryForm = () => {
 					type="select"
 					value={payrollEnquiryType}
 					onChange={(event) => setPayrollEnquiryType(event.target.value)}
+					onSubmit={onsubmit}
 				>
 					<option key={payrollEnquiryOptions.id} value={payrollEnquiryOptions.value}>
 						{payrollEnquiryOptions.label}
 					</option>
 				</SelectFilterComponent>
-
 				{payrollEnquiryOptions[0] || payrollEnquiryOptions[1] ? (
 					<div style={{ width: '75%', border: '2px solid grey' }}>
 						<DatePicker
-							isClearable={true}
 							dateFormat="dd/MM/yyyy"
+							isClearable={true}
 							monthsShown={2}
-							onChange={(date) => setSelectedDate(date)}
 							placeholderText="Click here for calendar"
 							required={true}
-							selected={selectedDate}
 							showYearDropdown
 							scrollableMonthYearDropdown
+							selected={selectedDate}
+							onChange={(date) => setSelectedDate(date)}
 							onSubmit={onsubmit}
 						/>
 					</div>
@@ -106,6 +107,7 @@ export const EnquiryForm = () => {
 					type="text"
 					value={payrollQueryText}
 					onChange={(event) => setPayrollQueryText(event.target.value)}
+					onSubmit={onsubmit}
 				/>
 				{submitted && !payrollQueryText ? (
 					<span style={{ color: 'red' }}>You forgot to enter your enquiry</span>
@@ -117,6 +119,7 @@ export const EnquiryForm = () => {
 					label="Save"
 					name="payroll-query-save-btn"
 					onClick={handleSubmit}
+					disabled={false}
 				/>
 			</form>
 		</div>

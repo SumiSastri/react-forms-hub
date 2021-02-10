@@ -6,6 +6,7 @@ import { PopUpModalComponent } from '../../modals/PopUpModalComponent';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
 
 ReactModal.setAppElement('body');
+
 export class LoginModal extends Component {
 	constructor() {
 		super();
@@ -19,14 +20,6 @@ export class LoginModal extends Component {
 		this.initialState = this.state;
 	}
 
-	openModal = () => {
-		console.log('this is:', this);
-		this.setState((state) => ({
-			// set state to the opposite of false which is true
-			modalIsOpen: !state.modalIsOpen
-		}));
-		console.log('openmodal:', this.state);
-	};
 	updateFormInputs = (key, value) => {
 		if (key === 'userName' || key === 'phoneNumber' || key === 'password') {
 			this.setState({ error: null, [key]: value }, () => {
@@ -62,14 +55,22 @@ export class LoginModal extends Component {
 	//     alert(`Your details have been submitted for registration`)
 	// }; this submit does not send the form to a back-end database
 
+	openModal = () => {
+		console.log('this is:', this);
+		this.setState((state) => ({
+			// set state to the opposite of false which is true
+			modalIsOpen: !state.modalIsOpen
+		}));
+		console.log('openmodal:', this.state);
+	};
 	render() {
 		return (
 			<section>
 				<ButtonComponent
 					className="btn-5"
-					datatestid="btn-login-reg"
-					label="Login/Register"
-					name="btn-login-reg"
+					datatestid="btn-login"
+					label="Login"
+					name="btn-login"
 					onClick={() => this.openModal()}
 					type="button"
 				/>
@@ -105,19 +106,13 @@ export class LoginModal extends Component {
 									onChange={(event) => this.updateFormInputs('password', event.target.value)}
 								/>
 								<div>
-									<p>
-										As a new user you will receive a confirmation email to authenticate access.
-										Please provide a valid email and check your inbox and spam mailbox. The link is
-										valid for 48 hours only to protect your personal data and prevent unauthorised
-										site access. Please read our data & cookie policy before you authenticate your
-										email id.
-									</p>
+									<p>Forgotten username or password?</p>
 								</div>
 								<section>
 									<ButtonComponent
 										className="button-one"
-										datatestid="btn-login-reg-submit"
-										name="btn-login-reg-submit"
+										datatestid="btn-login-submit"
+										name="btn-login-submit"
 										onSubmit={() => this.postFormData}
 										label="Submit"
 										type="submit"

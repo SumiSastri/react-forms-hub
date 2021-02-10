@@ -24,14 +24,14 @@ export const FormInputComponent = ({
 				className={className}
 				datatestid={datatestid}
 				id={id}
-				name={name}
-				onChange={onChange}
-				onSubmit={onSubmit}
-				placeholder={placeholder}
 				required={required}
 				type={type}
 				label={label}
+				placeholder={placeholder}
+				name={name}
 				value={value}
+				onChange={onChange}
+				onSubmit={onSubmit}
 			/>
 		</div>
 	);

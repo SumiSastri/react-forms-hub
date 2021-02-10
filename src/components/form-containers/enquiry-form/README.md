@@ -11,11 +11,13 @@ StackOverflow: https://stackoverflow.com/questions/60864610/is-it-possible-to-us
 
 https://www.laravelcode.com/post/how-to-implement-datepicker-in-react-with-example
 
+- Conflicts with Material Ui - commented out CDN
+
 __WiP-challenges to fix__ 
 
 - "Date of payslip being queried" is required for the "Incorrect Pay" and "Missing Expense" options only - research needed for conditional rendering (approach would be to grab index of the values for conditional rendering) - still working on this 
 
-- Some conflicts with Material Ui - to be investigated a little more
+
 
 Done:
 - Created reusable components for this task
