@@ -5,10 +5,10 @@ GitHub[https://github.com/reactjs/react-modal]
 The easiest to follow [https://reactcommunity.org/react-modal/]
 Good resources[https://blog.bitsrc.io/build-a-simple-modal-component-with-react-16decdc111a6]
 
-Reusable component is in ```ModalContainer.js```
+Reusable component is in [src/components/modals/PopUpModalComponent.js]
 
 Set-up:
-1. Install the library ```yarn add react-modal```
+1. Install the library ```npm i -D react-modal```
 2. Create a class component - ```rce``` & ```rconst`` snippets
 3. Import the library ```import ReactModal from 'react-modal'```
 4. Set the app to a reference element in the DOM tree ```ReactModal.setAppElement('body');``` See error handling [https://reactjs.org/warnings/unknown-prop.html]
@@ -49,8 +49,8 @@ openModal = () => {
 
 11. Style as required in ```src/components/styles/modalStyles.css``` - the animation of the repo ease-in/out or slide-in/out can be written here
 
-12. Create sample modals to see that the reusable modal works - examples in this repo are FeebackModal/LoginModal
+12. Create sample modals to see that the reusable modal works - examples in this repo are FeebackModal/LoginModal/RegistrationFormModal
 
 13. You can now use the Modal in other projects 
 
-14. Remember the modal style are dependent on using both the reusable component and the style sheet.
+14. Remember the modal style are dependent on using both the reusable component and the style sheet - the modal can be a side-slider that is the animation css written. The modal in this repo is a simple pop-up

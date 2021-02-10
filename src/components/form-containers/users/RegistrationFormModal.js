@@ -4,6 +4,7 @@ import ReactModal from 'react-modal';
 import { PopUpModalComponent } from '../../modals/PopUpModalComponent';
 import { FormInputComponent } from '../../input-fields/FormInputComponent';
 import { ButtonComponent } from '../../buttons/ButtonComponent';
+import { UserAddressesForm } from './UserAddressesForm';
 
 ReactModal.setAppElement('body');
 export class RegistrationFormModal extends Component {
@@ -166,16 +167,23 @@ export class RegistrationFormModal extends Component {
 										type="submit"
 									/>
 								</section>
-								<ButtonComponent
-									className="button-one"
-									datatestid="mdl-reg-close"
-									name="mdl-reg-close"
-									onClick={() => this.openModal(false)}
-									label="X"
-									type="button"
-								/>
 							</form>
 							<br />
+							<section>
+								<br />
+								<hr />
+								<h2>This additional information will be useful too!</h2>
+								<br />
+								<UserAddressesForm />
+							</section>
+							<ButtonComponent
+								className="button-one"
+								datatestid="mdl-reg-close"
+								name="mdl-reg-close"
+								onClick={() => this.openModal(false)}
+								label="X"
+								type="button"
+							/>
 						</div>
 					}
 				/>

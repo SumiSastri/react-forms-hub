@@ -51,4 +51,9 @@ __Note__ The closing tag of the JSX is after the children prop. Styles have been
 
 4. Footers have been created in a similar design pattern with a note that footers may have list items so the children could contain JSX elements for unordered lists and links
 
-5. Navs - tbc
+5. Navs - There are 3 key elements in a nav
+- branding
+- links to navigate
+- header text
+
+The key challenge with navs is in the css - mobile-friendly css -tbc
