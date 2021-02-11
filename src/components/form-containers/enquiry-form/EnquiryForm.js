@@ -12,6 +12,7 @@ import SubmitFormSuccess from '../../errors/sucess-no-errors/SubmitFormSuccess';
 
 export const EnquiryForm = () => {
 	const initialState = '';
+	const [ payrollInfo, setPayrollInfo ] = useState(null);
 	const [ payrollEnquiryType, setPayrollEnquiryType ] = useState('Incorrect-Pay');
 	const [ payrollQueryText, setPayrollQueryText ] = useState(initialState);
 	const [ selectedDate, setSelectedDate ] = useState(initialState);
@@ -19,51 +20,48 @@ export const EnquiryForm = () => {
 	const [ isValidated, setIsValidated ] = useState(false);
 	const [ errors, setErrors ] = useState({});
 
+	// fetch data and set it to the info in the state object
+	const fetchPayrollApiData = async () => {
+		setSubmitted(true);
+		const res = await fetch('/payroll');
+		// console.log(res);
+		const data = await res.json();
+		setSubmitted(false);
+		setPayrollInfo(data);
+	};
+
+	useEffect(() => {
+		fetchPayrollApiData();
+	}, []);
+
+	// post form data to db
+	const postPayrollFormPayload = async (payrollInfo) => {
+		await fetch('/payroll', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(payrollInfo)
+		});
+	};
+
+	// errors, validation and submit closely coupled
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newPayrollEnquiry = { payrollEnquiryType, payrollQueryText, selectedDate };
-		console.log(newPayrollEnquiry);
+		const payrollInfo = { payrollEnquiryType, payrollQueryText, selectedDate };
+		console.log(`payrollInfo`, payrollInfo);
 
 		if (!payrollEnquiryType && !payrollQueryText && !selectedDate) {
 			setErrors(setIsValidated(false));
 			setIsValidated(false);
 		} else {
 			setIsValidated(true);
+			postPayrollFormPayload(payrollInfo);
 			setSubmitted(true);
 		}
-
-		// useEffect hook  - refactor
-
-		// const submitPayload = (newPayrollEnquiry) {
-		// fetch('/payroll', {
-		// 	method: 'POST',
-		// 	headers: { 'Content-Type': 'application/json' },
-		// 	body: JSON.stringify(submitPayload)
-		// }).then(() => {
-		// 	console.log('new payload sent to db', submitPayload);
-		// });};
 	};
-
-	// fetch data and set it to the info in the state object
-	const [ payrollInfo, setPayrollInfo ] = useState(null);
-	const fetchPayrollApiData = async () => {
-		setSubmitted(true);
-		const res = await fetch('/payroll');
-		console.log(res);
-		const data = await res.json();
-		setSubmitted(false);
-		setPayrollInfo(data);
-	};
-
-	useEffect(
-		() => {
-			fetchPayrollApiData();
-			if (Object.keys(errors).length === 0 && submitted) {
-			}
-		},
-		[ errors, submitted ]
-	);
 
 	return (
 		<div className="form-container">
@@ -76,13 +74,16 @@ export const EnquiryForm = () => {
 							<img className="logo-branding" alt="logo" src={logo} />
 						</div>
 						<h2>Payroll enquiry </h2>
-						<h4>Please use this form for any Payroll related enquiries</h4>
 					</section>
 				}
 			/>
 			<br />
 			<form onSubmit={handleSubmit}>
-				{submitted && isValidated ? <SubmitFormSuccess /> : null}
+				{submitted && isValidated ? (
+					<SubmitFormSuccess />
+				) : (
+					<h4>Please use this form for any Payroll related enquiries</h4>
+				)}
 				<br />
 				<SelectFilterComponent
 					className="select"
@@ -143,6 +144,7 @@ export const EnquiryForm = () => {
 				/>
 			</form>
 			<div style={{ width: '100%', margin: '10px', border: '2px solid grey' }}>
+				{console.log(payrollEnquiryType, payrollEnquiryOptions, payrollQueryText, errors)}
 				TEST DATA:{JSON.stringify(payrollInfo, null, 8)}
 			</div>
 		</div>

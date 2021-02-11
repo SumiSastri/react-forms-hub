@@ -1,5 +1,7 @@
 __Updated:__
 
+- Submitting data with ```useEffect``` Hook
+
 Added prop-types, cleaned up reusable components - HeaderComponent, FormInputComponent
 Cleaned up styling to add a logo to the right
 
@@ -18,11 +20,11 @@ https://www.laravelcode.com/post/how-to-implement-datepicker-in-react-with-examp
 
 __WiP-challenges to fix__ 
 
-- Researching useEffect Hook to fix these challenges
-
 - "Date of payslip being queried" is required for the "Incorrect Pay" and "Missing Expense" options only - research needed for conditional rendering (approach would be to grab index of the values for conditional rendering) - still working on this 
 
 - Validation - submission of null values allowed - need to research validation a little more
+
+- Internal server error - shape of data in front-end vs. backend
 
 Done:
 - Created reusable components for this task

@@ -64,7 +64,6 @@ Chris Blakely:
 Brian  Tutorial: [https://www.youtube.com/watch?v=KGFG-yQD7Dw&ab_channel=BrianDesign]
  
 
-
 JSON-server
 Jason Rivera (tutorial)[https://www.youtube.com/watch?v=3PmNHeVAHOk&ab_channel=JasonRivera]
 Blogs: JournalDev [https://www.journaldev.com/10660/json-server]
