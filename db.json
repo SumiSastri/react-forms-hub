@@ -1,11 +1,48 @@
 {
-  "posts": [
+  "payroll": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+        "userId": 0,
+        "enquiryType": "Incorrect-Pay",
+        "enquiryText": "My pay is incorrect",
+        "enquiryDate": "12/01/2020"
+
+    },
+    {
+        "userId": 1,
+        "enquiryType": "Incorrect-Pay",
+        "enquiryText": "My pay is incorrect",
+        "enquiryDate": "14/01/2020"
+
+    },
+    {
+        "userId": 3,
+        "enquiryType": "Change-of-Bank-Details",
+        "enquiryText": "Bank details are",
+        "enquiryDate": "12/01/2020"
+
+    },
+    {
+        "userId": 4,
+        "enquiryType": "Change-of-Address",
+        "enquiryText": "New address is",
+        "enquiryDate": "12/01/2021"
+
+    },
+    {
+        "userId": 5,
+        "enquiryType": "Change-of-Address",
+        "enquiryText": "New address is",
+        "enquiryDate": "14/01/2000"
+
+    },
+    {
+        "userId": 6,
+        "enquiryType": "Other",
+        "enquiryText": "Some other payroll enquiry",
+        "enquiryDate": "12/01/2021"
+
     }
-  ],
+],
   "comments": [
     {
       "id": 1,

@@ -17,6 +17,8 @@ https://www.laravelcode.com/post/how-to-implement-datepicker-in-react-with-examp
 
 __WiP-challenges to fix__ 
 
+- Researching useEffect Hook to fix these challenges
+
 - "Date of payslip being queried" is required for the "Incorrect Pay" and "Missing Expense" options only - research needed for conditional rendering (approach would be to grab index of the values for conditional rendering) - still working on this 
 
 - Validation - submission of null values allowed - need to research validation a little more

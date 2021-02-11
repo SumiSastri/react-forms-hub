@@ -1,47 +1,45 @@
 
 [
     {
-        "id": 0,
-        "label": "Incorrect-Pay",
-        "value": "Incorrect Pay",
-        "userId": "clehrian0@nasa.gov"
+        "userId": 0,
+        "enquiryType": "Incorrect-Pay",
+        "enquiryText": "My pay is incorrect",
+        "enquiryDate": "12/01/2020"
 
     },
     {
-        "id": 1,
-        "label": "Incorrect-Pay",
-        "value": "Incorrect Pay",
-        "userId": "clehrian1@nasa.gov"
+        "userId": 1,
+        "enquiryType": "Incorrect-Pay",
+        "enquiryText": "My pay is incorrect",
+        "enquiryDate": "14/01/2020"
 
     },
     {
-        "id": 2,
-        "label": "Missing-Expense",
-        "value": "Missing Expense",
-        "userId": "clehrian2@nasa.gov"
+        "userId": 3,
+        "enquiryType": "Change-of-Bank-Details",
+        "enquiryText": "Bank details are",
+        "enquiryDate": "12/01/2020"
 
     },
     {
-        "id": 3,
-        "label": "Change-of-Bank-Details",
-        "value": "Change of Bank Details",
-        "userId": "clehrian3@nasa.gov"
+        "userId": 4,
+        "enquiryType": "Change-of-Address",
+        "enquiryText": "New address is",
+        "enquiryDate": "12/01/2021"
 
     },
     {
-        "id": 4,
-        "label": "Change-of-Address",
-        "value": "Change of Address",
-        "userId": "clehrian4@nasa.gov"
+        "userId": 5,
+        "enquiryType": "Change-of-Address",
+        "enquiryText": "New address is",
+        "enquiryDate": "14/01/2000"
 
     },
     {
-        "id": 5,
-        "label": "Other",
-        "value": "Other",
-        "userId": "clehrian5@nasa.gov"
+        "userId": 6,
+        "enquiryType": "Other",
+        "enquiryText": "Some other payroll enquiry",
+        "enquiryDate": "12/01/2021"
 
     }
-
-
 ]

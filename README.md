@@ -38,9 +38,11 @@ It is a work-in-progress project, where I update sections as I learn and underst
 - Libraries
 * npm install -D classnames react-icons react-modal react-datepicker
 - Server & json-db
-* npm install -D json-server bootswatch concurrently
+* npm install -D json-server concurrently
 
 Documentation:
+- json-server
+[https://www.npmjs.com/package/json-server]
 - React Icons (includes Fontawesome, Devicons, Ionicons, Game Icons, Weather Icons, Ant Design, GitHub, Feather Material-ui & Typicons)
 https://react-icons.github.io/react-icons/
 - React Modals
@@ -59,9 +61,10 @@ https://www.youtube.com/playlist?list=PLtvX0WpNqnvPWQhzPpoTPDb2ZnVUresVb
 
 Chris Blakely:
  https://www.youtube.com/watch?v=8hU0I8rY4u4&ab_channel=ChrisBlakely
+Brian  Tutorial: [https://www.youtube.com/watch?v=KGFG-yQD7Dw&ab_channel=BrianDesign]
+ 
 
- Jason Rivera:
- https://www.youtube.com/watch?v=3PmNHeVAHOk&ab_channel=JasonRivera
 
-Brian:
-https://www.youtube.com/watch?v=KGFG-yQD7Dw&ab_channel=BrianDesign
+JSON-server
+Jason Rivera (tutorial)[https://www.youtube.com/watch?v=3PmNHeVAHOk&ab_channel=JasonRivera]
+Blogs: JournalDev [https://www.journaldev.com/10660/json-server]

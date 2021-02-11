@@ -5,14 +5,14 @@ export const UseHooksInForms = (validateUserInfo, callback) => {
 	// set-state is replaced by the useState hook
 	const [ values, setValues ] = useState({
 		// without state the form changes from a controlled to an uncontrolled component
-		userName: '',
-		email: '',
-		password: '',
-		phone1: 123,
+		// userName: '',
+		// email: '',
+		// password: '',
+		// phone1: 123,
 		currentAddress: '',
 		permAddress: '',
-		forwardingAddress: '',
-		modalIsOpen: false
+		forwardingAddress: ''
+		// modalIsOpen: false
 	});
 
 	const handleInputChange = (e) => {
