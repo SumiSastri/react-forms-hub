@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -17,8 +17,8 @@ export const EnquiryForm = () => {
 	const [ selectedDate, setSelectedDate ] = useState(initialState);
 	const [ submitted, setSubmitted ] = useState(false);
 	const [ isValidated, setIsValidated ] = useState(false);
-	// const [ toggle, setToggle ] = useState(false);
-	// const [ errors, setErrors ] = useState({});
+	const [ errors, setErrors ] = useState({});
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -26,7 +26,7 @@ export const EnquiryForm = () => {
 		console.log(newPayrollEnquiry);
 
 		if (!payrollEnquiryType && !payrollQueryText && !selectedDate) {
-			// setErrors(setIsValidated(false));
+			setErrors(setIsValidated(false));
 			setIsValidated(false);
 		} else {
 			setIsValidated(true);
@@ -44,6 +44,26 @@ export const EnquiryForm = () => {
 		// 	console.log('new payload sent to db', submitPayload);
 		// });};
 	};
+
+	// fetch data and set it to the info in the state object
+	const [ payrollInfo, setPayrollInfo ] = useState(null);
+	const fetchPayrollApiData = async () => {
+		setSubmitted(true);
+		const res = await fetch('/payroll');
+		console.log(res);
+		const data = await res.json();
+		setSubmitted(false);
+		setPayrollInfo(data);
+	};
+
+	useEffect(
+		() => {
+			fetchPayrollApiData();
+			if (Object.keys(errors).length === 0 && submitted) {
+			}
+		},
+		[ errors, submitted ]
+	);
 
 	return (
 		<div className="form-container">
@@ -122,6 +142,9 @@ export const EnquiryForm = () => {
 					disabled={false}
 				/>
 			</form>
+			<div style={{ width: '100%', margin: '10px', border: '2px solid grey' }}>
+				TEST DATA:{JSON.stringify(payrollInfo, null, 8)}
+			</div>
 		</div>
 	);
 };

@@ -3,9 +3,10 @@ __Updated:__
 Added prop-types, cleaned up reusable components - HeaderComponent, FormInputComponent
 Cleaned up styling to add a logo to the right
 
-- Created backend server with json-server - initial research started on how to move hard-coded json in mock data to the be endpoint.
+- Created backend server with json-server - Data end point for post set up in db.json
 
 __Fixed:__
+
 - Date Picker Library - as it already is a reusable component needs to be used directly in the component
 
 Quick read through of documentation and some debugging research:-

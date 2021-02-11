@@ -37,6 +37,7 @@ export const UseHooksInForms = (validateUserInfo, callback) => {
 		// after default prevented, submit form
 		setFormSubmit(true);
 	};
+
 	// submit form with useEffect hook if there are 0 errors
 	useEffect(
 		() => {
