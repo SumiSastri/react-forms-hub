@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "formik": "^2.2.6",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-scripts start",
-    "json-server":"json-server --watch db.json --port 5000",
+    "json-server": "json-server --watch db.json --port 5000",
     "dev": "concurrently \"npm start\" \"npm run json-server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
