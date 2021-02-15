@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+// this will be replaced with the context Formik hook
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -19,6 +20,8 @@ const validationSchema = Yup.object({
 });
 
 export const FormikBasicsYup = () => {
+	// Hooks refactor - hoist hooks variables
+	const [ formValues, setFormValues ] = useState(null);
 	const formik = useFormik({
 		initialValues,
 		onSubmit,
@@ -36,6 +39,7 @@ export const FormikBasicsYup = () => {
 					id="name"
 					name="name"
 					{...formik.getFieldProps('name')}
+					initialValues={formValues || initialValues}
 					// value={formik.values.name}
 					// onChange={formik.handleChange}
 					// onBlur={formik.handleBlur}
@@ -50,8 +54,9 @@ export const FormikBasicsYup = () => {
 					id="email"
 					name="email"
 					{...formik.getFieldProps('email')}
-					// onChange={formik.handleChange}
+					initialValues={formValues || initialValues}
 					// value={formik.values.email}
+					// onChange={formik.handleChange}
 					// onBlur={formik.handleBlur}
 				/>
 				{formik.touched.email && formik.errors.email && <p className="error">{formik.errors.email}</p>}
@@ -64,13 +69,16 @@ export const FormikBasicsYup = () => {
 					id="userType"
 					name="userType"
 					{...formik.getFieldProps('userType')}
-					// onChange={formik.handleChange}
+					initialValues={formValues || initialValues}
 					// value={formik.values.userType}
+					// onChange={formik.handleChange}
 					// onBlur={formik.handleBlur}
 				/>
 				{formik.touched.userType && formik.errors.userType && <p className="error">{formik.errors.userType}</p>}
 			</div>
-
+			<button type="button" onClick={() => setFormValues()}>
+				Load saved data
+			</button>
 			<button type="submit">Submit</button>
 		</form>
 	);

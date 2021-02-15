@@ -31,7 +31,10 @@ Formik is not a silver bullet for form state-management it is merely a tool. It 
 
 - Animations - ```formik.onBlur()``` a method that adds css animation it is tightly coupled with the ```formik.touched()``` method if a field has been visited the ```formik.onBlur()``` method is called
 
-- Reusable Formik components
+- Reusable Formik components with the ```useContext``` Hook
+
+
+
 - Good community - over 1-mil users
 - Scalable, easy form-builder (internationalisation)
 - Testing
