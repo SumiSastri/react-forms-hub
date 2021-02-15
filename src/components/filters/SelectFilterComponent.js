@@ -16,7 +16,7 @@ export const SelectFilterComponent = ({
 	value
 }) => {
 	return (
-		<div>
+		<div className="select">
 			<label>
 				<p>{label}</p>
 				<select
@@ -50,13 +50,12 @@ SelectFilterComponent.propTypes = {
 	datatestid: PropTypes.string,
 	id: PropTypes.string,
 	label: PropTypes.string,
-	name: PropTypes.string,
-	onChange: PropTypes.func,
-	onSubmit: PropTypes.func,
-	placeholder: PropTypes.string,
 	required: PropTypes.bool,
 	type: PropTypes.string,
-	value: PropTypes.string
+	name: PropTypes.string,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
+	onSubmit: PropTypes.func
 };
 
 SelectFilterComponent.defaultProps = {

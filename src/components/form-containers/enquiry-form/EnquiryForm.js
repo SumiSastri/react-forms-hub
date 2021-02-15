@@ -22,11 +22,11 @@ export const EnquiryForm = () => {
 
 	// fetch data and set it to the info in the state object
 	const fetchPayrollApiData = async () => {
-		setSubmitted(true);
+		setSubmitted(false);
 		const res = await fetch('/payroll');
 		// console.log(res);
 		const data = await res.json();
-		setSubmitted(false);
+		setSubmitted(true);
 		setPayrollInfo(data);
 	};
 
@@ -87,19 +87,18 @@ export const EnquiryForm = () => {
 				<br />
 				<SelectFilterComponent
 					className="select"
-					data={payrollEnquiryOptions}
+					defaultValue="default"
 					datatestid="ddl-payroll-enquiry"
 					label="SELECT A PAYROLL ENQUIRY OPTION"
 					required={true}
 					type="select"
+					name="ayrollEnquiryType"
+					data={payrollEnquiryOptions}
 					value={payrollEnquiryType}
 					onChange={(event) => setPayrollEnquiryType(event.target.value)}
 					onSubmit={onsubmit}
-				>
-					<option key={payrollEnquiryOptions.id} value={payrollEnquiryOptions.value}>
-						{payrollEnquiryOptions.label}
-					</option>
-				</SelectFilterComponent>
+				/>
+
 				{payrollEnquiryOptions[0] || payrollEnquiryOptions[1] ? (
 					<div style={{ width: '75%', border: '2px solid grey' }}>
 						<DatePicker

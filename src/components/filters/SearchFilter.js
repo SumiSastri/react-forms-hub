@@ -10,7 +10,6 @@ import { FormInputComponent } from '../input-fields/FormInputComponent';
 const SearchFilter = ({
 	className,
 	datatestid,
-	icon,
 	label,
 	name,
 	onChange,
@@ -22,11 +21,11 @@ const SearchFilter = ({
 }) => {
 	return (
 		<div>
-			<section className="filters-container">
+			<section>
+				<span>{<i class="fas fa-search" />}</span>
 				<FormInputComponent
 					className={className}
 					datatestid={datatestid}
-					icon={icon}
 					label={label}
 					name={name}
 					onChange={onChange}
