@@ -1,6 +1,5 @@
 ### React-form hub
-The purpose of this documentation is to provide access to this repo. More detailed documentation in the filepath[src/components/docs]
-
+The purpose of this documentation is to provide access to this repo. 
 - Repo access
 - $git clone 
 - $npm init -y
@@ -29,9 +28,9 @@ Proxy: ``` "proxy": "http://localhost:5000",```
 
 ### Project goals
 
-This is an experimental, personal side-project to understand forms with React/ React-Hooks / React-Redux, TypeScript, front-end validation and testing-libraries.
+I would like this to be my one-stop shop to reference as a resource for form-creation using React as a library. It is a work-in-progress side-project that I will update intermittently.
 
-It is a work-in-progress side-project, where I update sections as I learn and understand how each of the moving parts work in conjunction with each-other.
+More detailed documentation in the filepath[src/components/docs]
 
 ### Dependency list
 
@@ -42,7 +41,6 @@ It is a work-in-progress side-project, where I update sections as I learn and un
 * npm install -D classnames react-icons react-modal react-datepicker formik yup --save
 - Server & json-db
 * npm install -D json-server concurrently
-
 
 __CDNs__
 
@@ -63,13 +61,12 @@ This is a quick reference guide to all the libraries and official documentation 
 - React Select (drop-down select filters)[https://react-select.com/home]
 - React Loading Animations
 - Formik [https://formik.org/docs/overview]
-- Yup
+- Yup[[https://github.com/jquense/yup]
 
 __Quick reference resources - blogs, tutorials, videos__
 
 Formik:
 Jared Palmer Taming Forms in React [https://formik.org/docs/overview]
-
 
 Form Validation:
 Tutorial playlist for forms:
