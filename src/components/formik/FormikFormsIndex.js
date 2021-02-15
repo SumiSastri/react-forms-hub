@@ -1,12 +1,12 @@
 import React from 'react';
-import './formikStyles.css';
 
-import FormikBasicForm from './FormikBasicForm';
+import './formik-css/formikStyles.css';
+import FormikBasicsYup from './formik-forms/FormikBasicsYup';
 
 function FormikFormsIndex() {
 	return (
 		<div className="formik-index-page">
-			<FormikBasicForm />
+			<FormikBasicsYup />
 		</div>
 	);
 }

@@ -18,7 +18,7 @@ Formik is not a silver bullet for form state-management it is merely a tool. It 
 - Error message display - ```formik.errors()``` tightly coupled with validation and the error message can be displayed with conditional rendering
 - Reducing boiler plate - ```formik.values()``` is tightly coupled with the name and ```onChange``` JSX attributes.
 - Tracks changes with the ```formik.touched()``` method which tracks the first interaction with the input field the method is called on the first keystroke in the input field
-- Animations - ```formik.onBlur()``` a method that adds css animation
+- Animations - ```formik.onBlur()``` a method that adds css animation it is tightly coupled with the ```formik.touched()``` method if a field has been visited the ```formik.onBlur()``` method is called
 - Reusable Formik components
 - Good community - over 1-mil users
 - Scalable, easy form-builder (internationalisation)
