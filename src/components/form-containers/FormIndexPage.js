@@ -1,13 +1,9 @@
 import React from 'react';
 
-// import PostIndex from '../content-pages/PostIndex';
-// import { UserAddressesForm } from '../form-containers/users/UserAddressesForm';
-// import { EnquiryForm } from './enquiry-form/EnquiryForm';
 import { HeaderComponent } from '../navbars/HeaderComponent';
-
+// add links wrapper here
 import { Link } from 'react-router-dom';
 
-// add links wrapper here
 const FormIndexPage = () => {
 	return (
 		<div>
