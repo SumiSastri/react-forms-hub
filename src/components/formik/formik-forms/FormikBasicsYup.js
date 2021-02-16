@@ -22,6 +22,7 @@ const validationSchema = Yup.object({
 export const FormikBasicsYup = () => {
 	// Hooks refactor - hoist hooks variables
 	const [ formValues, setFormValues ] = useState(null);
+	// this will be replaced with the HoC Formik Component
 	const formik = useFormik({
 		initialValues,
 		onSubmit,
@@ -33,6 +34,7 @@ export const FormikBasicsYup = () => {
 	return (
 		<form onSubmit={formik.handleSubmit}>
 			<div className="form-control">
+				<h1>useFormik Hook</h1>
 				<label htmlFor="name">Name</label>
 				<input
 					type="text"
