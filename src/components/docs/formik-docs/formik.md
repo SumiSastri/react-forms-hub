@@ -60,6 +60,9 @@ __Field__
 1. Hooks inputs to top-level Hoc ```<Formik>```
 2. Name attribute linked to the form state
 3. Renders a JSX input tag with all the React functionality
+4. Renders the HoC wrapped with functionality of handling change, handle blur and the value of the form field via the name attribute
+5. Passes through any additional props you require - like id, placeholder, etc.,
+6. Type of field - text area/ number/ password etc. (as prop used instead of type)
 
 __ErrorMessage__
 
@@ -67,19 +70,27 @@ __ErrorMessage__
 - Import it into the form
 - Use the HoC ```ErrorMessage/ >``` use the React Error Message component you have created as a prop
 
-Other options:
-React Forms (Vanilla React and Form Hooks)
-React-Redux forms (How to choose between Redux Store and React State [https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978])
+__renderProps() Method__
 
+This is essentially a React Library method 
+Documentation[https://reactjs.org/docs/render-props.html]
 
-Sandboxes:
+1. Uses a function as a prop that is passed from parent to child
+2. Called ```renderProps()``` as a method but the actual prop can be named anything - eg. children, render, show, display etc.,
+3. Link it to Formik by passing in props as an arg to the function
+4. 
+
+__Resources__
+
+* Sandbox
 
 ```
 https://codesandbox.io/s/zKrK5YLDZ
 ```
 
-Useful Tutorials:
-CodeEvolution React-Formik[https://www.youtube.com/watch?v=Yw27J-AFlk0&ab_channel=Codevolution]
-
 Official Tutorial[https://formik.org/docs/tutorial]
 Code for tutorial[https://codesandbox.io/s/formik-v2-tutorial-final-ge1pt]
+
+
+CodeEvolution React-Formik[https://www.youtube.com/watch?v=Yw27J-AFlk0&ab_channel=Codevolution]
+

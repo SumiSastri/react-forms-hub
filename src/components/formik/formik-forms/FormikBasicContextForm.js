@@ -7,7 +7,8 @@ import FormikErrors from '../formik-errors/FormikErrors';
 const initialValues = {
 	name: '',
 	email: '',
-	userType: ''
+	userType: '',
+	comments: ''
 };
 
 const onSubmit = (values) => {
@@ -54,19 +55,54 @@ export const FormikBasicContextForm = () => {
 						<div className="form-control">
 							<label htmlFor="email">Email</label>
 							<Field type="email" id="email" name="email" />
+							{/* use render props method on rendering errors */}
 							<ErrorMessage name="email">{(error) => <div className="error">{error}</div>}</ErrorMessage>
 						</div>
 
 						<div className="form-control">
 							<label htmlFor="userType">User Type</label>
-							<Field type="text" id="userType" name="userType" placeholder="userType" />
-							<ErrorMessage name="userType" />
+							<Field type="text" id="userType" name="userType" />
+							<ErrorMessage name="userType" component={FormikErrors} />
 						</div>
 
-						<button type="button" onClick={() => setFormValues()}>
+						<div className="form-control">
+							<label htmlFor="address">Address</label>
+							{/* the id and field type go into the render props input */}
+							<Field name="address">
+								{(props) => {
+									const { field, meta } = props;
+									// console.log('Log render props method for address', props);
+									// three props are filed, form and meta
+									return (
+										<div>
+											{/* spread field for Formik field methods, use meta to show errors */}
+											<input type="text" id="address" {...field} />
+											{meta.touched && meta.error && <div>{meta.error}</div>}
+										</div>
+									);
+								}}
+							</Field>
+						</div>
+
+						<div className="form-control">
+							<label htmlFor="comments">Comments</label>
+							{/* use as or component instead of type for input-type */}
+							<Field
+								as="textarea"
+								// was deprecated but in use again
+								// component="textarea"
+								id="comments"
+								name="comments"
+								placeholder="We welcome your feedback - type comments here"
+							/>
+							<ErrorMessage name="comments" component={FormikErrors} />
+						</div>
+						<button className="btn-1" type="button" onClick={() => setFormValues()}>
 							Load saved data
 						</button>
-						<button type="submit">Submit</button>
+						<button className="btn-5" type="submit">
+							Submit
+						</button>
 					</Form>
 				);
 			}}

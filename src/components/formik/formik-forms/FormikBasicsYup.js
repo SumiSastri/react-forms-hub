@@ -78,10 +78,12 @@ export const FormikBasicsYup = () => {
 				/>
 				{formik.touched.userType && formik.errors.userType && <p className="error">{formik.errors.userType}</p>}
 			</div>
-			<button type="button" onClick={() => setFormValues()}>
+			<button className="btn-1" type="button" onClick={() => setFormValues()}>
 				Load saved data
 			</button>
-			<button type="submit">Submit</button>
+			<button className="btn-5" type="submit">
+				Submit
+			</button>
 		</form>
 	);
 };

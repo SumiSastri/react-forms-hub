@@ -12,6 +12,7 @@ In brief forms in React are updated by the ```setState()``` method, state is not
 
 __Resources & Further Reading__
 
+React-Redux forms (How to choose between Redux Store and React State [https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978])
 
 __What__ 
 

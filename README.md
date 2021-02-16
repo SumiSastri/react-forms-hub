@@ -48,8 +48,14 @@ Formik:
 
 ```
  <script src="https://unpkg.com/formik/dist/formik.umd.production.min.js"></script>
- ```
+```
 
+Material UI:
+Causes conflicts with vanilla CSS - not used in this repo - commented out in ```index.html``` file
+
+```
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+```    
 __Quick reference - documentation links__
 
 This is a quick reference guide to all the libraries and official documentation of code used in this repo. 
@@ -65,8 +71,7 @@ This is a quick reference guide to all the libraries and official documentation 
 
 __Quick reference resources - blogs, tutorials, videos__
 
-Formik:
-Jared Palmer Taming Forms in React [https://formik.org/docs/overview]
+React-Redux forms (How to choose between Redux Store and React State [https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978])
 
 Form Validation:
 Tutorial playlist for forms:
@@ -79,3 +84,11 @@ Brian  Tutorial: [https://www.youtube.com/watch?v=KGFG-yQD7Dw&ab_channel=BrianDe
 JSON-server
 Jason Rivera (tutorial)[https://www.youtube.com/watch?v=3PmNHeVAHOk&ab_channel=JasonRivera]
 Blogs: JournalDev [https://www.journaldev.com/10660/json-server]
+
+Formik:
+Jared Palmer Taming Forms in React [https://formik.org/docs/overview]
+Formik Official Tutorial[https://formik.org/docs/tutorial]
+Code for tutorial[https://codesandbox.io/s/formik-v2-tutorial-final-ge1pt]
+
+
+CodeEvolution React-Formik[https://www.youtube.com/watch?v=Yw27J-AFlk0&ab_channel=Codevolution]

@@ -2,6 +2,41 @@
 	display: flex;
 	justify-content: center;
 }
+.btn-1 {
+	display: inline-block;
+	margin: 7px;
+	padding: 5px 25px;
+	font-size: 15px;
+	cursor: pointer;
+	text-align: center;
+	color: aliceblue;
+	background-color: lightslategray;
+	box-shadow: 0 9px darkgray;
+	border-radius: 20px;
+	outline: none;
+}
+
+.btn-1:hover {
+	background-color: grey;
+}
+
+.btn-1:active {
+	background-color: darkgray;
+	box-shadow: 0 5px lightgray;
+	transform: translateY(4px);
+}
+
+.btn-5 {
+	background-color: lightslategrey;
+	margin: 15px;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius: 10px;
+	outline: none;
+	height: 35px;
+	width: auto;
+}
 
 label {
 	font-weight: bold;
@@ -30,5 +65,10 @@ textarea {
 }
 
 .error {
+	padding: 5px;
+	margin: 2px;
 	color: red;
+	background-color: lightpink;
+	box-shadow: 0 9px purple;
+	border-radius: 3px;
 }
