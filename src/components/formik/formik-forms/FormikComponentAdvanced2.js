@@ -18,8 +18,8 @@ const initialValues = {
 	phoneNumbers: [ 0, 0 ],
 	socialHandles: [ '' ],
 	documents: '',
-	password: '',
-	confirmPassword: '',
+	pass: '',
+	confirmPass: '',
 	agreeToTerms: false
 };
 
@@ -43,9 +43,9 @@ const validationSchema = Yup.object({
 		.integer()
 		.moreThan(17)
 		.required('Required must be a number'),
-	comments: Yup.string().required('Required')
-	// password: Yup.string().min(8, 'Minimum 8 characters').required('Required!'),
-	// confirmPassword: Yup.string().oneOf([ Yup.ref('password') ], "Password's not match").required('Required!'),
+	comments: Yup.string().required('Required'),
+	pass: Yup.string().min(3, 'Minimum 3 characters').required('Required!'),
+	confirmPass: Yup.string().oneOf([ Yup.ref('pass') ], "Password's do not match").required('Required!')
 	// agreeToTerms: Yup.boolean()
 });
 
@@ -72,25 +72,48 @@ export const FormikComponentAdvanced2 = () => {
 								Clear Form Fields
 							</button>
 							<label htmlFor="name">First Name</label>
-							<Field type="text" id="firstName" name="name.firstName" placeholder="First Name" />
+							<Field type="text" id="formik-firstName" name="name.firstName" placeholder="First Name" />
 							<ErrorMessage name="name.firstName" component={FormikErrors} />
 						</div>
 						<div className="form-control">
 							<label htmlFor="lastName">Last Name</label>
-							<Field type="text" id="lastName" name="name.lastName" placeholder="Last Name" />
+							<Field type="text" id="formik-lastName" name="name.lastName" placeholder="Last Name" />
 							<ErrorMessage name="name.lastName" component={FormikErrors} />
 						</div>
 						<div className="form-control">
 							<label htmlFor="age">Age</label>
-							<Field type="text" id="age" name="age" placeholder="Must be over 18" />
+							<Field type="text" id="formik-age" name="age" placeholder="Must be over 18" />
 							<ErrorMessage name="age">{(error) => <div className="error">{error}</div>}</ErrorMessage>
+						</div>
+						<div className="form-control">
+							<label htmlFor="email">Email</label>
+							<Field
+								type="email"
+								id="formik-email"
+								name="email"
+								placeholder="Format - email@address.com"
+							/>
+							<ErrorMessage name="email">{(error) => <div className="error">{error}</div>}</ErrorMessage>
 						</div>
 
 						<div className="form-control">
-							<label htmlFor="email">Email</label>
-							<Field type="email" id="email" name="email" placeholder="Format - email@address.com" />
-							<ErrorMessage name="email">{(error) => <div className="error">{error}</div>}</ErrorMessage>
+							<label htmlFor="pass">Password</label>
+							<Field type="password" id="formik-pass" name="pass" placeholder="pass" />
+							<ErrorMessage name="pass">{(error) => <div className="error">{error}</div>}</ErrorMessage>
 						</div>
+						<div className="form-control">
+							<label htmlFor="confirmPass">Confirm Password</label>
+							<Field
+								type="password"
+								id="formik-confirmPass"
+								name="confirmPass"
+								placeholder="confirmPass"
+							/>
+							<ErrorMessage name="confirmPass">
+								{(error) => <div className="error">{error}</div>}
+							</ErrorMessage>
+						</div>
+
 						<div className="form-control">
 							<label htmlFor="address">Address</label>
 							<Field name="address">
@@ -99,7 +122,7 @@ export const FormikComponentAdvanced2 = () => {
 									// console.log('Log render props method for address', props);
 									return (
 										<div>
-											<input type="text" id="address" {...field} />
+											<input type="text" id="formik-address" {...field} />
 											{meta.touched && meta.error && <div>{meta.error}</div>}
 										</div>
 									);
@@ -112,7 +135,7 @@ export const FormikComponentAdvanced2 = () => {
 							<label htmlFor="Mobile">Mobile</label>
 							<Field
 								type="number"
-								id="Mobile"
+								id="formik-mobile"
 								name="phoneNumbers[0]"
 								validate={validatePhoneNumbers}
 								placeholder="Numbers no spaces or symbols"
@@ -124,7 +147,7 @@ export const FormikComponentAdvanced2 = () => {
 							<label htmlFor="Landline">Landline</label>
 							<Field
 								type="number"
-								id="Landline"
+								id="formik-landline"
 								name="phoneNumbers[1]"
 								validate={validatePhoneNumbers}
 								placeholder="Numbers no spaces or symbols"
@@ -135,7 +158,7 @@ export const FormikComponentAdvanced2 = () => {
 							<label htmlFor="comments">Comments</label>
 							<Field
 								as="textarea"
-								id="comments"
+								id="formik-comments"
 								name="comments"
 								className="inpt-3"
 								placeholder="We welcome your feedback - type comments here"
@@ -181,26 +204,31 @@ export const FormikComponentAdvanced2 = () => {
 								}}
 							</FieldArray>
 						</div>
-						<button type="button" onClick={() => formik.validateField('name')}>
-							Validate name object
+						{/* DEMO TO TEST VALIDATION MANUALLY
+						has to be a field name to validate - so nested objects and arrays don't work */}
+						<button type="button" onClick={() => formik.validateField('age')}>
+							Validate age field
 						</button>
-						<button type="button" onClick={() => formik.setFieldTouched('name')}>
-							Visit name object
+						<button type="button" onClick={() => formik.setFieldTouched('age')}>
+							Visit age field
 						</button>
 						<button type="button" onClick={() => formik.validateForm()}>
-							Validate all
+							Validate all fields
 						</button>
 						<button
 							type="button"
 							onClick={() =>
 								formik.setTouched({
 									name: true,
+									age: true,
 									email: true,
 									comments: true,
 									address: true,
 									phoneNumbers: true,
 									socialHandles: true,
-									documents: true
+									pass: true,
+									confirmPass: true
+									// agreeToTerms: true
 								})}
 						>
 							Visit all

@@ -76,11 +76,6 @@ __Field__
 5. Passes through any additional props you require - like id, placeholder, etc.,
 6. Type of field - text area/ number/ password etc. (as prop used instead of type)
 
-__ErrorMessage__
-
-- Create a React Error Message functional component
-- Import it into the form
-- Use the HoC ```ErrorMessage/ >``` use the React Error Message component you have created as a prop
 
 __FieldArray__ 
 
@@ -109,12 +104,25 @@ __Fast Fields__
 
 Validation is automatically handled on these three events and submission blocked
 
+__ErrorMessage__
+
+- Create a React Error Message functional component
+- Import it into the form
+- Use the HoC ```ErrorMessage/ >``` use the React Error Message component you have created as a prop
+
 - If you do not want auto validation the props ```validateOnChange``` & ```validationOnBlur``` can be set to false, it validation is true by default.
 
 ```
 validateOnChange={false} validateOnBlur={false}
 ```
-Field level validation gives you the opportunity to build the validation function and assign it to the validation prop on the field. It makes writing custom validation with complicated logic outside the yup/ formik validation methods available.
+Field level validation gives you the opportunity to build the validation function and assign it to the validation prop on the field. 
+
+It makes writing custom validation with complicated logic outside the yup/ formik validation methods available.
+
+For an error message to show, the field must be touched (visited) in addition to an error message if not touched then no error message in ui
+
+```setFieldTouched()``` - this is for the idividual field nested objects and arrays need you to specify the name attribute of the field
+```setTouched()``` this is all
 
 __Handling Validation of the Form HoC__
 Documentation[https://formik.org/docs/guides/validation]
