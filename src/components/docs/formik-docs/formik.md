@@ -38,7 +38,19 @@ Formik is not a silver bullet for form state-management it is merely a tool. It 
 
 - Animations - ```formik.onBlur()``` a method that adds css animation it is tightly coupled with the ```formik.touched()``` method if a field has been visited the ```formik.onBlur()``` method is called
 
+- Use known React Library methods
+
+__renderProps() Method__
+
+This is essentially a React Library method 
+Documentation[https://reactjs.org/docs/render-props.html]
+
+1. Uses a function as a prop that is passed from parent to child
+2. Called ```renderProps()``` as a method but the actual prop can be named anything - eg. children, render, show, display etc.,
+3. Link it to Formik by passing in props as an arg to the function
+
 ## Reusable Formik components 
+
 A higher order component (HoC) returns the ```<Formik>``` container with its props and methods. It is an HoC created with the ```useContext``` Hook.
 
 __Formik__
@@ -70,15 +82,43 @@ __ErrorMessage__
 - Import it into the form
 - Use the HoC ```ErrorMessage/ >``` use the React Error Message component you have created as a prop
 
-__renderProps() Method__
+__FieldArray__ 
 
-This is essentially a React Library method 
-Documentation[https://reactjs.org/docs/render-props.html]
+- Helps with list manipulation
+- Uses the renderProps() method to return a function that renders the children of this HoC
+- This function automatically gets props that help return the JSX of the elements of the array dynamically
+- Convention of naming the props of this function is ```fieldArrayProps``` if you log these props in the console you will see the methods and values available in this props object
+- There are also the Formik form object to use methods from this object - here are the values property to track the values as they change
+- Rendering an array of elements with this HoC - This is good for adding and removing items in a shopping cart
 
-1. Uses a function as a prop that is passed from parent to child
-2. Called ```renderProps()``` as a method but the actual prop can be named anything - eg. children, render, show, display etc.,
-3. Link it to Formik by passing in props as an arg to the function
-4. 
+__Fast Fields__
+
+- Use if more than 30 fields in a form
+- Used for optimisation
+- Rerenders only once - only few instances when it re-renders
+- Field has to be independent of other fields in rendering
+- Also good for complex validation
+- Documentation says use with caution
+
+## Handling Validation and Errors with the Formik HoC
+
+- The Formik error object is called on all these three events
+ 1. onChange
+ 2. onBlur 
+ 3. onSubmit
+
+Validation is automatically handled on these three events and submission blocked
+
+- If you do not want auto validation the props ```validateOnChange``` & ```validationOnBlur``` can be set to false, it validation is true by default.
+
+```
+validateOnChange={false} validateOnBlur={false}
+```
+Field level validation gives you the opportunity to build the validation function and assign it to the validation prop on the field. It makes writing custom validation with complicated logic outside the yup/ formik validation methods available.
+
+__Handling Validation of the Form HoC__
+
+Validation at a top level with the Form HoC is also possible
 
 __Resources__
 

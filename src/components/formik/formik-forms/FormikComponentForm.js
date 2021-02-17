@@ -4,10 +4,12 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import FormikErrors from '../formik-errors/FormikErrors';
 
+// REFACTOR FROM useFormik
 const initialValues = {
 	name: '',
 	email: '',
-	userType: '',
+	address: '',
+	phoneNumbers: [ 0, 0 ],
 	comments: ''
 };
 
@@ -15,13 +17,22 @@ const onSubmit = (values) => {
 	console.log('SUBMITTED ', values);
 };
 
+// advanced validation needed for nested objects
 const validationSchema = Yup.object({
 	name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
 	email: Yup.string().email('Invalid email format').required('Required'),
-	userType: Yup.string().required('Required')
+	comments: Yup.string().required('Required')
 });
 
-export const FormikBasicContextForm = () => {
+const validatePhoneNumbers = (value) => {
+	let error;
+	if (!value) {
+		error = 'Required';
+	}
+	return error;
+};
+
+export const FormikComponentForm = () => {
 	const [ formValues, setFormValues ] = useState(null);
 	return (
 		// The HoC Formik used instead of div
@@ -34,8 +45,8 @@ export const FormikBasicContextForm = () => {
 					// This component has an implicit on-submit written into the HoC
 					<Form>
 						<div className="form-control">
-							<h1>Formik Component</h1>
-							<label htmlFor="name">Name</label>
+							<h1>Formik Basic</h1>
+							<label htmlFor="name">User Name</label>
 							{/* Field HoC is from Formik  */}
 							<Field
 								type="text"
@@ -55,16 +66,9 @@ export const FormikBasicContextForm = () => {
 						<div className="form-control">
 							<label htmlFor="email">Email</label>
 							<Field type="email" id="email" name="email" />
-							{/* use render props method on rendering errors */}
+							{/* use render props method to render errors*/}
 							<ErrorMessage name="email">{(error) => <div className="error">{error}</div>}</ErrorMessage>
 						</div>
-
-						<div className="form-control">
-							<label htmlFor="userType">User Type</label>
-							<Field type="text" id="userType" name="userType" />
-							<ErrorMessage name="userType" component={FormikErrors} />
-						</div>
-
 						<div className="form-control">
 							<label htmlFor="address">Address</label>
 							{/* the id and field type go into the render props input */}
@@ -85,6 +89,18 @@ export const FormikBasicContextForm = () => {
 						</div>
 
 						<div className="form-control">
+							<label htmlFor="Mobile">Mobile</label>
+							<Field type="number" id="Mobile" name="phoneNumbers[0]" validate={validatePhoneNumbers} />
+							<ErrorMessage name="phoneNumbers[0]" component={FormikErrors} />
+						</div>
+
+						<div className="form-control">
+							<label htmlFor="Landline">Landline</label>
+							<Field type="number" id="Landline" name="phoneNumbers[1]" validate={validatePhoneNumbers} />
+							<ErrorMessage name="phoneNumbers[1]" component={FormikErrors} />
+						</div>
+
+						<div className="form-control">
 							<label htmlFor="comments">Comments</label>
 							{/* use as or component instead of type for input-type */}
 							<Field
@@ -97,12 +113,18 @@ export const FormikBasicContextForm = () => {
 							/>
 							<ErrorMessage name="comments" component={FormikErrors} />
 						</div>
-						<button className="btn-1" type="button" onClick={() => setFormValues()}>
-							Load saved data
-						</button>
-						<button className="btn-5" type="submit">
-							Submit
-						</button>
+						<section>
+							<button className="btn-1" type="button" onClick={() => setFormValues()}>
+								Load saved data
+							</button>
+							{/* submit automatically disabled if validation does not work */}
+							<button className="btn-5" type="submit">
+								Submit
+							</button>
+							<button className="btn-3" type="reset">
+								Reset
+							</button>
+						</section>
 					</Form>
 				);
 			}}
@@ -110,4 +132,4 @@ export const FormikBasicContextForm = () => {
 	);
 };
 
-export default FormikBasicContextForm;
+export default FormikComponentForm;

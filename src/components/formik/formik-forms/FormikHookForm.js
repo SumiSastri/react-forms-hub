@@ -45,7 +45,7 @@ const validate = (values) => {
 	return errors;
 };
 
-function FormikBasicForm() {
+function FormikHookForm() {
 	// instantiate the hook it holds the methods to set state of the react form
 	const formik = useFormik({
 		initialValues,
@@ -105,4 +105,4 @@ function FormikBasicForm() {
 	);
 }
 
-export default FormikBasicForm;
+export default FormikHookForm;

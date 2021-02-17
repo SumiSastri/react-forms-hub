@@ -19,7 +19,7 @@ const validationSchema = Yup.object({
 	userType: Yup.string().required('Required')
 });
 
-export const FormikBasicsYup = () => {
+export const FormikHookYup = () => {
 	// Hooks refactor - hoist hooks variables
 	const [ formValues, setFormValues ] = useState(null);
 	// this will be replaced with the HoC Formik Component
@@ -84,8 +84,9 @@ export const FormikBasicsYup = () => {
 			<button className="btn-5" type="submit">
 				Submit
 			</button>
+			{/* <button onClick={() => resetFormValues(initialValues)}>Cancel</button> */}
 		</form>
 	);
 };
 
-export default FormikBasicsYup;
+export default FormikHookYup;

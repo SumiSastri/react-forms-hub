@@ -26,6 +26,64 @@
 	transform: translateY(4px);
 }
 
+.btn-2 {
+	display: inline-block;
+	border-radius: 10px;
+	border: 1px solid darkgrey;
+	background-color: silver;
+	color: beige;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 5px;
+	padding: 10px;
+	width: 200px;
+	cursor: pointer;
+	transition: all 0.5s;
+	outline: none;
+}
+
+.btn-2 span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.btn-2 span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.btn-2:hover span {
+	padding-right: 25px;
+}
+
+.btn-2:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+.btn-3 {
+	background-color: lightslategrey;
+	border: ivory 0.5px solid;
+	color: ivory;
+	text-align: center;
+	outline: none;
+	opacity: 0.6;
+	width: 15%;
+	border-radius: 12px;
+	font-size: 15px;
+}
+
+.btn-3:hover {
+	opacity: 1;
+}
+
 .btn-5 {
 	background-color: lightslategrey;
 	margin: 15px;
@@ -46,7 +104,7 @@ label {
 
 input[type='text'],
 input[type='email'],
-textarea {
+input[type='number'] textarea {
 	display: block;
 	width: 400px;
 	padding: 6px 12px;
@@ -71,4 +129,25 @@ textarea {
 	background-color: lightpink;
 	box-shadow: 0 9px purple;
 	border-radius: 3px;
+}
+
+/* Social Media*/
+.inpt-3 {
+	display: block;
+	width: 400px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: whitesmoke;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	/* margin-bottom: 20px; */
+	outline-color: pink;
+}
+
+.inpt-3:focus {
+	background-color: lightpink;
+	color: darkgray;
 }
