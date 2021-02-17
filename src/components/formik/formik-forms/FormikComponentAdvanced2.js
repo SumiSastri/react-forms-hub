@@ -1,31 +1,55 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
+import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import * as Yup from 'yup';
 import FormikErrors from '../formik-errors/FormikErrors';
 
-// REFACTOR with validation
+// REFACTOR with manual validation using render props with Form Component
+// Add multiple yup validations
+
 const initialValues = {
 	name: {
 		firstName: '',
 		lastName: ''
 	},
+	age: '',
 	email: '',
 	comments: '',
-	// address - string with renderProps method
+	address: '',
 	phoneNumbers: [ 0, 0 ],
 	socialHandles: [ '' ],
-	documents: ''
+	documents: '',
+	password: '',
+	confirmPassword: '',
+	agreeToTerms: false
 };
 
-const onSubmit = (values) => {
+const onSubmit = (values, submitProps) => {
 	console.log('SUBMITTED ', values);
+	// console.log('submitProps', submitProps)
+	submitProps.setSubmitting(false);
+	submitProps.resetForm();
 };
 
+// submit will not fire unless validation passes - name changed to nested object
 const validationSchema = Yup.object({
+	name: Yup.object({
+		firstName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+		lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required')
+	}),
 	email: Yup.string().email('Invalid email format').required('Required'),
+	age: Yup.number()
+		.typeError('Must be a number')
+		.positive()
+		.integer()
+		.moreThan(17)
+		.required('Required must be a number'),
 	comments: Yup.string().required('Required')
+	// password: Yup.string().min(8, 'Minimum 8 characters').required('Required!'),
+	// confirmPassword: Yup.string().oneOf([ Yup.ref('password') ], "Password's not match").required('Required!'),
+	// agreeToTerms: Yup.boolean()
 });
 
+// formik component prop of value tracks the value allows quicker validation at field level
 const validatePhoneNumbers = (value) => {
 	let error;
 	if (!value) {
@@ -44,7 +68,10 @@ export const FormikComponentAdvanced2 = () => {
 					<Form>
 						<div className="form-control">
 							<h1>Formik Advanced</h1>
-							<label htmlFor="name">Name</label>
+							<button className="btn-3" type="reset">
+								Clear Form Fields
+							</button>
+							<label htmlFor="name">First Name</label>
 							<Field type="text" id="firstName" name="name.firstName" placeholder="First Name" />
 							<ErrorMessage name="name.firstName" component={FormikErrors} />
 						</div>
@@ -52,6 +79,11 @@ export const FormikComponentAdvanced2 = () => {
 							<label htmlFor="lastName">Last Name</label>
 							<Field type="text" id="lastName" name="name.lastName" placeholder="Last Name" />
 							<ErrorMessage name="name.lastName" component={FormikErrors} />
+						</div>
+						<div className="form-control">
+							<label htmlFor="age">Age</label>
+							<Field type="text" id="age" name="age" placeholder="Must be over 18" />
+							<ErrorMessage name="age">{(error) => <div className="error">{error}</div>}</ErrorMessage>
 						</div>
 
 						<div className="form-control">
@@ -99,22 +131,6 @@ export const FormikComponentAdvanced2 = () => {
 							/>
 							<ErrorMessage name="phoneNumbers[1]" component={FormikErrors} />
 						</div>
-
-						<div className="form-control">
-							<label htmlFor="docs">Documents</label>
-							<FastField name="docs" validateOnChange={false} validateOnBlur={false}>
-								{({ field, meta }) => {
-									console.log('Field render');
-									return (
-										<div>
-											<input type="text" {...field} />
-											{meta.touched && meta.error ? <div>{meta.error}</div> : null}
-										</div>
-									);
-								}}
-							</FastField>
-						</div>
-
 						<div className="form-control">
 							<label htmlFor="comments">Comments</label>
 							<Field
@@ -134,8 +150,8 @@ export const FormikComponentAdvanced2 = () => {
 									const { push, remove, form } = fieldArrayProps;
 									const { values } = form;
 									const { socialHandles } = values;
-									console.log('fieldArrayProps', fieldArrayProps);
-									console.log('Form errors', form.errors);
+									// console.log('fieldArrayProps', fieldArrayProps);
+									// console.log('Form errors', form.errors);
 									return (
 										<div>
 											{socialHandles.map((socialHandles, index) => (
@@ -149,6 +165,7 @@ export const FormikComponentAdvanced2 = () => {
 														<button
 															className="btn-2"
 															type="button"
+															// remove and push functions used to add and remove fields
 															onClick={() => remove(index)}
 														>
 															- Remove this handle
@@ -164,7 +181,30 @@ export const FormikComponentAdvanced2 = () => {
 								}}
 							</FieldArray>
 						</div>
-
+						<button type="button" onClick={() => formik.validateField('name')}>
+							Validate name object
+						</button>
+						<button type="button" onClick={() => formik.setFieldTouched('name')}>
+							Visit name object
+						</button>
+						<button type="button" onClick={() => formik.validateForm()}>
+							Validate all
+						</button>
+						<button
+							type="button"
+							onClick={() =>
+								formik.setTouched({
+									name: true,
+									email: true,
+									comments: true,
+									address: true,
+									phoneNumbers: true,
+									socialHandles: true,
+									documents: true
+								})}
+						>
+							Visit all
+						</button>
 						<button className="btn-1" type="button" onClick={() => setFormValues()}>
 							Load saved data
 						</button>
