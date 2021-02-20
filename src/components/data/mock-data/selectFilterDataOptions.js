@@ -19,13 +19,13 @@ export const musicFormatOptions = [
 ];
 
 export const musicGenreOptions = [
-	{ label: 'rap', value: 'rap' },
-	{ label: 'reggae', value: 'reggae' },
-	{ label: 'hip-hop', value: 'hip-hop' },
-	{ label: 'pop', value: 'pop' },
-	{ label: 'rnb', value: 'rnb' },
-	{ label: 'rock', value: 'rock' },
-	{ label: 'rocknroll', value: 'rock-and-roll' }
+	{ id: 1, label: 'rap', value: 'rap' },
+	{ id: 2, label: 'reggae', value: 'reggae' },
+	{ id: 3, label: 'hip-hop', value: 'hip-hop' },
+	{ id: 4, label: 'pop', value: 'pop' },
+	{ id: 5, label: 'rnb', value: 'rnb' },
+	{ id: 6, label: 'rock', value: 'rock' },
+	{ id: 7, label: 'rocknroll', value: 'rock-and-roll' }
 ];
 
 export const groupedOptions = [

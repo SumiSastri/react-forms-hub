@@ -92,7 +92,7 @@ export const EnquiryForm = () => {
 					label="SELECT A PAYROLL ENQUIRY OPTION"
 					required={true}
 					type="select"
-					name="ayrollEnquiryType"
+					name="payrollEnquiryType"
 					data={payrollEnquiryOptions}
 					value={payrollEnquiryType}
 					onChange={(event) => setPayrollEnquiryType(event.target.value)}

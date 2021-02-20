@@ -22,7 +22,7 @@ const SearchFilter = ({
 	return (
 		<div>
 			<section>
-				<span>{<i class="fas fa-search" />}</span>
+				<span>{<i className="fas fa-search" />}</span>
 				<FormInputComponent
 					className={className}
 					datatestid={datatestid}

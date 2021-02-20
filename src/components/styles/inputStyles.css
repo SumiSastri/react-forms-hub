@@ -4,6 +4,25 @@
 	margin: 0;
 }
 
+.radio-1 {
+	padding: 10px;
+	margin: 10px;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	border: 0.1em solid brown;
+}
+
+.radio-1::before {
+	content: "";
+	width: .5em;
+	height: .5em;
+	box-shadow: inset .5em .5em brown;
+	border-radius: 50%;
+	transition: 180ms transform ease-in-out;
+	transform: scale(0);
+}
+
 .search {
 	width: 100%;
 	height: auto;

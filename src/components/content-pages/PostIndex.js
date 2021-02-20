@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import PostList from './PostList';
 import SearchFilter from '../filters/SearchFilter';
 import SelectFilterComponent from '../filters/SelectFilterComponent';
-import { musicGenreOptions } from '../data/mock-data/selectFilterDataOptions';
+import RadioButtonsComponent from '../buttons/RadioButtonsComponent';
+import { musicGenreOptions, userTypeOptions } from '../data/mock-data/selectFilterDataOptions';
 
 export class PostIndex extends Component {
 	constructor(props) {
@@ -11,6 +12,7 @@ export class PostIndex extends Component {
 		this.state = {
 			displayPosts: [],
 			userType: '',
+			musicGenre: '',
 			searchFilterResults: '',
 			loading: false,
 			error: null
@@ -27,10 +29,14 @@ export class PostIndex extends Component {
 	}
 
 	updateSearchInputs = (key, value) => {
-		if (key === 'searchFilterResults' || key === 'musicGenre') {
+		if (key === 'searchFilterResults' || key === 'musicGenre' || key === 'userType') {
 			this.setState({ error: null, [key]: value }, () => {
 				//console.log("this noErrorState:", this);
-				this.setState({ searchFilterResults: this.state.searchFilterResults, userType: this.state.user });
+				this.setState({
+					searchFilterResults: this.state.searchFilterResults,
+					userType: this.state.userType,
+					musicGenre: this.state.musicGenre
+				});
 				// console.log("this updatedFilter/UserState:", this);
 			});
 		} else {
@@ -58,6 +64,7 @@ export class PostIndex extends Component {
 			params: {
 				userId: this.props.user.id || '',
 				userType: this.state.userType,
+				musicGenre: this.state.musicGenre,
 				searchFilterResults: this.state.searchFilterResults
 			}
 		})
@@ -72,7 +79,7 @@ export class PostIndex extends Component {
 	render() {
 		// const { displayPosts } = this.state
 		// refactor and replace displayPosts with filteredPosts that you can search
-		const { displayPosts, searchFilterResults, musicGenre, postFormData } = this.state;
+		const { displayPosts, searchFilterResults, musicGenre, userType } = this.state;
 		//  console.log("this renderState:", this);
 
 		const filteredPosts = displayPosts.filter((displayPosts) => {
@@ -88,7 +95,19 @@ export class PostIndex extends Component {
 			</div>
 		) : (
 			<div>
-				<form style={{ display: 'flex' }} onSubmit={() => postFormData}>
+				<form style={{ display: 'flex' }} onSubmit={() => this.postFormData}>
+					<RadioButtonsComponent
+						className="radio-1"
+						defaultValue="default"
+						datatestid="radio-btn"
+						label="Select User Type"
+						required={false}
+						type="radio"
+						name="radio-btn-userType"
+						data={userTypeOptions}
+						value={userType}
+						onChange={(event) => this.updateSearchInputs('userType', event.target.value)}
+					/>
 					<SelectFilterComponent
 						className="select"
 						defaultValue="default"
@@ -96,8 +115,8 @@ export class PostIndex extends Component {
 						label="Select Music Genre"
 						required={false}
 						type="select"
+						name="ddl-musicGenre"
 						data={musicGenreOptions}
-						name="ddl-usr-type"
 						value={musicGenre}
 						onChange={(event) => this.updateSearchInputs('musicGenre', event.target.value)}
 					/>

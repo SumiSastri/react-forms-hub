@@ -44,6 +44,7 @@ const validationSchema = Yup.object({
 		.moreThan(17)
 		.required('Required must be a number'),
 	comments: Yup.string().required('Required'),
+	socialHandles: Yup.array().required('Required'),
 	pass: Yup.string().min(3, 'Minimum 3 characters').required('Required!'),
 	confirmPass: Yup.string().oneOf([ Yup.ref('pass') ], "Password's do not match").required('Required!')
 	// agreeToTerms: Yup.boolean()
