@@ -1,7 +1,54 @@
 .formik-index-page {
 	display: flex;
 	justify-content: center;
+	font-family: 'Roboto Mono', monospace;
+	color: slategray;
 }
+.text-box {
+	width: 100%;
+	height: 150px;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	color: black;
+}
+.inpt-box {
+	background-color: white;
+	border: solid grey 2px;
+	border-radius: 2px;
+	color: darkgray;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 10px;
+	padding: 10px;
+	height: 50px;
+	width: 100%;
+}
+.btn-grp-divs {
+	display: inline-block;
+	padding: 5px;
+	margin: 5px;
+}
+
+.radio-1:active {
+	transform: translateY(4px);
+	width: 1.5em;
+	height: 1.25em;
+	cursor: pointer;
+	/* transition: all 0.5s; */
+}
+.checkbox {
+	width: 1.5em;
+	height: 1.25em;
+	cursor: pointer;
+}
+.checkbox:active {
+	transform: translateY(4px);
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
 .btn-1 {
 	display: inline-block;
 	margin: 7px;
@@ -150,4 +197,27 @@ input[type='number'] textarea {
 .inpt-3:focus {
 	background-color: lightpink;
 	color: darkgray;
+}
+
+.select {
+	width: 75%;
+	padding: 6px 10px;
+	margin: 10px 0;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	box-sizing: border-box;
+	display: block;
+	font-size: 14px;
+	color: black;
+	background: lightslategrey;
+	outline: none;
+}
+
+.ddl {
+	background: red;
+	width: 200px;
+	position: absolute;
+	top: 80px;
+	list-style: none;
+	text-align: start;
 }

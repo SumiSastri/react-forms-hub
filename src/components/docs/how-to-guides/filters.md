@@ -1,16 +1,23 @@
 **Filter types and their adoption in forms**
 
-Filters offer the user multiple ways of selecting and searching for data.
+Filters offer the user multiple ways of selecting and searching for data. Drop-downs are good for small data-sets while a search covers larger bodies of text. 
 
-Drop-downs are good for small data-sets while a search covers larger bodies of text. 
+## Drop downs or select filters
+
 Steps to create a drop down filter list. Example in [src/components/filters/SelectFilterComponent.js]
-- React Select (drop-down select filters)
 
 
-1. Import the react library
-2. Create a functional component and deconstruct the props you would use
+1. A select filter is made up of a select JSX with nested options JSX tags
+
+```
+				<select>
+						<option>
+						</option>
+				</select>
+```				
+2. Create a functional component and deconstruct the props you would use in the ```<select/>``` JSX tag - data is one prop that you can use to import data from a static FE file or from an API call.
 3. You are returning a ```select``` JSX tag
-4. Between the opening and closing tags you are mapping the data choices into the ```options``` JSX tag
+4. Between the opening and closing tags you are mapping the data choices into one ```<option/>``` JSX tag
 ```
 				
 					{data.map((options) => (
@@ -19,7 +26,20 @@ Steps to create a drop down filter list. Example in [src/components/filters/Sele
 						</option>
 					))}
 ```                    			
-5. Depending where your data is stored (state-management strategy) you can map the data into the ```options``` JSX
+5. Depending where your data is stored (state-management strategy) utility functions will need to be written to map the data into the ```<option/>``` JSX
+
+__Formik__
+
+Formik makes this whole process much easier - in the Formik section 
+
+1. Create an Input field with the Formik Library and the HoC Field component
+2. Import the Formik Error message component that has been created with Formik Error object
+3. The Form props are control, label, name and type - control is input
+4. Write the switch statement that controls the control prop - case is select for select filters
+5. Import and use in a form 
+ - define initial value
+ - set validation rules
+ - populate props
 
 
 You can also use the React Select library
@@ -27,6 +47,9 @@ You can also use the React Select library
 Documentation:
 https://react-select.com/home
 
+
+
+## Search filters
 Search Filter - an example is in the file [src/components/content-pages/PostIndex.js]
 
 The search filter is nothing but an input field. Functionality comes from the utility functions written in the component that imports the input field. Uncomment the FormInputField and you will see they work exactly in the same way. The only reason you may want to have a separate component is to style it differently.

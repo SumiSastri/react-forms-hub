@@ -4,15 +4,19 @@ import { Field, ErrorMessage } from 'formik';
 import FormikErrors from '../formik-errors/FormikErrors';
 
 function FormikSelectFilter(props) {
-	const { label, name, options, ...rest } = props;
+	const { id, label, name, data, ...rest } = props;
 	return (
 		<div className="form-control">
 			<label htmlFor={name}>{label}</label>
-			<Field as="select" id={name} name={name} {...rest}>
-				{options.map((option) => {
+			{/* input field as select prop mapping data into the options JSX tag */}
+			<Field as="select" id={id} name={name} {...rest}>
+				{/* children of the field component */}
+				{data.map((options) => {
+					// console.log(data, 'check SELECT FILTER data');
 					return (
-						<option key={option.value} value={option.value}>
-							{option.key}
+						// data is set up as keys and values
+						<option key={options.value} value={options.value}>
+							{options.key}
 						</option>
 					);
 				})}

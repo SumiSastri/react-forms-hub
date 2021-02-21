@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import '../styles/dropDownListStyles.css';
 
 export const SelectFilterComponent = ({

@@ -3,34 +3,24 @@ import PropTypes from 'prop-types';
 
 import '../styles/inputStyles.css';
 
-// destructuring the props object - same as const {className, dataTestId} = this.props
-export const FormInputComponent = ({
-	className,
-	datatestid,
-	id,
-	label,
-	name,
-	onChange,
-	onSubmit,
-	placeholder,
-	required,
-	type,
-	value
-}) => {
+// destructuring the props object - same as const {className, dataTestId} = props
+// see ButtonComponent for 2nd method's syntax
+export const FormInputComponent = (props) => {
+	const { className, datatestid, id, label, placeholder, required, type, name, value, onChange, onSubmit } = props;
 	return (
 		<div>
 			<label>{label}</label>
 			<input
 				className={className}
-				datatestid={datatestid}
-				id={id}
-				required={required}
 				type={type}
 				label={label}
 				placeholder={placeholder}
 				name={name}
 				value={value}
 				onChange={onChange}
+				datatestid={datatestid}
+				id={id}
+				required={required}
 				onSubmit={onSubmit}
 			/>
 		</div>

@@ -2,18 +2,26 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-// REFACTORS COMPONENTS USING REUSABLE COMPONENTS WITH INPUT TYPES
 import FormikControlsWrapper from '../formik-wrapper-components/FormikControlsWrapper';
+// REFACTOR ADDS button groups (check validation for checkbuttons )
+// https://stackoverflow.com/questions/49886881/validation-using-yup-to-check-string-or-number-length
+import { mockAudioFormats, mockMusicGenres, mockUserTypes } from '../../data/mock-data/formikData';
 
-export const FormikWrapper1 = () => {
+export const FormikWrapper2 = () => {
 	const initialValues = {
 		email: '',
-		comments: ''
+		comments: '',
+		userType: '',
+		musicFormat: '',
+		musicGenre: ''
 	};
 
 	const validationSchema = Yup.object({
 		email: Yup.string().email('Invalid email format').required('Required'),
-		comments: Yup.string().required('Required')
+		comments: Yup.string().required('Required'),
+		userType: Yup.string().required('Required'),
+		musicFormat: Yup.string().required('Required'),
+		musicGenre: Yup.array().required('Required')
 	});
 
 	// const onSubmit = (values, submitProps) => {
@@ -32,19 +40,8 @@ export const FormikWrapper1 = () => {
 			{/* render props using formik as props and the HoC Form */}
 			{(formik) => (
 				<Form>
-					{/* REFACTOR WITH REUSABLE COMPONENT - Field HoC and Errors abstracted out
-					<div className="form-control">
-							<label htmlFor="email">Email</label>
-							<Field
-								type="email"
-								id="formik-email"
-								name="email"
-								placeholder="Format - email@address.com"
-							/>
-							<ErrorMessage name="email">{(error) => <div className="error">{error}</div>}</ErrorMessage>
-						</div> */}
-
 					<FormikControlsWrapper
+						className="inpt-box"
 						control="input"
 						type="email"
 						id="wrapper-email"
@@ -52,27 +49,35 @@ export const FormikWrapper1 = () => {
 						name="email"
 						placeholder="Format - email@address.com"
 					/>
-
-					{/* REFACTOR WITH REUSABLE COMPONENT - Field HoC and Errors abstracted out
-					<div className="form-control">
-						<label htmlFor="comments">Comments</label>
-						<Field
-							as="textarea"
-							id="formik-comments"
-							name="comments"
-							className="inpt-3"
-							placeholder="We welcome your feedback - type comments here"
-						/>
-						<ErrorMessage name="comments" component={FormikErrors} />
-					</div> */}
-
 					<FormikControlsWrapper
+						className="text-box"
 						control="textarea"
 						type="comments"
 						id="wrapper-comments"
 						label="Comments"
 						name="comments"
 						placeholder="We welcome your feedback - type comments here"
+					/>
+					{/* Name matches name in initial values - 
+					Note: The data is an array but the individual drop down is a string value */}
+					<FormikControlsWrapper
+						className="select"
+						control="select"
+						label="Select user type"
+						name="userType"
+						data={mockUserTypes}
+					/>
+					<FormikControlsWrapper
+						control="radio"
+						label="Audio Format"
+						name="musicFormat"
+						data={mockAudioFormats}
+					/>
+					<FormikControlsWrapper
+						control="checkbox"
+						label="Music Genre"
+						name="musicGenre"
+						data={mockMusicGenres}
 					/>
 					<button className="btn-5" type="submit">
 						Submit
@@ -83,4 +88,4 @@ export const FormikWrapper1 = () => {
 	);
 };
 
-export default FormikWrapper1;
+export default FormikWrapper2;

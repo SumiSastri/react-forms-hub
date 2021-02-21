@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import FormikErrors from '../formik-errors/FormikErrors';
 import { mockFetchFormikData } from '../../data/mock-data/formikData';
-import FormikRadioButtons from '../formik-button-groups/FormikRadioButtons';
+
 const initialValues = {
 	name: {
 		firstName: '',
@@ -84,7 +84,7 @@ export const FormikComponentAdvanced4 = () => {
 							<Field type="text" id="formik-lastName" name="name.lastName" placeholder="Last Name" />
 							<ErrorMessage name="name.lastName" component={FormikErrors} />
 						</div>
-						<FormikRadioButtons />
+
 						<div className="form-control">
 							<label htmlFor="age">Age</label>
 							<Field type="text" id="formik-age" name="age" placeholder="Must be over 18" />
